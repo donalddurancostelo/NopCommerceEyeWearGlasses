@@ -2246,6 +2246,25 @@
     <Content Include="Themes\DefaultClean\Views\Common\TaxTypeSelector.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Home\_Slider.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Home\_Carousel.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\_CheckUsernameAvailability.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\_CustomerAttributes.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\_ExternalAuthentication.AssociateMessage.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\_ExternalAuthentication.Errors.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\AccountActivation.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\AddressAdd.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\AddressEdit.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\Addresses.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\Avatar.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\ChangePassword.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\CustomerNavigation.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\DownloadableProducts.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\Info.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\Login.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\PasswordRecovery.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\PasswordRecoveryConfirm.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\Register.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\RegisterResult.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Customer\UserAgreement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Roxy_Fileman\tmp\" />

@@ -11,7 +11,10 @@
 
 
     Html.AppendCssFileParts("~/Themes/DefaultClean/Content/ewg/css/skin.min.css");
-
+    if (ViewBag.IncludeSelectBox == true)
+    {
+        Html.AppendCssFileParts("~/Themes/DefaultClean/Content/ewg/css/jquery.selectBox.css");
+    }
     if (ViewBag.IncludeCarousel == true)
     {
         Html.AppendCssFileParts("~/Themes/DefaultClean/Content/ewg/css/owl.carousel.css");
