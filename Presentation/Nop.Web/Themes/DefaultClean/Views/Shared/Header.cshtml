@@ -1,0 +1,139 @@
+﻿@using Nop.Core
+@using Nop.Core.Infrastructure
+@using Nop.Services.Localization
+@using Nop.Web.Framework.Themes
+@{
+    //logo path
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var logoPath = "~/Themes/" + currentThemeName + "/Content/images/logo.png";
+
+    //store name
+    var storeName = EngineContext.Current.Resolve<IStoreContext>().CurrentStore.GetLocalized(x => x.Name);
+}
+
+<header class="main-header">
+
+    <div class="dark-bg">
+        <div class="container">
+            <nav class="navbar navbar-default" id="upper">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar-upper">
+                        <i class="fa fa-chevron-down"></i>
+                    </button>
+                    <p class="navbar-text upper medium">Free Shipping &amp; Returns <a href="#">Shop Now</a></p>
+                </div>
+                <div class="collapse navbar-collapse" id="collapse-navbar-upper">
+                    <ul class="nav navbar-nav navbar-right lined-navbar">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                        }
+                        else
+                        {
+                            <li><a href="#">Register</a></li>
+                            <li><a href="#">Login</a></li>
+                        }
+                        
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-heart-o"></i> (0) <i class="fa fa-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-shopping-bag"></i> (0) <i class="fa fa-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-usd"></i> CAN <i class="fa fa-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="white-bg bordered-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header logo-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar-upper2">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand logo" href="#">
+                        <img src="~/Themes/DefaultClean/Content/ewg/img/logo.png" class="adaptive">
+                    </a>
+
+                </div>
+                <div class="collapse navbar-collapse" id="collapse-navbar-upper2">
+                    @Html.Action("TopMenu", "Catalog")
+                    <form action="" class="navbar-form navbar-right navbar-input-group header-search">
+                        <div class="input-group">
+                            <label for="mainSearch" class="input-group-addon"><i class="fa fa-search"></i></label>
+                            <div class="cell">
+                                <input type="text" class="form-control" id="mainSearch" placeholder="SEARCH ITEMS">
+                                <span class="cross"><span>&times;</span></span>
+                            </div>
+                            <div class="input-group-btn">
+                                <div class="btn-group">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Search</a></li>
+                                        <li><a href="">Search Two</a></li>
+                                        <li><a href="">Search Three</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+@*<div class="header">
+    @Html.Widget("header")
+    <div class="header-upper">
+        <div class="header-selectors-wrapper">
+            
+            @Html.Action("TaxTypeSelector", "Common")
+            
+            @Html.Action("CurrencySelector", "Common")
+            
+            @Html.Action("LanguageSelector", "Common")
+            
+            @Html.Widget("header_selectors")
+        </div>
+        <div class="header-links-wrapper">
+            @Html.Action("HeaderLinks", "Common")
+            @Html.Action("FlyoutShoppingCart", "ShoppingCart")
+        </div>
+    </div>
+    <div class="header-lower">
+        <div class="header-logo">
+            <a href="@Url.RouteUrl("HomePage")">
+                <img title="" alt="@storeName" src="@Url.Content(logoPath)">
+            </a>
+        </div>
+        <div class="search-box store-search-box">
+            @Html.Action("SearchBox", "Catalog")
+        </div>
+    </div>
+</div>*@

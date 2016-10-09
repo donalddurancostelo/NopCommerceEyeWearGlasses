@@ -1,0 +1,62 @@
+﻿@model TopMenuModel
+@using Nop.Web.Models.Catalog;
+
+@helper RenderCategoryLine(CategorySimpleModel category)
+{
+var pictureService = DependencyResolver.Current.GetService<Nop.Services.Media.IPictureService>();
+var categoryService = DependencyResolver.Current.GetService<Nop.Services.Catalog.ICategoryService>();
+var hasChild = category.SubCategories.Any();
+
+    <li class="@(hasChild ? "dropmenu" : "")">
+        <a href="@Url.RouteUrl("Category", new { SeName = category.SeName })">@category.Name </a>
+        @if (hasChild)
+        {
+            <div class="dropmenu-content">
+                <div class="table">
+
+                    @foreach (var child in category.SubCategories.Take(3))
+                    {
+                        int pictureId = 0;
+
+                        try
+                        {
+                            pictureId = categoryService.GetCategoryById(child.Id).PictureId;
+                        }
+                        catch { }
+
+                        var url1 = "";
+                        url1 = pictureService.GetPictureUrl(pictureId, 200, true);
+
+                        <div class="cell">
+                            <div class="outer relative right">
+                                <img src="@url1" alt="" class="content-image bottom-left">
+                                <div class="inline relative">
+                                    <div class="drop-list left">
+                                        <a href="@Url.RouteUrl("Category", new { SeName = child.SeName })" class="anchor">@child.Name <i class="fa fa-chevron-right"></i></a>
+                                        @if (child.SubCategories.Any())
+                                        {
+                                            <ul class="clear-list">
+                                                @foreach (var child2 in child.SubCategories)
+                                                {
+                                                    <li><a href="@Url.RouteUrl("Category", new { SeName = child2.SeName })">@child2.Name </a></li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        }
+    </li>
+}
+
+<ul class="nav navbar-nav main-nav">
+    @foreach (var item in Model.Categories)
+    {
+        @RenderCategoryLine(item)
+    }
+</ul>
