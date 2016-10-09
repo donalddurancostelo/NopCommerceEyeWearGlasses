@@ -1,0 +1,8320 @@
+@charset "UTF-8";
+/*
+	@module
+		title: skin *n
+		type: scss *n
+		caption:
+			p{ Модуль формирует файл скина, собиая во едино все 
+			файлы сетки и вспомогательные классы. }p
+			p{ Если Вам нужно вручную менять стили при разных 
+			разрешениях дисплея, - создайте нужный файл в папке 
+			bd{ _media/ } и добавтье свои медиа-запросы 
+			в конец этого файла. }p
+		*n
+*/
+/* -----------------------------------------------------
+	include function 'calc' and Compass-like mixins
+*/
+/*--------------------------------------------------------------
+												VARIABLES
+--------------------------------------------------------------*/
+/*
+	@module
+		title: mixins *n
+		type: scss *n
+		caption:
+			p{ Модуль добавляет в систему заранее подготовленные
+			миксины, которые используются в коде. }p
+			p{ Чтобы использовать миксины - вставвьте нужный миксин
+			в код при помощи директивы bd{ @include my-mixin(mixin-values); }}p
+		*n
+*/
+/*--------------------------------------------------------------------------
+	Background and Border Properties
+--------------------------------------------------------------------------*/
+/*@mixin
+		name: background-clip() *n caption: *n arguments: $clip *n
+		return: -webkit-, -moz-, -ms-, -o- *n */
+/*@mixin
+		name: background-origin() *n caption: *n arguments: $origin *n
+		return: -webkit-, -moz-, -ms-, -o- *n */
+/*@mixin
+		name: background-size() *n caption: *n arguments: $size *n
+		return: -webkit-, -moz-, -ms-, -o- *n */
+/*@mixin
+		name: border-bottom-left-radius() *n caption: *n arguments: $radius *n
+		return: -webkit-, -moz-, -ms- *n */
+/*@mixin
+		name: border-bottom-right-radius() *n caption: *n arguments: $radius *n
+		return: -webkit-, -moz-, -ms- *n */
+/*@mixin
+		name: border-top-right-radius() *n caption: *n arguments: $radius *n
+		return: -webkit-, -moz-, -ms- *n */
+/*@mixin
+		name: border-top-left-radius() *n caption: *n arguments: $radius *n
+		return: -webkit-, -moz-, -ms- *n */
+/*@mixin
+		name: border-radius() *n caption: *n arguments: $radius *n
+		return: -webkit-, -moz-, -ms- *n */
+/*@mixin
+		name: box-shadow() *n caption: *n arguments: $shadow *n
+		return: -webkit-, -moz- *n */
+/*--------------------------------------------------------------------------
+	Flexible Box Layout
+--------------------------------------------------------------------------*/
+/*@mixin
+		name: align-content() *n caption: bd{flexbox} *n arguments: $type *n
+		return: -webkit- *n */
+/*@mixin
+		name: align-items() *n caption: bd{flexbox} *n arguments: $type *n
+		return: -webkit- *n */
+/*@mixin
+		name: align-self() *n caption: bd{flexbox} *n arguments: $type *n
+		return: -webkit- *n */
+/*@mixin
+		name: flex() *n caption: bd{flexbox} *n arguments: $type *n
+		return: -webkit-, -moz-, -ms- *n */
+/*@mixin
+		name: flex-basis() *n caption: bd{flexbox} *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: flex-direction() *n caption: bd{flexbox} *n arguments: $direction *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: flex-flow() *n caption: bd{flexbox} *n arguments: $flow *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: flex-grow() *n caption: bd{flexbox} *n arguments: $grow *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: flex-shirk() *n caption: bd{flexbox} *n arguments: $shirk *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: flex-wrap() *n caption: bd{flexbox} *n arguments: $wrap *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: justify-content() *n caption: bd{flexbox} *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: order() *n caption: bd{flexbox} *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*--------------------------------------------------------------------------
+	Text Properties
+--------------------------------------------------------------------------*/
+/*@mixin
+		name: tab-size() *n caption: bd{flexbox} *n arguments: $type *n
+		return: -o-, -moz- *n */
+/*--------------------------------------------------------------------------
+	Animation Properties
+--------------------------------------------------------------------------*/
+/*@mixin
+		name: keyframes() *n caption: animations *n arguments: $name *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: animation() *n caption: animations *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: animation-delay() *n caption: animations *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: animation-direction() *n caption: animations *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: animation-duration() *n caption: animations *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: animation-fill-mode() *n caption: animations *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: animation-iteration-count() *n caption: animations *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: animation-timing-function() *n caption: animations *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: animation-play-state() *n caption: animations *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*--------------------------------------------------------------------------
+	Transform Properties
+--------------------------------------------------------------------------*/
+/*@mixin
+		name: backface-visibility() *n caption: transformations *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: perspective() *n caption: transformations *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: perspective-origin() *n caption: transformations *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: transform() *n caption: transformations *n arguments: $type *n
+		return: -webkit-, -moz-, -ms-, -o- *n */
+/*@mixin
+		name: transform-origin() *n caption: transformations *n arguments: $type *n
+		return: -webkit-, -moz-, -ms-, -o- *n */
+/*@mixin
+		name: transform-style() *n caption: transformations *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*--------------------------------------------------------------------------
+	Transitions Properties
+--------------------------------------------------------------------------*/
+/*@mixin
+		name: transition() *n caption: transitions *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: transition-property() *n caption: transitions *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: transition-duration() *n caption: transitions *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: transition-timing-function() *n caption: transitions *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*@mixin
+		name: transition-delay() *n caption: transitions *n arguments: $type *n
+		return: -webkit-, -moz-, -o- *n */
+/*--------------------------------------------------------------------------
+	Basic User Interface Properties
+--------------------------------------------------------------------------*/
+/*@mixin
+		name: box-sizing() *n caption: UI *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: outline-offset() *n caption: UI *n arguments: $type *n
+		return: -webkit- *n */
+/*@mixin
+		name: resize() *n caption: UI *n arguments: $type *n
+		return: -moz- *n */
+/*@mixin
+		name: text-overflow() *n caption: UI *n arguments: $type *n
+		return: -o- *n */
+/*--------------------------------------------------------------------------
+	Multi-column Layout Properties
+--------------------------------------------------------------------------*/
+/*@mixin
+		name: column-count() *n caption: UI *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: column-gap() *n caption: UI *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: column-rule() *n caption: UI *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: column-rule-color() *n caption: UI *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: column-rule-style() *n caption: UI *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: column-rule-width() *n caption: UI *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: column-rule-span() *n caption: UI *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: column-width() *n caption: UI *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*@mixin
+		name: columns() *n caption: UI *n arguments: $type *n
+		return: -webkit-, -moz- *n */
+/*--------------------------------------------------------------------------
+	Filter Effects Properties
+--------------------------------------------------------------------------*/
+/*@mixin
+		name: filter() *n caption: UI *n arguments: $properties *n
+		return: -webkit-, -moz-, -o- *n */
+/* -----------------------------------------------------
+	include default styles, fonts, indents, and so on...
+*/
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%; }
+
+figure {
+  margin: 0;
+  padding: 0; }
+
+/*--------------------------------------------------------------
+													POSITION
+--------------------------------------------------------------*/
+.relative {
+  position: relative; }
+
+.absolute {
+  position: absolute; }
+
+.fixed {
+  position: fixed; }
+
+.static {
+  position: static; }
+
+/*--------------------------------------------------------------
+													CLEARING
+--------------------------------------------------------------*/
+.clear-input {
+  background: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%; }
+
+.noresize {
+  resize: none; }
+
+.clear-list,
+.unstyled-list,
+.clear-ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style: none;
+  clear: both; }
+  .clear-list:after,
+  .unstyled-list:after,
+  .clear-ul:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.disable-hover {
+  pointer-events: none !important; }
+
+.disable-hover-childs > * {
+  pointer-events: none !important; }
+
+.disable-hover-allchilds * {
+  pointer-events: none !important; }
+
+.ultra-hide {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  left: -1000%;
+  top: -1000%;
+  text-indent: -1000%; }
+
+img.adaptive {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+/*--------------------------------------------------------------
+													ALIGN
+--------------------------------------------------------------*/
+.center {
+  text-align: center; }
+
+.right {
+  text-align: right; }
+
+.left {
+  text-align: left; }
+
+.justify {
+  text-align: justify; }
+
+.v-top {
+  vertical-align: top; }
+
+.v-middle {
+  vertical-align: middle; }
+
+.v-bottom {
+  vertical-align: bottom; }
+
+.v-baseline {
+  vertical-align: baseline; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+.clearfix, .pull-clear {
+  clear: both; }
+  .clearfix:after, .pull-clear:after {
+    display: table;
+    content: '';
+    clear: both; }
+
+/*--------------------------------------------------------------
+													DISPLAY
+--------------------------------------------------------------*/
+.block {
+  display: block; }
+
+.inline {
+  display: inline-block; }
+
+.block-extra {
+  display: block !important; }
+
+.inline-extra {
+  display: inline-block !important; }
+
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch; }
+
+.inline-flex {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.none {
+  display: none; }
+
+.table {
+  width: 100%;
+  display: table; }
+
+.trow {
+  display: table-row; }
+
+.thead {
+  display: table-header-group; }
+
+.tfoot {
+  display: table-footer-group; }
+
+.tbody {
+  display: table-column-group; }
+
+.cell {
+  display: table-cell; }
+
+.list-item {
+  display: list-item; }
+
+.bg-none {
+  background: none; }
+
+/*
+	@module
+		title: fonts *n
+		type: scss *n
+		caption:
+			p{ Модуль формирует вспомогательные классы преимущественно
+			для работы с текстом. }p
+		*n
+*/
+/*@property
+		name: light *n
+		caption: Тонкое начертание шрифта (100) *n
+*/
+.light {
+  font-weight: 100; }
+
+/*@property
+		name: semilight *n
+		caption: Тонкое начертание шрифта (300) *n
+*/
+.semilight {
+  font-weight: 300; }
+
+/*@property
+		name: regular *n
+		caption: Нормальное начертание шрифта (400) *n
+*/
+.regular {
+  font-weight: 400; }
+
+/*@property
+		name: semibold *n
+		caption: Полужирное начертание шрифта (500) *n
+*/
+.medium {
+  font-weight: 500; }
+
+/*@property
+		name: bold *n
+		caption: Жирное начертание шрифта (700) *n
+*/
+.bold {
+  font-weight: 700; }
+
+/*@property
+		name: extrabold *n
+		caption: Очень жирный текст ('black', 900) *n
+*/
+.extrabold {
+  font-weight: 900; }
+
+/*@property
+		name: lower *n
+		caption: Приведение к нижнему регистру *n
+*/
+.lower {
+  text-transform: lowercase; }
+
+/*@property
+		name: upper *n
+		caption: Приведение к верхнему регистру *n
+*/
+.upper {
+  text-transform: uppercase; }
+
+/*@property
+		name: underline *n
+		caption: Подчеркивание текста. Для <a> - по умолчанию 
+		показывается подчеркивание, при наведении - убирается. *n
+*/
+.underline {
+  text-decoration: underline; }
+
+a.underline:hover {
+  text-decoration: none; }
+
+/*@property
+		name: rev-underline *n
+		caption: Подчеркивание текста. Для <a> - по умолчанию 
+		убирается подчеркивание, при наведении - показывается. *n
+*/
+.rev-underline {
+  text-decoration: none; }
+
+a.rev-underline:hover {
+  text-decoration: underline; }
+
+/*@property
+		name: rev-underline *n
+		caption: Курсивный шрифт. *n
+*/
+.italic {
+  font-style: italic; }
+
+/*@property
+		name: oblique *n
+		caption: Курсив и наклонный шрифт при всей их похожести не 
+		одно и то же. Курсив это специальный шрифт имитирующий 
+		рукописный, наклонный же образуется путем наклона обычных 
+		знаков вправо. *n
+*/
+.oblique {
+  font-style: oblique; }
+
+/*@property
+		name: blink *n
+		caption: Мигающий текст *n
+*/
+.blink {
+  text-decoration: blink; }
+
+/*@property
+		name: strike *n
+		caption: Зачеркнутый текст. *n
+*/
+.strike {
+  text-decoration: line-through; }
+
+/*@property
+		name: overline *n
+		caption: Надчеркнуты йшрифт. *n
+*/
+.overline {
+  text-decoration: overline; }
+
+/* -----------------------------------------------------
+	fonts size
+*/
+.font-6 {
+  font-size: 6px; }
+
+.font-7 {
+  font-size: 7px; }
+
+.font-8 {
+  font-size: 8px; }
+
+.font-9 {
+  font-size: 9px; }
+
+.font-10 {
+  font-size: 10px; }
+
+.font-11 {
+  font-size: 11px; }
+
+.font-12 {
+  font-size: 12px; }
+
+.font-13 {
+  font-size: 13px; }
+
+.font-14 {
+  font-size: 14px; }
+
+.font-15 {
+  font-size: 15px; }
+
+.font-16 {
+  font-size: 16px; }
+
+.font-17 {
+  font-size: 17px; }
+
+.font-18 {
+  font-size: 18px; }
+
+.font-19 {
+  font-size: 19px; }
+
+.font-20 {
+  font-size: 20px; }
+
+.font-21 {
+  font-size: 21px; }
+
+.font-22 {
+  font-size: 22px; }
+
+.font-23 {
+  font-size: 23px; }
+
+.font-24 {
+  font-size: 24px; }
+
+.font-25 {
+  font-size: 25px; }
+
+.font-26 {
+  font-size: 26px; }
+
+.font-27 {
+  font-size: 27px; }
+
+.font-28 {
+  font-size: 28px; }
+
+.font-29 {
+  font-size: 29px; }
+
+.font-30 {
+  font-size: 30px; }
+
+.font-31 {
+  font-size: 31px; }
+
+.font-32 {
+  font-size: 32px; }
+
+.font-33 {
+  font-size: 33px; }
+
+.font-34 {
+  font-size: 34px; }
+
+.font-35 {
+  font-size: 35px; }
+
+.font-36 {
+  font-size: 36px; }
+
+.font-37 {
+  font-size: 37px; }
+
+.font-38 {
+  font-size: 38px; }
+
+.font-39 {
+  font-size: 39px; }
+
+.font-40 {
+  font-size: 40px; }
+
+.font-41 {
+  font-size: 41px; }
+
+.font-42 {
+  font-size: 42px; }
+
+.font-43 {
+  font-size: 43px; }
+
+.font-44 {
+  font-size: 44px; }
+
+.font-45 {
+  font-size: 45px; }
+
+.font-46 {
+  font-size: 46px; }
+
+.font-47 {
+  font-size: 47px; }
+
+.font-48 {
+  font-size: 48px; }
+
+.font-49 {
+  font-size: 49px; }
+
+.font-50 {
+  font-size: 50px; }
+
+.font-51 {
+  font-size: 51px; }
+
+.font-52 {
+  font-size: 52px; }
+
+.font-53 {
+  font-size: 53px; }
+
+.font-54 {
+  font-size: 54px; }
+
+.font-55 {
+  font-size: 55px; }
+
+.font-56 {
+  font-size: 56px; }
+
+.font-57 {
+  font-size: 57px; }
+
+.font-58 {
+  font-size: 58px; }
+
+.font-59 {
+  font-size: 59px; }
+
+.font-60 {
+  font-size: 60px; }
+
+@font-face {
+  font-family: "gotham";
+  src: url("../fonts/gotham/GothamHTF-Thin.otf");
+  font-style: normal;
+  font-weight: 100; }
+
+@font-face {
+  font-family: "gotham";
+  src: url("../fonts/gotham/GothamHTF-Light.otf");
+  font-style: normal;
+  font-weight: 300; }
+
+@font-face {
+  font-family: "gotham";
+  src: url("../fonts/gotham/GothamHTF-Book.otf");
+  font-style: normal;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "gotham";
+  src: url("../fonts/gotham/GothamHTF-Medium.otf");
+  font-style: normal;
+  font-weight: 500; }
+
+@font-face {
+  font-family: "gotham";
+  src: url("../fonts/gotham/GothamHTF-Black.otf");
+  font-style: normal;
+  font-weight: 700; }
+
+/*
+	@module
+		title: indents *n
+		type: scss *n
+		caption:
+			p{ Модуль добавляет классы для работы с 
+			внешними и внутренними отступами. }p
+		*n
+*/
+/*@property
+		name: no-marg *n
+		caption: Убирает внешние отступы блока. *n
+*/
+.no-marg {
+  margin: 0; }
+
+/*@property
+		name: no-pad *n
+		caption: Убирает внутренние отступы блока. *n
+*/
+.no-pad {
+  padding: 0; }
+
+/*@property
+		name: exact-fit *n
+		caption: Убирает внутренние и внешние отступы блока. *n
+*/
+.exact-fit {
+  margin: 0;
+  padding: 0; }
+
+/*@property
+		name: island-** *n
+		caption: Добавляет внутренние отступы со всех сторон.
+		Парметры указываются в bd{ $islands } *n
+*/
+.island-2 {
+  padding: 2px; }
+
+.island-3 {
+  padding: 3px; }
+
+.island-4 {
+  padding: 4px; }
+
+.island-5 {
+  padding: 5px; }
+
+.island-6 {
+  padding: 6px; }
+
+.island-7 {
+  padding: 7px; }
+
+.island-8 {
+  padding: 8px; }
+
+.island-9 {
+  padding: 9px; }
+
+.island-10 {
+  padding: 10px; }
+
+.island-15 {
+  padding: 15px; }
+
+.island-20 {
+  padding: 20px; }
+
+.island-25 {
+  padding: 25px; }
+
+.island-30 {
+  padding: 30px; }
+
+.island-35 {
+  padding: 35px; }
+
+.island-40 {
+  padding: 40px; }
+
+.island-45 {
+  padding: 45px; }
+
+.island-50 {
+  padding: 50px; }
+
+.island-60 {
+  padding: 60px; }
+
+.island-70 {
+  padding: 70px; }
+
+.island-80 {
+  padding: 80px; }
+
+.island-90 {
+  padding: 90px; }
+
+.island-100 {
+  padding: 100px; }
+
+/*--------------------------------------------------------
+												PADDINGS
+--------------------------------------------------------*/
+/*@property
+		name: pad-h** *n
+		caption: Добавляет внутренние отступы по горизонтали.
+		Парметры указываются в bd{ $horizontal_indents } *n
+*/
+.pad-h0 {
+  padding-left: 0px;
+  padding-right: 0px; }
+
+.pad-h2 {
+  padding-left: 2px;
+  padding-right: 2px; }
+
+.pad-h3 {
+  padding-left: 3px;
+  padding-right: 3px; }
+
+.pad-h4 {
+  padding-left: 4px;
+  padding-right: 4px; }
+
+.pad-h5 {
+  padding-left: 5px;
+  padding-right: 5px; }
+
+.pad-h6 {
+  padding-left: 6px;
+  padding-right: 6px; }
+
+.pad-h7 {
+  padding-left: 7px;
+  padding-right: 7px; }
+
+.pad-h8 {
+  padding-left: 8px;
+  padding-right: 8px; }
+
+.pad-h9 {
+  padding-left: 9px;
+  padding-right: 9px; }
+
+.pad-h10 {
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.pad-h15 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.pad-h20 {
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.pad-h25 {
+  padding-left: 25px;
+  padding-right: 25px; }
+
+.pad-h30 {
+  padding-left: 30px;
+  padding-right: 30px; }
+
+.pad-h35 {
+  padding-left: 35px;
+  padding-right: 35px; }
+
+.pad-h40 {
+  padding-left: 40px;
+  padding-right: 40px; }
+
+.pad-h45 {
+  padding-left: 45px;
+  padding-right: 45px; }
+
+.pad-h50 {
+  padding-left: 50px;
+  padding-right: 50px; }
+
+.pad-h60 {
+  padding-left: 60px;
+  padding-right: 60px; }
+
+.pad-h70 {
+  padding-left: 70px;
+  padding-right: 70px; }
+
+.pad-h80 {
+  padding-left: 80px;
+  padding-right: 80px; }
+
+.pad-h90 {
+  padding-left: 90px;
+  padding-right: 90px; }
+
+.pad-h100 {
+  padding-left: 100px;
+  padding-right: 100px; }
+
+/*@property
+		name: pad-v** *n
+		caption: Добавляет внутренние отступы по вертикали.
+		Парметры указываются в bd{ $vertical_indents } *n
+*/
+.pad-v0 {
+  padding-top: 0px;
+  padding-bottom: 0px; }
+
+.pad-v2 {
+  padding-top: 2px;
+  padding-bottom: 2px; }
+
+.pad-v3 {
+  padding-top: 3px;
+  padding-bottom: 3px; }
+
+.pad-v4 {
+  padding-top: 4px;
+  padding-bottom: 4px; }
+
+.pad-v5 {
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+.pad-v6 {
+  padding-top: 6px;
+  padding-bottom: 6px; }
+
+.pad-v7 {
+  padding-top: 7px;
+  padding-bottom: 7px; }
+
+.pad-v8 {
+  padding-top: 8px;
+  padding-bottom: 8px; }
+
+.pad-v9 {
+  padding-top: 9px;
+  padding-bottom: 9px; }
+
+.pad-v10 {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.pad-v12 {
+  padding-top: 12px;
+  padding-bottom: 12px; }
+
+.pad-v13 {
+  padding-top: 13px;
+  padding-bottom: 13px; }
+
+.pad-v15 {
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+.pad-v20 {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.pad-v25 {
+  padding-top: 25px;
+  padding-bottom: 25px; }
+
+.pad-v30 {
+  padding-top: 30px;
+  padding-bottom: 30px; }
+
+.pad-v35 {
+  padding-top: 35px;
+  padding-bottom: 35px; }
+
+.pad-v40 {
+  padding-top: 40px;
+  padding-bottom: 40px; }
+
+.pad-v45 {
+  padding-top: 45px;
+  padding-bottom: 45px; }
+
+.pad-v50 {
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
+.pad-v60 {
+  padding-top: 60px;
+  padding-bottom: 60px; }
+
+.pad-v70 {
+  padding-top: 70px;
+  padding-bottom: 70px; }
+
+.pad-v80 {
+  padding-top: 80px;
+  padding-bottom: 80px; }
+
+.pad-v90 {
+  padding-top: 90px;
+  padding-bottom: 90px; }
+
+.pad-v100 {
+  padding-top: 100px;
+  padding-bottom: 100px; }
+
+/*@property
+		name: pad-top-** *n
+		caption: Добавляет внутренний отступ сверху.
+		Парметры указываются в bd{ $vertical_indents } *n
+*/
+.pad-top-0 {
+  padding-top: 0px; }
+
+.pad-top-2 {
+  padding-top: 2px; }
+
+.pad-top-3 {
+  padding-top: 3px; }
+
+.pad-top-4 {
+  padding-top: 4px; }
+
+.pad-top-5 {
+  padding-top: 5px; }
+
+.pad-top-6 {
+  padding-top: 6px; }
+
+.pad-top-7 {
+  padding-top: 7px; }
+
+.pad-top-8 {
+  padding-top: 8px; }
+
+.pad-top-9 {
+  padding-top: 9px; }
+
+.pad-top-10 {
+  padding-top: 10px; }
+
+.pad-top-12 {
+  padding-top: 12px; }
+
+.pad-top-13 {
+  padding-top: 13px; }
+
+.pad-top-15 {
+  padding-top: 15px; }
+
+.pad-top-20 {
+  padding-top: 20px; }
+
+.pad-top-25 {
+  padding-top: 25px; }
+
+.pad-top-30 {
+  padding-top: 30px; }
+
+.pad-top-35 {
+  padding-top: 35px; }
+
+.pad-top-40 {
+  padding-top: 40px; }
+
+.pad-top-45 {
+  padding-top: 45px; }
+
+.pad-top-50 {
+  padding-top: 50px; }
+
+.pad-top-60 {
+  padding-top: 60px; }
+
+.pad-top-70 {
+  padding-top: 70px; }
+
+.pad-top-80 {
+  padding-top: 80px; }
+
+.pad-top-90 {
+  padding-top: 90px; }
+
+.pad-top-100 {
+  padding-top: 100px; }
+
+/*@property
+		name: pad-bot-** *n
+		caption: Добавляет внутренний отступ снизу.
+		Парметры указываются в bd{ $vertical_indents } *n
+*/
+.pad-bot-0 {
+  padding-bottom: 0px; }
+
+.pad-bot-2 {
+  padding-bottom: 2px; }
+
+.pad-bot-3 {
+  padding-bottom: 3px; }
+
+.pad-bot-4 {
+  padding-bottom: 4px; }
+
+.pad-bot-5 {
+  padding-bottom: 5px; }
+
+.pad-bot-6 {
+  padding-bottom: 6px; }
+
+.pad-bot-7 {
+  padding-bottom: 7px; }
+
+.pad-bot-8 {
+  padding-bottom: 8px; }
+
+.pad-bot-9 {
+  padding-bottom: 9px; }
+
+.pad-bot-10 {
+  padding-bottom: 10px; }
+
+.pad-bot-12 {
+  padding-bottom: 12px; }
+
+.pad-bot-13 {
+  padding-bottom: 13px; }
+
+.pad-bot-15 {
+  padding-bottom: 15px; }
+
+.pad-bot-20 {
+  padding-bottom: 20px; }
+
+.pad-bot-25 {
+  padding-bottom: 25px; }
+
+.pad-bot-30 {
+  padding-bottom: 30px; }
+
+.pad-bot-35 {
+  padding-bottom: 35px; }
+
+.pad-bot-40 {
+  padding-bottom: 40px; }
+
+.pad-bot-45 {
+  padding-bottom: 45px; }
+
+.pad-bot-50 {
+  padding-bottom: 50px; }
+
+.pad-bot-60 {
+  padding-bottom: 60px; }
+
+.pad-bot-70 {
+  padding-bottom: 70px; }
+
+.pad-bot-80 {
+  padding-bottom: 80px; }
+
+.pad-bot-90 {
+  padding-bottom: 90px; }
+
+.pad-bot-100 {
+  padding-bottom: 100px; }
+
+/*@property
+		name: pad-left-** *n
+		caption: Добавляет внутренний отступ слева.
+		Парметры указываются в bd{ $horizontal_indents } *n
+*/
+.pad-left-0 {
+  padding-left: 0px; }
+
+.pad-left-2 {
+  padding-left: 2px; }
+
+.pad-left-3 {
+  padding-left: 3px; }
+
+.pad-left-4 {
+  padding-left: 4px; }
+
+.pad-left-5 {
+  padding-left: 5px; }
+
+.pad-left-6 {
+  padding-left: 6px; }
+
+.pad-left-7 {
+  padding-left: 7px; }
+
+.pad-left-8 {
+  padding-left: 8px; }
+
+.pad-left-9 {
+  padding-left: 9px; }
+
+.pad-left-10 {
+  padding-left: 10px; }
+
+.pad-left-15 {
+  padding-left: 15px; }
+
+.pad-left-20 {
+  padding-left: 20px; }
+
+.pad-left-25 {
+  padding-left: 25px; }
+
+.pad-left-30 {
+  padding-left: 30px; }
+
+.pad-left-35 {
+  padding-left: 35px; }
+
+.pad-left-40 {
+  padding-left: 40px; }
+
+.pad-left-45 {
+  padding-left: 45px; }
+
+.pad-left-50 {
+  padding-left: 50px; }
+
+.pad-left-60 {
+  padding-left: 60px; }
+
+.pad-left-70 {
+  padding-left: 70px; }
+
+.pad-left-80 {
+  padding-left: 80px; }
+
+.pad-left-90 {
+  padding-left: 90px; }
+
+.pad-left-100 {
+  padding-left: 100px; }
+
+/*@property
+		name: pad-right-** *n
+		caption: Добавляет внутренний отступ справа.
+		Парметры указываются в bd{ $horizontal_indents } *n
+*/
+.pad-right-0 {
+  padding-right: 0px; }
+
+.pad-right-2 {
+  padding-right: 2px; }
+
+.pad-right-3 {
+  padding-right: 3px; }
+
+.pad-right-4 {
+  padding-right: 4px; }
+
+.pad-right-5 {
+  padding-right: 5px; }
+
+.pad-right-6 {
+  padding-right: 6px; }
+
+.pad-right-7 {
+  padding-right: 7px; }
+
+.pad-right-8 {
+  padding-right: 8px; }
+
+.pad-right-9 {
+  padding-right: 9px; }
+
+.pad-right-10 {
+  padding-right: 10px; }
+
+.pad-right-15 {
+  padding-right: 15px; }
+
+.pad-right-20 {
+  padding-right: 20px; }
+
+.pad-right-25 {
+  padding-right: 25px; }
+
+.pad-right-30 {
+  padding-right: 30px; }
+
+.pad-right-35 {
+  padding-right: 35px; }
+
+.pad-right-40 {
+  padding-right: 40px; }
+
+.pad-right-45 {
+  padding-right: 45px; }
+
+.pad-right-50 {
+  padding-right: 50px; }
+
+.pad-right-60 {
+  padding-right: 60px; }
+
+.pad-right-70 {
+  padding-right: 70px; }
+
+.pad-right-80 {
+  padding-right: 80px; }
+
+.pad-right-90 {
+  padding-right: 90px; }
+
+.pad-right-100 {
+  padding-right: 100px; }
+
+/*--------------------------------------------------------
+								PADDINGS - MEDIA QUERIES
+--------------------------------------------------------*/
+@media (max-width: 1200px) {
+  /*@property
+				name: pad-h**--<BRAKEPOINT> *n
+				caption: Добавляет внутренние отступы по горизонтали 
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-h0--lg {
+    padding-left: 0px;
+    padding-right: 0px; }
+  .pad-h2--lg {
+    padding-left: 2px;
+    padding-right: 2px; }
+  .pad-h3--lg {
+    padding-left: 3px;
+    padding-right: 3px; }
+  .pad-h4--lg {
+    padding-left: 4px;
+    padding-right: 4px; }
+  .pad-h5--lg {
+    padding-left: 5px;
+    padding-right: 5px; }
+  .pad-h6--lg {
+    padding-left: 6px;
+    padding-right: 6px; }
+  .pad-h7--lg {
+    padding-left: 7px;
+    padding-right: 7px; }
+  .pad-h8--lg {
+    padding-left: 8px;
+    padding-right: 8px; }
+  .pad-h9--lg {
+    padding-left: 9px;
+    padding-right: 9px; }
+  .pad-h10--lg {
+    padding-left: 10px;
+    padding-right: 10px; }
+  .pad-h15--lg {
+    padding-left: 15px;
+    padding-right: 15px; }
+  .pad-h20--lg {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .pad-h25--lg {
+    padding-left: 25px;
+    padding-right: 25px; }
+  .pad-h30--lg {
+    padding-left: 30px;
+    padding-right: 30px; }
+  .pad-h35--lg {
+    padding-left: 35px;
+    padding-right: 35px; }
+  .pad-h40--lg {
+    padding-left: 40px;
+    padding-right: 40px; }
+  .pad-h45--lg {
+    padding-left: 45px;
+    padding-right: 45px; }
+  .pad-h50--lg {
+    padding-left: 50px;
+    padding-right: 50px; }
+  .pad-h60--lg {
+    padding-left: 60px;
+    padding-right: 60px; }
+  .pad-h70--lg {
+    padding-left: 70px;
+    padding-right: 70px; }
+  .pad-h80--lg {
+    padding-left: 80px;
+    padding-right: 80px; }
+  .pad-h90--lg {
+    padding-left: 90px;
+    padding-right: 90px; }
+  .pad-h100--lg {
+    padding-left: 100px;
+    padding-right: 100px; }
+  /*@property
+				name: pad-v**--<BRAKEPOINT> *n
+				caption: Добавляет внутренние отступы по вертикали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-v0--lg {
+    padding-top: 0px;
+    padding-bottom: 0px; }
+  .pad-v2--lg {
+    padding-top: 2px;
+    padding-bottom: 2px; }
+  .pad-v3--lg {
+    padding-top: 3px;
+    padding-bottom: 3px; }
+  .pad-v4--lg {
+    padding-top: 4px;
+    padding-bottom: 4px; }
+  .pad-v5--lg {
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .pad-v6--lg {
+    padding-top: 6px;
+    padding-bottom: 6px; }
+  .pad-v7--lg {
+    padding-top: 7px;
+    padding-bottom: 7px; }
+  .pad-v8--lg {
+    padding-top: 8px;
+    padding-bottom: 8px; }
+  .pad-v9--lg {
+    padding-top: 9px;
+    padding-bottom: 9px; }
+  .pad-v10--lg {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  .pad-v12--lg {
+    padding-top: 12px;
+    padding-bottom: 12px; }
+  .pad-v13--lg {
+    padding-top: 13px;
+    padding-bottom: 13px; }
+  .pad-v15--lg {
+    padding-top: 15px;
+    padding-bottom: 15px; }
+  .pad-v20--lg {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .pad-v25--lg {
+    padding-top: 25px;
+    padding-bottom: 25px; }
+  .pad-v30--lg {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+  .pad-v35--lg {
+    padding-top: 35px;
+    padding-bottom: 35px; }
+  .pad-v40--lg {
+    padding-top: 40px;
+    padding-bottom: 40px; }
+  .pad-v45--lg {
+    padding-top: 45px;
+    padding-bottom: 45px; }
+  .pad-v50--lg {
+    padding-top: 50px;
+    padding-bottom: 50px; }
+  .pad-v60--lg {
+    padding-top: 60px;
+    padding-bottom: 60px; }
+  .pad-v70--lg {
+    padding-top: 70px;
+    padding-bottom: 70px; }
+  .pad-v80--lg {
+    padding-top: 80px;
+    padding-bottom: 80px; }
+  .pad-v90--lg {
+    padding-top: 90px;
+    padding-bottom: 90px; }
+  .pad-v100--lg {
+    padding-top: 100px;
+    padding-bottom: 100px; }
+  /*@property
+				name: pad-top-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ сверху
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-top-0--lg {
+    padding-top: 0px; }
+  .pad-top-2--lg {
+    padding-top: 2px; }
+  .pad-top-3--lg {
+    padding-top: 3px; }
+  .pad-top-4--lg {
+    padding-top: 4px; }
+  .pad-top-5--lg {
+    padding-top: 5px; }
+  .pad-top-6--lg {
+    padding-top: 6px; }
+  .pad-top-7--lg {
+    padding-top: 7px; }
+  .pad-top-8--lg {
+    padding-top: 8px; }
+  .pad-top-9--lg {
+    padding-top: 9px; }
+  .pad-top-10--lg {
+    padding-top: 10px; }
+  .pad-top-12--lg {
+    padding-top: 12px; }
+  .pad-top-13--lg {
+    padding-top: 13px; }
+  .pad-top-15--lg {
+    padding-top: 15px; }
+  .pad-top-20--lg {
+    padding-top: 20px; }
+  .pad-top-25--lg {
+    padding-top: 25px; }
+  .pad-top-30--lg {
+    padding-top: 30px; }
+  .pad-top-35--lg {
+    padding-top: 35px; }
+  .pad-top-40--lg {
+    padding-top: 40px; }
+  .pad-top-45--lg {
+    padding-top: 45px; }
+  .pad-top-50--lg {
+    padding-top: 50px; }
+  .pad-top-60--lg {
+    padding-top: 60px; }
+  .pad-top-70--lg {
+    padding-top: 70px; }
+  .pad-top-80--lg {
+    padding-top: 80px; }
+  .pad-top-90--lg {
+    padding-top: 90px; }
+  .pad-top-100--lg {
+    padding-top: 100px; }
+  /*@property
+				name: pad-bot-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ снизу
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-bot-0--lg {
+    padding-bottom: 0px; }
+  .pad-bot-2--lg {
+    padding-bottom: 2px; }
+  .pad-bot-3--lg {
+    padding-bottom: 3px; }
+  .pad-bot-4--lg {
+    padding-bottom: 4px; }
+  .pad-bot-5--lg {
+    padding-bottom: 5px; }
+  .pad-bot-6--lg {
+    padding-bottom: 6px; }
+  .pad-bot-7--lg {
+    padding-bottom: 7px; }
+  .pad-bot-8--lg {
+    padding-bottom: 8px; }
+  .pad-bot-9--lg {
+    padding-bottom: 9px; }
+  .pad-bot-10--lg {
+    padding-bottom: 10px; }
+  .pad-bot-12--lg {
+    padding-bottom: 12px; }
+  .pad-bot-13--lg {
+    padding-bottom: 13px; }
+  .pad-bot-15--lg {
+    padding-bottom: 15px; }
+  .pad-bot-20--lg {
+    padding-bottom: 20px; }
+  .pad-bot-25--lg {
+    padding-bottom: 25px; }
+  .pad-bot-30--lg {
+    padding-bottom: 30px; }
+  .pad-bot-35--lg {
+    padding-bottom: 35px; }
+  .pad-bot-40--lg {
+    padding-bottom: 40px; }
+  .pad-bot-45--lg {
+    padding-bottom: 45px; }
+  .pad-bot-50--lg {
+    padding-bottom: 50px; }
+  .pad-bot-60--lg {
+    padding-bottom: 60px; }
+  .pad-bot-70--lg {
+    padding-bottom: 70px; }
+  .pad-bot-80--lg {
+    padding-bottom: 80px; }
+  .pad-bot-90--lg {
+    padding-bottom: 90px; }
+  .pad-bot-100--lg {
+    padding-bottom: 100px; }
+  /*@property
+				name: pad-left-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ слева
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-left-0--lg {
+    padding-left: 0px; }
+  .pad-left-2--lg {
+    padding-left: 2px; }
+  .pad-left-3--lg {
+    padding-left: 3px; }
+  .pad-left-4--lg {
+    padding-left: 4px; }
+  .pad-left-5--lg {
+    padding-left: 5px; }
+  .pad-left-6--lg {
+    padding-left: 6px; }
+  .pad-left-7--lg {
+    padding-left: 7px; }
+  .pad-left-8--lg {
+    padding-left: 8px; }
+  .pad-left-9--lg {
+    padding-left: 9px; }
+  .pad-left-10--lg {
+    padding-left: 10px; }
+  .pad-left-15--lg {
+    padding-left: 15px; }
+  .pad-left-20--lg {
+    padding-left: 20px; }
+  .pad-left-25--lg {
+    padding-left: 25px; }
+  .pad-left-30--lg {
+    padding-left: 30px; }
+  .pad-left-35--lg {
+    padding-left: 35px; }
+  .pad-left-40--lg {
+    padding-left: 40px; }
+  .pad-left-45--lg {
+    padding-left: 45px; }
+  .pad-left-50--lg {
+    padding-left: 50px; }
+  .pad-left-60--lg {
+    padding-left: 60px; }
+  .pad-left-70--lg {
+    padding-left: 70px; }
+  .pad-left-80--lg {
+    padding-left: 80px; }
+  .pad-left-90--lg {
+    padding-left: 90px; }
+  .pad-left-100--lg {
+    padding-left: 100px; }
+  /*@property
+				name: pad-right-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ справа
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-right-0--lg {
+    padding-right: 0px; }
+  .pad-right-2--lg {
+    padding-right: 2px; }
+  .pad-right-3--lg {
+    padding-right: 3px; }
+  .pad-right-4--lg {
+    padding-right: 4px; }
+  .pad-right-5--lg {
+    padding-right: 5px; }
+  .pad-right-6--lg {
+    padding-right: 6px; }
+  .pad-right-7--lg {
+    padding-right: 7px; }
+  .pad-right-8--lg {
+    padding-right: 8px; }
+  .pad-right-9--lg {
+    padding-right: 9px; }
+  .pad-right-10--lg {
+    padding-right: 10px; }
+  .pad-right-15--lg {
+    padding-right: 15px; }
+  .pad-right-20--lg {
+    padding-right: 20px; }
+  .pad-right-25--lg {
+    padding-right: 25px; }
+  .pad-right-30--lg {
+    padding-right: 30px; }
+  .pad-right-35--lg {
+    padding-right: 35px; }
+  .pad-right-40--lg {
+    padding-right: 40px; }
+  .pad-right-45--lg {
+    padding-right: 45px; }
+  .pad-right-50--lg {
+    padding-right: 50px; }
+  .pad-right-60--lg {
+    padding-right: 60px; }
+  .pad-right-70--lg {
+    padding-right: 70px; }
+  .pad-right-80--lg {
+    padding-right: 80px; }
+  .pad-right-90--lg {
+    padding-right: 90px; }
+  .pad-right-100--lg {
+    padding-right: 100px; }
+  .island-0--lg {
+    padding: 0px; }
+  .island-2--lg {
+    padding: 2px; }
+  .island-3--lg {
+    padding: 3px; }
+  .island-4--lg {
+    padding: 4px; }
+  .island-5--lg {
+    padding: 5px; }
+  .island-6--lg {
+    padding: 6px; }
+  .island-7--lg {
+    padding: 7px; }
+  .island-8--lg {
+    padding: 8px; }
+  .island-9--lg {
+    padding: 9px; }
+  .island-10--lg {
+    padding: 10px; }
+  .island-15--lg {
+    padding: 15px; }
+  .island-20--lg {
+    padding: 20px; }
+  .island-25--lg {
+    padding: 25px; }
+  .island-30--lg {
+    padding: 30px; }
+  .island-35--lg {
+    padding: 35px; }
+  .island-40--lg {
+    padding: 40px; }
+  .island-45--lg {
+    padding: 45px; }
+  .island-50--lg {
+    padding: 50px; }
+  .island-60--lg {
+    padding: 60px; }
+  .island-70--lg {
+    padding: 70px; }
+  .island-80--lg {
+    padding: 80px; }
+  .island-90--lg {
+    padding: 90px; }
+  .island-100--lg {
+    padding: 100px; } }
+
+@media (max-width: 992px) {
+  /*@property
+				name: pad-h**--<BRAKEPOINT> *n
+				caption: Добавляет внутренние отступы по горизонтали 
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-h0--md {
+    padding-left: 0px;
+    padding-right: 0px; }
+  .pad-h2--md {
+    padding-left: 2px;
+    padding-right: 2px; }
+  .pad-h3--md {
+    padding-left: 3px;
+    padding-right: 3px; }
+  .pad-h4--md {
+    padding-left: 4px;
+    padding-right: 4px; }
+  .pad-h5--md {
+    padding-left: 5px;
+    padding-right: 5px; }
+  .pad-h6--md {
+    padding-left: 6px;
+    padding-right: 6px; }
+  .pad-h7--md {
+    padding-left: 7px;
+    padding-right: 7px; }
+  .pad-h8--md {
+    padding-left: 8px;
+    padding-right: 8px; }
+  .pad-h9--md {
+    padding-left: 9px;
+    padding-right: 9px; }
+  .pad-h10--md {
+    padding-left: 10px;
+    padding-right: 10px; }
+  .pad-h15--md {
+    padding-left: 15px;
+    padding-right: 15px; }
+  .pad-h20--md {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .pad-h25--md {
+    padding-left: 25px;
+    padding-right: 25px; }
+  .pad-h30--md {
+    padding-left: 30px;
+    padding-right: 30px; }
+  .pad-h35--md {
+    padding-left: 35px;
+    padding-right: 35px; }
+  .pad-h40--md {
+    padding-left: 40px;
+    padding-right: 40px; }
+  .pad-h45--md {
+    padding-left: 45px;
+    padding-right: 45px; }
+  .pad-h50--md {
+    padding-left: 50px;
+    padding-right: 50px; }
+  .pad-h60--md {
+    padding-left: 60px;
+    padding-right: 60px; }
+  .pad-h70--md {
+    padding-left: 70px;
+    padding-right: 70px; }
+  .pad-h80--md {
+    padding-left: 80px;
+    padding-right: 80px; }
+  .pad-h90--md {
+    padding-left: 90px;
+    padding-right: 90px; }
+  .pad-h100--md {
+    padding-left: 100px;
+    padding-right: 100px; }
+  /*@property
+				name: pad-v**--<BRAKEPOINT> *n
+				caption: Добавляет внутренние отступы по вертикали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-v0--md {
+    padding-top: 0px;
+    padding-bottom: 0px; }
+  .pad-v2--md {
+    padding-top: 2px;
+    padding-bottom: 2px; }
+  .pad-v3--md {
+    padding-top: 3px;
+    padding-bottom: 3px; }
+  .pad-v4--md {
+    padding-top: 4px;
+    padding-bottom: 4px; }
+  .pad-v5--md {
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .pad-v6--md {
+    padding-top: 6px;
+    padding-bottom: 6px; }
+  .pad-v7--md {
+    padding-top: 7px;
+    padding-bottom: 7px; }
+  .pad-v8--md {
+    padding-top: 8px;
+    padding-bottom: 8px; }
+  .pad-v9--md {
+    padding-top: 9px;
+    padding-bottom: 9px; }
+  .pad-v10--md {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  .pad-v12--md {
+    padding-top: 12px;
+    padding-bottom: 12px; }
+  .pad-v13--md {
+    padding-top: 13px;
+    padding-bottom: 13px; }
+  .pad-v15--md {
+    padding-top: 15px;
+    padding-bottom: 15px; }
+  .pad-v20--md {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .pad-v25--md {
+    padding-top: 25px;
+    padding-bottom: 25px; }
+  .pad-v30--md {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+  .pad-v35--md {
+    padding-top: 35px;
+    padding-bottom: 35px; }
+  .pad-v40--md {
+    padding-top: 40px;
+    padding-bottom: 40px; }
+  .pad-v45--md {
+    padding-top: 45px;
+    padding-bottom: 45px; }
+  .pad-v50--md {
+    padding-top: 50px;
+    padding-bottom: 50px; }
+  .pad-v60--md {
+    padding-top: 60px;
+    padding-bottom: 60px; }
+  .pad-v70--md {
+    padding-top: 70px;
+    padding-bottom: 70px; }
+  .pad-v80--md {
+    padding-top: 80px;
+    padding-bottom: 80px; }
+  .pad-v90--md {
+    padding-top: 90px;
+    padding-bottom: 90px; }
+  .pad-v100--md {
+    padding-top: 100px;
+    padding-bottom: 100px; }
+  /*@property
+				name: pad-top-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ сверху
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-top-0--md {
+    padding-top: 0px; }
+  .pad-top-2--md {
+    padding-top: 2px; }
+  .pad-top-3--md {
+    padding-top: 3px; }
+  .pad-top-4--md {
+    padding-top: 4px; }
+  .pad-top-5--md {
+    padding-top: 5px; }
+  .pad-top-6--md {
+    padding-top: 6px; }
+  .pad-top-7--md {
+    padding-top: 7px; }
+  .pad-top-8--md {
+    padding-top: 8px; }
+  .pad-top-9--md {
+    padding-top: 9px; }
+  .pad-top-10--md {
+    padding-top: 10px; }
+  .pad-top-12--md {
+    padding-top: 12px; }
+  .pad-top-13--md {
+    padding-top: 13px; }
+  .pad-top-15--md {
+    padding-top: 15px; }
+  .pad-top-20--md {
+    padding-top: 20px; }
+  .pad-top-25--md {
+    padding-top: 25px; }
+  .pad-top-30--md {
+    padding-top: 30px; }
+  .pad-top-35--md {
+    padding-top: 35px; }
+  .pad-top-40--md {
+    padding-top: 40px; }
+  .pad-top-45--md {
+    padding-top: 45px; }
+  .pad-top-50--md {
+    padding-top: 50px; }
+  .pad-top-60--md {
+    padding-top: 60px; }
+  .pad-top-70--md {
+    padding-top: 70px; }
+  .pad-top-80--md {
+    padding-top: 80px; }
+  .pad-top-90--md {
+    padding-top: 90px; }
+  .pad-top-100--md {
+    padding-top: 100px; }
+  /*@property
+				name: pad-bot-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ снизу
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-bot-0--md {
+    padding-bottom: 0px; }
+  .pad-bot-2--md {
+    padding-bottom: 2px; }
+  .pad-bot-3--md {
+    padding-bottom: 3px; }
+  .pad-bot-4--md {
+    padding-bottom: 4px; }
+  .pad-bot-5--md {
+    padding-bottom: 5px; }
+  .pad-bot-6--md {
+    padding-bottom: 6px; }
+  .pad-bot-7--md {
+    padding-bottom: 7px; }
+  .pad-bot-8--md {
+    padding-bottom: 8px; }
+  .pad-bot-9--md {
+    padding-bottom: 9px; }
+  .pad-bot-10--md {
+    padding-bottom: 10px; }
+  .pad-bot-12--md {
+    padding-bottom: 12px; }
+  .pad-bot-13--md {
+    padding-bottom: 13px; }
+  .pad-bot-15--md {
+    padding-bottom: 15px; }
+  .pad-bot-20--md {
+    padding-bottom: 20px; }
+  .pad-bot-25--md {
+    padding-bottom: 25px; }
+  .pad-bot-30--md {
+    padding-bottom: 30px; }
+  .pad-bot-35--md {
+    padding-bottom: 35px; }
+  .pad-bot-40--md {
+    padding-bottom: 40px; }
+  .pad-bot-45--md {
+    padding-bottom: 45px; }
+  .pad-bot-50--md {
+    padding-bottom: 50px; }
+  .pad-bot-60--md {
+    padding-bottom: 60px; }
+  .pad-bot-70--md {
+    padding-bottom: 70px; }
+  .pad-bot-80--md {
+    padding-bottom: 80px; }
+  .pad-bot-90--md {
+    padding-bottom: 90px; }
+  .pad-bot-100--md {
+    padding-bottom: 100px; }
+  /*@property
+				name: pad-left-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ слева
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-left-0--md {
+    padding-left: 0px; }
+  .pad-left-2--md {
+    padding-left: 2px; }
+  .pad-left-3--md {
+    padding-left: 3px; }
+  .pad-left-4--md {
+    padding-left: 4px; }
+  .pad-left-5--md {
+    padding-left: 5px; }
+  .pad-left-6--md {
+    padding-left: 6px; }
+  .pad-left-7--md {
+    padding-left: 7px; }
+  .pad-left-8--md {
+    padding-left: 8px; }
+  .pad-left-9--md {
+    padding-left: 9px; }
+  .pad-left-10--md {
+    padding-left: 10px; }
+  .pad-left-15--md {
+    padding-left: 15px; }
+  .pad-left-20--md {
+    padding-left: 20px; }
+  .pad-left-25--md {
+    padding-left: 25px; }
+  .pad-left-30--md {
+    padding-left: 30px; }
+  .pad-left-35--md {
+    padding-left: 35px; }
+  .pad-left-40--md {
+    padding-left: 40px; }
+  .pad-left-45--md {
+    padding-left: 45px; }
+  .pad-left-50--md {
+    padding-left: 50px; }
+  .pad-left-60--md {
+    padding-left: 60px; }
+  .pad-left-70--md {
+    padding-left: 70px; }
+  .pad-left-80--md {
+    padding-left: 80px; }
+  .pad-left-90--md {
+    padding-left: 90px; }
+  .pad-left-100--md {
+    padding-left: 100px; }
+  /*@property
+				name: pad-right-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ справа
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-right-0--md {
+    padding-right: 0px; }
+  .pad-right-2--md {
+    padding-right: 2px; }
+  .pad-right-3--md {
+    padding-right: 3px; }
+  .pad-right-4--md {
+    padding-right: 4px; }
+  .pad-right-5--md {
+    padding-right: 5px; }
+  .pad-right-6--md {
+    padding-right: 6px; }
+  .pad-right-7--md {
+    padding-right: 7px; }
+  .pad-right-8--md {
+    padding-right: 8px; }
+  .pad-right-9--md {
+    padding-right: 9px; }
+  .pad-right-10--md {
+    padding-right: 10px; }
+  .pad-right-15--md {
+    padding-right: 15px; }
+  .pad-right-20--md {
+    padding-right: 20px; }
+  .pad-right-25--md {
+    padding-right: 25px; }
+  .pad-right-30--md {
+    padding-right: 30px; }
+  .pad-right-35--md {
+    padding-right: 35px; }
+  .pad-right-40--md {
+    padding-right: 40px; }
+  .pad-right-45--md {
+    padding-right: 45px; }
+  .pad-right-50--md {
+    padding-right: 50px; }
+  .pad-right-60--md {
+    padding-right: 60px; }
+  .pad-right-70--md {
+    padding-right: 70px; }
+  .pad-right-80--md {
+    padding-right: 80px; }
+  .pad-right-90--md {
+    padding-right: 90px; }
+  .pad-right-100--md {
+    padding-right: 100px; }
+  .island-0--md {
+    padding: 0px; }
+  .island-2--md {
+    padding: 2px; }
+  .island-3--md {
+    padding: 3px; }
+  .island-4--md {
+    padding: 4px; }
+  .island-5--md {
+    padding: 5px; }
+  .island-6--md {
+    padding: 6px; }
+  .island-7--md {
+    padding: 7px; }
+  .island-8--md {
+    padding: 8px; }
+  .island-9--md {
+    padding: 9px; }
+  .island-10--md {
+    padding: 10px; }
+  .island-15--md {
+    padding: 15px; }
+  .island-20--md {
+    padding: 20px; }
+  .island-25--md {
+    padding: 25px; }
+  .island-30--md {
+    padding: 30px; }
+  .island-35--md {
+    padding: 35px; }
+  .island-40--md {
+    padding: 40px; }
+  .island-45--md {
+    padding: 45px; }
+  .island-50--md {
+    padding: 50px; }
+  .island-60--md {
+    padding: 60px; }
+  .island-70--md {
+    padding: 70px; }
+  .island-80--md {
+    padding: 80px; }
+  .island-90--md {
+    padding: 90px; }
+  .island-100--md {
+    padding: 100px; } }
+
+@media (max-width: 768px) {
+  /*@property
+				name: pad-h**--<BRAKEPOINT> *n
+				caption: Добавляет внутренние отступы по горизонтали 
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-h0--sm {
+    padding-left: 0px;
+    padding-right: 0px; }
+  .pad-h2--sm {
+    padding-left: 2px;
+    padding-right: 2px; }
+  .pad-h3--sm {
+    padding-left: 3px;
+    padding-right: 3px; }
+  .pad-h4--sm {
+    padding-left: 4px;
+    padding-right: 4px; }
+  .pad-h5--sm {
+    padding-left: 5px;
+    padding-right: 5px; }
+  .pad-h6--sm {
+    padding-left: 6px;
+    padding-right: 6px; }
+  .pad-h7--sm {
+    padding-left: 7px;
+    padding-right: 7px; }
+  .pad-h8--sm {
+    padding-left: 8px;
+    padding-right: 8px; }
+  .pad-h9--sm {
+    padding-left: 9px;
+    padding-right: 9px; }
+  .pad-h10--sm {
+    padding-left: 10px;
+    padding-right: 10px; }
+  .pad-h15--sm {
+    padding-left: 15px;
+    padding-right: 15px; }
+  .pad-h20--sm {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .pad-h25--sm {
+    padding-left: 25px;
+    padding-right: 25px; }
+  .pad-h30--sm {
+    padding-left: 30px;
+    padding-right: 30px; }
+  .pad-h35--sm {
+    padding-left: 35px;
+    padding-right: 35px; }
+  .pad-h40--sm {
+    padding-left: 40px;
+    padding-right: 40px; }
+  .pad-h45--sm {
+    padding-left: 45px;
+    padding-right: 45px; }
+  .pad-h50--sm {
+    padding-left: 50px;
+    padding-right: 50px; }
+  .pad-h60--sm {
+    padding-left: 60px;
+    padding-right: 60px; }
+  .pad-h70--sm {
+    padding-left: 70px;
+    padding-right: 70px; }
+  .pad-h80--sm {
+    padding-left: 80px;
+    padding-right: 80px; }
+  .pad-h90--sm {
+    padding-left: 90px;
+    padding-right: 90px; }
+  .pad-h100--sm {
+    padding-left: 100px;
+    padding-right: 100px; }
+  /*@property
+				name: pad-v**--<BRAKEPOINT> *n
+				caption: Добавляет внутренние отступы по вертикали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-v0--sm {
+    padding-top: 0px;
+    padding-bottom: 0px; }
+  .pad-v2--sm {
+    padding-top: 2px;
+    padding-bottom: 2px; }
+  .pad-v3--sm {
+    padding-top: 3px;
+    padding-bottom: 3px; }
+  .pad-v4--sm {
+    padding-top: 4px;
+    padding-bottom: 4px; }
+  .pad-v5--sm {
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .pad-v6--sm {
+    padding-top: 6px;
+    padding-bottom: 6px; }
+  .pad-v7--sm {
+    padding-top: 7px;
+    padding-bottom: 7px; }
+  .pad-v8--sm {
+    padding-top: 8px;
+    padding-bottom: 8px; }
+  .pad-v9--sm {
+    padding-top: 9px;
+    padding-bottom: 9px; }
+  .pad-v10--sm {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  .pad-v12--sm {
+    padding-top: 12px;
+    padding-bottom: 12px; }
+  .pad-v13--sm {
+    padding-top: 13px;
+    padding-bottom: 13px; }
+  .pad-v15--sm {
+    padding-top: 15px;
+    padding-bottom: 15px; }
+  .pad-v20--sm {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .pad-v25--sm {
+    padding-top: 25px;
+    padding-bottom: 25px; }
+  .pad-v30--sm {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+  .pad-v35--sm {
+    padding-top: 35px;
+    padding-bottom: 35px; }
+  .pad-v40--sm {
+    padding-top: 40px;
+    padding-bottom: 40px; }
+  .pad-v45--sm {
+    padding-top: 45px;
+    padding-bottom: 45px; }
+  .pad-v50--sm {
+    padding-top: 50px;
+    padding-bottom: 50px; }
+  .pad-v60--sm {
+    padding-top: 60px;
+    padding-bottom: 60px; }
+  .pad-v70--sm {
+    padding-top: 70px;
+    padding-bottom: 70px; }
+  .pad-v80--sm {
+    padding-top: 80px;
+    padding-bottom: 80px; }
+  .pad-v90--sm {
+    padding-top: 90px;
+    padding-bottom: 90px; }
+  .pad-v100--sm {
+    padding-top: 100px;
+    padding-bottom: 100px; }
+  /*@property
+				name: pad-top-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ сверху
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-top-0--sm {
+    padding-top: 0px; }
+  .pad-top-2--sm {
+    padding-top: 2px; }
+  .pad-top-3--sm {
+    padding-top: 3px; }
+  .pad-top-4--sm {
+    padding-top: 4px; }
+  .pad-top-5--sm {
+    padding-top: 5px; }
+  .pad-top-6--sm {
+    padding-top: 6px; }
+  .pad-top-7--sm {
+    padding-top: 7px; }
+  .pad-top-8--sm {
+    padding-top: 8px; }
+  .pad-top-9--sm {
+    padding-top: 9px; }
+  .pad-top-10--sm {
+    padding-top: 10px; }
+  .pad-top-12--sm {
+    padding-top: 12px; }
+  .pad-top-13--sm {
+    padding-top: 13px; }
+  .pad-top-15--sm {
+    padding-top: 15px; }
+  .pad-top-20--sm {
+    padding-top: 20px; }
+  .pad-top-25--sm {
+    padding-top: 25px; }
+  .pad-top-30--sm {
+    padding-top: 30px; }
+  .pad-top-35--sm {
+    padding-top: 35px; }
+  .pad-top-40--sm {
+    padding-top: 40px; }
+  .pad-top-45--sm {
+    padding-top: 45px; }
+  .pad-top-50--sm {
+    padding-top: 50px; }
+  .pad-top-60--sm {
+    padding-top: 60px; }
+  .pad-top-70--sm {
+    padding-top: 70px; }
+  .pad-top-80--sm {
+    padding-top: 80px; }
+  .pad-top-90--sm {
+    padding-top: 90px; }
+  .pad-top-100--sm {
+    padding-top: 100px; }
+  /*@property
+				name: pad-bot-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ снизу
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-bot-0--sm {
+    padding-bottom: 0px; }
+  .pad-bot-2--sm {
+    padding-bottom: 2px; }
+  .pad-bot-3--sm {
+    padding-bottom: 3px; }
+  .pad-bot-4--sm {
+    padding-bottom: 4px; }
+  .pad-bot-5--sm {
+    padding-bottom: 5px; }
+  .pad-bot-6--sm {
+    padding-bottom: 6px; }
+  .pad-bot-7--sm {
+    padding-bottom: 7px; }
+  .pad-bot-8--sm {
+    padding-bottom: 8px; }
+  .pad-bot-9--sm {
+    padding-bottom: 9px; }
+  .pad-bot-10--sm {
+    padding-bottom: 10px; }
+  .pad-bot-12--sm {
+    padding-bottom: 12px; }
+  .pad-bot-13--sm {
+    padding-bottom: 13px; }
+  .pad-bot-15--sm {
+    padding-bottom: 15px; }
+  .pad-bot-20--sm {
+    padding-bottom: 20px; }
+  .pad-bot-25--sm {
+    padding-bottom: 25px; }
+  .pad-bot-30--sm {
+    padding-bottom: 30px; }
+  .pad-bot-35--sm {
+    padding-bottom: 35px; }
+  .pad-bot-40--sm {
+    padding-bottom: 40px; }
+  .pad-bot-45--sm {
+    padding-bottom: 45px; }
+  .pad-bot-50--sm {
+    padding-bottom: 50px; }
+  .pad-bot-60--sm {
+    padding-bottom: 60px; }
+  .pad-bot-70--sm {
+    padding-bottom: 70px; }
+  .pad-bot-80--sm {
+    padding-bottom: 80px; }
+  .pad-bot-90--sm {
+    padding-bottom: 90px; }
+  .pad-bot-100--sm {
+    padding-bottom: 100px; }
+  /*@property
+				name: pad-left-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ слева
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-left-0--sm {
+    padding-left: 0px; }
+  .pad-left-2--sm {
+    padding-left: 2px; }
+  .pad-left-3--sm {
+    padding-left: 3px; }
+  .pad-left-4--sm {
+    padding-left: 4px; }
+  .pad-left-5--sm {
+    padding-left: 5px; }
+  .pad-left-6--sm {
+    padding-left: 6px; }
+  .pad-left-7--sm {
+    padding-left: 7px; }
+  .pad-left-8--sm {
+    padding-left: 8px; }
+  .pad-left-9--sm {
+    padding-left: 9px; }
+  .pad-left-10--sm {
+    padding-left: 10px; }
+  .pad-left-15--sm {
+    padding-left: 15px; }
+  .pad-left-20--sm {
+    padding-left: 20px; }
+  .pad-left-25--sm {
+    padding-left: 25px; }
+  .pad-left-30--sm {
+    padding-left: 30px; }
+  .pad-left-35--sm {
+    padding-left: 35px; }
+  .pad-left-40--sm {
+    padding-left: 40px; }
+  .pad-left-45--sm {
+    padding-left: 45px; }
+  .pad-left-50--sm {
+    padding-left: 50px; }
+  .pad-left-60--sm {
+    padding-left: 60px; }
+  .pad-left-70--sm {
+    padding-left: 70px; }
+  .pad-left-80--sm {
+    padding-left: 80px; }
+  .pad-left-90--sm {
+    padding-left: 90px; }
+  .pad-left-100--sm {
+    padding-left: 100px; }
+  /*@property
+				name: pad-right-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ справа
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-right-0--sm {
+    padding-right: 0px; }
+  .pad-right-2--sm {
+    padding-right: 2px; }
+  .pad-right-3--sm {
+    padding-right: 3px; }
+  .pad-right-4--sm {
+    padding-right: 4px; }
+  .pad-right-5--sm {
+    padding-right: 5px; }
+  .pad-right-6--sm {
+    padding-right: 6px; }
+  .pad-right-7--sm {
+    padding-right: 7px; }
+  .pad-right-8--sm {
+    padding-right: 8px; }
+  .pad-right-9--sm {
+    padding-right: 9px; }
+  .pad-right-10--sm {
+    padding-right: 10px; }
+  .pad-right-15--sm {
+    padding-right: 15px; }
+  .pad-right-20--sm {
+    padding-right: 20px; }
+  .pad-right-25--sm {
+    padding-right: 25px; }
+  .pad-right-30--sm {
+    padding-right: 30px; }
+  .pad-right-35--sm {
+    padding-right: 35px; }
+  .pad-right-40--sm {
+    padding-right: 40px; }
+  .pad-right-45--sm {
+    padding-right: 45px; }
+  .pad-right-50--sm {
+    padding-right: 50px; }
+  .pad-right-60--sm {
+    padding-right: 60px; }
+  .pad-right-70--sm {
+    padding-right: 70px; }
+  .pad-right-80--sm {
+    padding-right: 80px; }
+  .pad-right-90--sm {
+    padding-right: 90px; }
+  .pad-right-100--sm {
+    padding-right: 100px; }
+  .island-0--sm {
+    padding: 0px; }
+  .island-2--sm {
+    padding: 2px; }
+  .island-3--sm {
+    padding: 3px; }
+  .island-4--sm {
+    padding: 4px; }
+  .island-5--sm {
+    padding: 5px; }
+  .island-6--sm {
+    padding: 6px; }
+  .island-7--sm {
+    padding: 7px; }
+  .island-8--sm {
+    padding: 8px; }
+  .island-9--sm {
+    padding: 9px; }
+  .island-10--sm {
+    padding: 10px; }
+  .island-15--sm {
+    padding: 15px; }
+  .island-20--sm {
+    padding: 20px; }
+  .island-25--sm {
+    padding: 25px; }
+  .island-30--sm {
+    padding: 30px; }
+  .island-35--sm {
+    padding: 35px; }
+  .island-40--sm {
+    padding: 40px; }
+  .island-45--sm {
+    padding: 45px; }
+  .island-50--sm {
+    padding: 50px; }
+  .island-60--sm {
+    padding: 60px; }
+  .island-70--sm {
+    padding: 70px; }
+  .island-80--sm {
+    padding: 80px; }
+  .island-90--sm {
+    padding: 90px; }
+  .island-100--sm {
+    padding: 100px; } }
+
+@media (max-width: 480px) {
+  /*@property
+				name: pad-h**--<BRAKEPOINT> *n
+				caption: Добавляет внутренние отступы по горизонтали 
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-h0--xs {
+    padding-left: 0px;
+    padding-right: 0px; }
+  .pad-h2--xs {
+    padding-left: 2px;
+    padding-right: 2px; }
+  .pad-h3--xs {
+    padding-left: 3px;
+    padding-right: 3px; }
+  .pad-h4--xs {
+    padding-left: 4px;
+    padding-right: 4px; }
+  .pad-h5--xs {
+    padding-left: 5px;
+    padding-right: 5px; }
+  .pad-h6--xs {
+    padding-left: 6px;
+    padding-right: 6px; }
+  .pad-h7--xs {
+    padding-left: 7px;
+    padding-right: 7px; }
+  .pad-h8--xs {
+    padding-left: 8px;
+    padding-right: 8px; }
+  .pad-h9--xs {
+    padding-left: 9px;
+    padding-right: 9px; }
+  .pad-h10--xs {
+    padding-left: 10px;
+    padding-right: 10px; }
+  .pad-h15--xs {
+    padding-left: 15px;
+    padding-right: 15px; }
+  .pad-h20--xs {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .pad-h25--xs {
+    padding-left: 25px;
+    padding-right: 25px; }
+  .pad-h30--xs {
+    padding-left: 30px;
+    padding-right: 30px; }
+  .pad-h35--xs {
+    padding-left: 35px;
+    padding-right: 35px; }
+  .pad-h40--xs {
+    padding-left: 40px;
+    padding-right: 40px; }
+  .pad-h45--xs {
+    padding-left: 45px;
+    padding-right: 45px; }
+  .pad-h50--xs {
+    padding-left: 50px;
+    padding-right: 50px; }
+  .pad-h60--xs {
+    padding-left: 60px;
+    padding-right: 60px; }
+  .pad-h70--xs {
+    padding-left: 70px;
+    padding-right: 70px; }
+  .pad-h80--xs {
+    padding-left: 80px;
+    padding-right: 80px; }
+  .pad-h90--xs {
+    padding-left: 90px;
+    padding-right: 90px; }
+  .pad-h100--xs {
+    padding-left: 100px;
+    padding-right: 100px; }
+  /*@property
+				name: pad-v**--<BRAKEPOINT> *n
+				caption: Добавляет внутренние отступы по вертикали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-v0--xs {
+    padding-top: 0px;
+    padding-bottom: 0px; }
+  .pad-v2--xs {
+    padding-top: 2px;
+    padding-bottom: 2px; }
+  .pad-v3--xs {
+    padding-top: 3px;
+    padding-bottom: 3px; }
+  .pad-v4--xs {
+    padding-top: 4px;
+    padding-bottom: 4px; }
+  .pad-v5--xs {
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .pad-v6--xs {
+    padding-top: 6px;
+    padding-bottom: 6px; }
+  .pad-v7--xs {
+    padding-top: 7px;
+    padding-bottom: 7px; }
+  .pad-v8--xs {
+    padding-top: 8px;
+    padding-bottom: 8px; }
+  .pad-v9--xs {
+    padding-top: 9px;
+    padding-bottom: 9px; }
+  .pad-v10--xs {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  .pad-v12--xs {
+    padding-top: 12px;
+    padding-bottom: 12px; }
+  .pad-v13--xs {
+    padding-top: 13px;
+    padding-bottom: 13px; }
+  .pad-v15--xs {
+    padding-top: 15px;
+    padding-bottom: 15px; }
+  .pad-v20--xs {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .pad-v25--xs {
+    padding-top: 25px;
+    padding-bottom: 25px; }
+  .pad-v30--xs {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+  .pad-v35--xs {
+    padding-top: 35px;
+    padding-bottom: 35px; }
+  .pad-v40--xs {
+    padding-top: 40px;
+    padding-bottom: 40px; }
+  .pad-v45--xs {
+    padding-top: 45px;
+    padding-bottom: 45px; }
+  .pad-v50--xs {
+    padding-top: 50px;
+    padding-bottom: 50px; }
+  .pad-v60--xs {
+    padding-top: 60px;
+    padding-bottom: 60px; }
+  .pad-v70--xs {
+    padding-top: 70px;
+    padding-bottom: 70px; }
+  .pad-v80--xs {
+    padding-top: 80px;
+    padding-bottom: 80px; }
+  .pad-v90--xs {
+    padding-top: 90px;
+    padding-bottom: 90px; }
+  .pad-v100--xs {
+    padding-top: 100px;
+    padding-bottom: 100px; }
+  /*@property
+				name: pad-top-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ сверху
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-top-0--xs {
+    padding-top: 0px; }
+  .pad-top-2--xs {
+    padding-top: 2px; }
+  .pad-top-3--xs {
+    padding-top: 3px; }
+  .pad-top-4--xs {
+    padding-top: 4px; }
+  .pad-top-5--xs {
+    padding-top: 5px; }
+  .pad-top-6--xs {
+    padding-top: 6px; }
+  .pad-top-7--xs {
+    padding-top: 7px; }
+  .pad-top-8--xs {
+    padding-top: 8px; }
+  .pad-top-9--xs {
+    padding-top: 9px; }
+  .pad-top-10--xs {
+    padding-top: 10px; }
+  .pad-top-12--xs {
+    padding-top: 12px; }
+  .pad-top-13--xs {
+    padding-top: 13px; }
+  .pad-top-15--xs {
+    padding-top: 15px; }
+  .pad-top-20--xs {
+    padding-top: 20px; }
+  .pad-top-25--xs {
+    padding-top: 25px; }
+  .pad-top-30--xs {
+    padding-top: 30px; }
+  .pad-top-35--xs {
+    padding-top: 35px; }
+  .pad-top-40--xs {
+    padding-top: 40px; }
+  .pad-top-45--xs {
+    padding-top: 45px; }
+  .pad-top-50--xs {
+    padding-top: 50px; }
+  .pad-top-60--xs {
+    padding-top: 60px; }
+  .pad-top-70--xs {
+    padding-top: 70px; }
+  .pad-top-80--xs {
+    padding-top: 80px; }
+  .pad-top-90--xs {
+    padding-top: 90px; }
+  .pad-top-100--xs {
+    padding-top: 100px; }
+  /*@property
+				name: pad-bot-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ снизу
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-bot-0--xs {
+    padding-bottom: 0px; }
+  .pad-bot-2--xs {
+    padding-bottom: 2px; }
+  .pad-bot-3--xs {
+    padding-bottom: 3px; }
+  .pad-bot-4--xs {
+    padding-bottom: 4px; }
+  .pad-bot-5--xs {
+    padding-bottom: 5px; }
+  .pad-bot-6--xs {
+    padding-bottom: 6px; }
+  .pad-bot-7--xs {
+    padding-bottom: 7px; }
+  .pad-bot-8--xs {
+    padding-bottom: 8px; }
+  .pad-bot-9--xs {
+    padding-bottom: 9px; }
+  .pad-bot-10--xs {
+    padding-bottom: 10px; }
+  .pad-bot-12--xs {
+    padding-bottom: 12px; }
+  .pad-bot-13--xs {
+    padding-bottom: 13px; }
+  .pad-bot-15--xs {
+    padding-bottom: 15px; }
+  .pad-bot-20--xs {
+    padding-bottom: 20px; }
+  .pad-bot-25--xs {
+    padding-bottom: 25px; }
+  .pad-bot-30--xs {
+    padding-bottom: 30px; }
+  .pad-bot-35--xs {
+    padding-bottom: 35px; }
+  .pad-bot-40--xs {
+    padding-bottom: 40px; }
+  .pad-bot-45--xs {
+    padding-bottom: 45px; }
+  .pad-bot-50--xs {
+    padding-bottom: 50px; }
+  .pad-bot-60--xs {
+    padding-bottom: 60px; }
+  .pad-bot-70--xs {
+    padding-bottom: 70px; }
+  .pad-bot-80--xs {
+    padding-bottom: 80px; }
+  .pad-bot-90--xs {
+    padding-bottom: 90px; }
+  .pad-bot-100--xs {
+    padding-bottom: 100px; }
+  /*@property
+				name: pad-left-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ слева
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-left-0--xs {
+    padding-left: 0px; }
+  .pad-left-2--xs {
+    padding-left: 2px; }
+  .pad-left-3--xs {
+    padding-left: 3px; }
+  .pad-left-4--xs {
+    padding-left: 4px; }
+  .pad-left-5--xs {
+    padding-left: 5px; }
+  .pad-left-6--xs {
+    padding-left: 6px; }
+  .pad-left-7--xs {
+    padding-left: 7px; }
+  .pad-left-8--xs {
+    padding-left: 8px; }
+  .pad-left-9--xs {
+    padding-left: 9px; }
+  .pad-left-10--xs {
+    padding-left: 10px; }
+  .pad-left-15--xs {
+    padding-left: 15px; }
+  .pad-left-20--xs {
+    padding-left: 20px; }
+  .pad-left-25--xs {
+    padding-left: 25px; }
+  .pad-left-30--xs {
+    padding-left: 30px; }
+  .pad-left-35--xs {
+    padding-left: 35px; }
+  .pad-left-40--xs {
+    padding-left: 40px; }
+  .pad-left-45--xs {
+    padding-left: 45px; }
+  .pad-left-50--xs {
+    padding-left: 50px; }
+  .pad-left-60--xs {
+    padding-left: 60px; }
+  .pad-left-70--xs {
+    padding-left: 70px; }
+  .pad-left-80--xs {
+    padding-left: 80px; }
+  .pad-left-90--xs {
+    padding-left: 90px; }
+  .pad-left-100--xs {
+    padding-left: 100px; }
+  /*@property
+				name: pad-right-**--<BRAKEPOINT> *n
+				caption: Добавляет внутренний отступ справа
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .pad-right-0--xs {
+    padding-right: 0px; }
+  .pad-right-2--xs {
+    padding-right: 2px; }
+  .pad-right-3--xs {
+    padding-right: 3px; }
+  .pad-right-4--xs {
+    padding-right: 4px; }
+  .pad-right-5--xs {
+    padding-right: 5px; }
+  .pad-right-6--xs {
+    padding-right: 6px; }
+  .pad-right-7--xs {
+    padding-right: 7px; }
+  .pad-right-8--xs {
+    padding-right: 8px; }
+  .pad-right-9--xs {
+    padding-right: 9px; }
+  .pad-right-10--xs {
+    padding-right: 10px; }
+  .pad-right-15--xs {
+    padding-right: 15px; }
+  .pad-right-20--xs {
+    padding-right: 20px; }
+  .pad-right-25--xs {
+    padding-right: 25px; }
+  .pad-right-30--xs {
+    padding-right: 30px; }
+  .pad-right-35--xs {
+    padding-right: 35px; }
+  .pad-right-40--xs {
+    padding-right: 40px; }
+  .pad-right-45--xs {
+    padding-right: 45px; }
+  .pad-right-50--xs {
+    padding-right: 50px; }
+  .pad-right-60--xs {
+    padding-right: 60px; }
+  .pad-right-70--xs {
+    padding-right: 70px; }
+  .pad-right-80--xs {
+    padding-right: 80px; }
+  .pad-right-90--xs {
+    padding-right: 90px; }
+  .pad-right-100--xs {
+    padding-right: 100px; }
+  .island-0--xs {
+    padding: 0px; }
+  .island-2--xs {
+    padding: 2px; }
+  .island-3--xs {
+    padding: 3px; }
+  .island-4--xs {
+    padding: 4px; }
+  .island-5--xs {
+    padding: 5px; }
+  .island-6--xs {
+    padding: 6px; }
+  .island-7--xs {
+    padding: 7px; }
+  .island-8--xs {
+    padding: 8px; }
+  .island-9--xs {
+    padding: 9px; }
+  .island-10--xs {
+    padding: 10px; }
+  .island-15--xs {
+    padding: 15px; }
+  .island-20--xs {
+    padding: 20px; }
+  .island-25--xs {
+    padding: 25px; }
+  .island-30--xs {
+    padding: 30px; }
+  .island-35--xs {
+    padding: 35px; }
+  .island-40--xs {
+    padding: 40px; }
+  .island-45--xs {
+    padding: 45px; }
+  .island-50--xs {
+    padding: 50px; }
+  .island-60--xs {
+    padding: 60px; }
+  .island-70--xs {
+    padding: 70px; }
+  .island-80--xs {
+    padding: 80px; }
+  .island-90--xs {
+    padding: 90px; }
+  .island-100--xs {
+    padding: 100px; } }
+
+/*--------------------------------------------------------
+												MARGINS
+--------------------------------------------------------*/
+/*@property
+		name: marg-** *n
+		caption: Добавляет внешние отступы со всех сторон.
+		Парметры указываются в bd{ $islands } *n
+*/
+.marg-2 {
+  margin: 2px; }
+
+.marg-3 {
+  margin: 3px; }
+
+.marg-4 {
+  margin: 4px; }
+
+.marg-5 {
+  margin: 5px; }
+
+.marg-6 {
+  margin: 6px; }
+
+.marg-7 {
+  margin: 7px; }
+
+.marg-8 {
+  margin: 8px; }
+
+.marg-9 {
+  margin: 9px; }
+
+.marg-10 {
+  margin: 10px; }
+
+.marg-15 {
+  margin: 15px; }
+
+.marg-20 {
+  margin: 20px; }
+
+.marg-25 {
+  margin: 25px; }
+
+.marg-30 {
+  margin: 30px; }
+
+.marg-35 {
+  margin: 35px; }
+
+.marg-40 {
+  margin: 40px; }
+
+.marg-45 {
+  margin: 45px; }
+
+.marg-50 {
+  margin: 50px; }
+
+.marg-60 {
+  margin: 60px; }
+
+.marg-70 {
+  margin: 70px; }
+
+.marg-80 {
+  margin: 80px; }
+
+.marg-90 {
+  margin: 90px; }
+
+.marg-100 {
+  margin: 100px; }
+
+/*@property
+		name: marg-h** *n
+		caption: Добавляет внешние отступы по горизонтали.
+		Парметры указываются в bd{ $horizontal_indents } *n
+*/
+.marg-h0 {
+  margin-left: 0px;
+  margin-right: 0px; }
+
+.marg-h2 {
+  margin-left: 2px;
+  margin-right: 2px; }
+
+.marg-h3 {
+  margin-left: 3px;
+  margin-right: 3px; }
+
+.marg-h4 {
+  margin-left: 4px;
+  margin-right: 4px; }
+
+.marg-h5 {
+  margin-left: 5px;
+  margin-right: 5px; }
+
+.marg-h6 {
+  margin-left: 6px;
+  margin-right: 6px; }
+
+.marg-h7 {
+  margin-left: 7px;
+  margin-right: 7px; }
+
+.marg-h8 {
+  margin-left: 8px;
+  margin-right: 8px; }
+
+.marg-h9 {
+  margin-left: 9px;
+  margin-right: 9px; }
+
+.marg-h10 {
+  margin-left: 10px;
+  margin-right: 10px; }
+
+.marg-h15 {
+  margin-left: 15px;
+  margin-right: 15px; }
+
+.marg-h20 {
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.marg-h25 {
+  margin-left: 25px;
+  margin-right: 25px; }
+
+.marg-h30 {
+  margin-left: 30px;
+  margin-right: 30px; }
+
+.marg-h35 {
+  margin-left: 35px;
+  margin-right: 35px; }
+
+.marg-h40 {
+  margin-left: 40px;
+  margin-right: 40px; }
+
+.marg-h45 {
+  margin-left: 45px;
+  margin-right: 45px; }
+
+.marg-h50 {
+  margin-left: 50px;
+  margin-right: 50px; }
+
+.marg-h60 {
+  margin-left: 60px;
+  margin-right: 60px; }
+
+.marg-h70 {
+  margin-left: 70px;
+  margin-right: 70px; }
+
+.marg-h80 {
+  margin-left: 80px;
+  margin-right: 80px; }
+
+.marg-h90 {
+  margin-left: 90px;
+  margin-right: 90px; }
+
+.marg-h100 {
+  margin-left: 100px;
+  margin-right: 100px; }
+
+/*@property
+		name: marg-v** *n
+		caption: Добавляет внешние отступы по вертикали.
+		Парметры указываются в bd{ $vertical_indents } *n
+*/
+.marg-v0 {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
+.marg-v2 {
+  margin-top: 2px;
+  margin-bottom: 2px; }
+
+.marg-v3 {
+  margin-top: 3px;
+  margin-bottom: 3px; }
+
+.marg-v4 {
+  margin-top: 4px;
+  margin-bottom: 4px; }
+
+.marg-v5 {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+.marg-v6 {
+  margin-top: 6px;
+  margin-bottom: 6px; }
+
+.marg-v7 {
+  margin-top: 7px;
+  margin-bottom: 7px; }
+
+.marg-v8 {
+  margin-top: 8px;
+  margin-bottom: 8px; }
+
+.marg-v9 {
+  margin-top: 9px;
+  margin-bottom: 9px; }
+
+.marg-v10 {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.marg-v12 {
+  margin-top: 12px;
+  margin-bottom: 12px; }
+
+.marg-v13 {
+  margin-top: 13px;
+  margin-bottom: 13px; }
+
+.marg-v15 {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+
+.marg-v20 {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.marg-v25 {
+  margin-top: 25px;
+  margin-bottom: 25px; }
+
+.marg-v30 {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.marg-v35 {
+  margin-top: 35px;
+  margin-bottom: 35px; }
+
+.marg-v40 {
+  margin-top: 40px;
+  margin-bottom: 40px; }
+
+.marg-v45 {
+  margin-top: 45px;
+  margin-bottom: 45px; }
+
+.marg-v50 {
+  margin-top: 50px;
+  margin-bottom: 50px; }
+
+.marg-v60 {
+  margin-top: 60px;
+  margin-bottom: 60px; }
+
+.marg-v70 {
+  margin-top: 70px;
+  margin-bottom: 70px; }
+
+.marg-v80 {
+  margin-top: 80px;
+  margin-bottom: 80px; }
+
+.marg-v90 {
+  margin-top: 90px;
+  margin-bottom: 90px; }
+
+.marg-v100 {
+  margin-top: 100px;
+  margin-bottom: 100px; }
+
+/*@property
+		name: marg-top-** *n
+		caption: Добавляет внешние отступы сверху.
+		Парметры указываются в bd{ $vertical_indents } *n
+*/
+.marg-top-0 {
+  margin-top: 0px; }
+
+.marg-top-2 {
+  margin-top: 2px; }
+
+.marg-top-3 {
+  margin-top: 3px; }
+
+.marg-top-4 {
+  margin-top: 4px; }
+
+.marg-top-5 {
+  margin-top: 5px; }
+
+.marg-top-6 {
+  margin-top: 6px; }
+
+.marg-top-7 {
+  margin-top: 7px; }
+
+.marg-top-8 {
+  margin-top: 8px; }
+
+.marg-top-9 {
+  margin-top: 9px; }
+
+.marg-top-10 {
+  margin-top: 10px; }
+
+.marg-top-12 {
+  margin-top: 12px; }
+
+.marg-top-13 {
+  margin-top: 13px; }
+
+.marg-top-15 {
+  margin-top: 15px; }
+
+.marg-top-20 {
+  margin-top: 20px; }
+
+.marg-top-25 {
+  margin-top: 25px; }
+
+.marg-top-30 {
+  margin-top: 30px; }
+
+.marg-top-35 {
+  margin-top: 35px; }
+
+.marg-top-40 {
+  margin-top: 40px; }
+
+.marg-top-45 {
+  margin-top: 45px; }
+
+.marg-top-50 {
+  margin-top: 50px; }
+
+.marg-top-60 {
+  margin-top: 60px; }
+
+.marg-top-70 {
+  margin-top: 70px; }
+
+.marg-top-80 {
+  margin-top: 80px; }
+
+.marg-top-90 {
+  margin-top: 90px; }
+
+.marg-top-100 {
+  margin-top: 100px; }
+
+/*@property
+		name: marg-bot-** *n
+		caption: Добавляет внешние отступы снизу.
+		Парметры указываются в bd{ $vertical_indents } *n
+*/
+.marg-bot-0 {
+  margin-bottom: 0px; }
+
+.marg-bot-2 {
+  margin-bottom: 2px; }
+
+.marg-bot-3 {
+  margin-bottom: 3px; }
+
+.marg-bot-4 {
+  margin-bottom: 4px; }
+
+.marg-bot-5 {
+  margin-bottom: 5px; }
+
+.marg-bot-6 {
+  margin-bottom: 6px; }
+
+.marg-bot-7 {
+  margin-bottom: 7px; }
+
+.marg-bot-8 {
+  margin-bottom: 8px; }
+
+.marg-bot-9 {
+  margin-bottom: 9px; }
+
+.marg-bot-10 {
+  margin-bottom: 10px; }
+
+.marg-bot-12 {
+  margin-bottom: 12px; }
+
+.marg-bot-13 {
+  margin-bottom: 13px; }
+
+.marg-bot-15 {
+  margin-bottom: 15px; }
+
+.marg-bot-20 {
+  margin-bottom: 20px; }
+
+.marg-bot-25 {
+  margin-bottom: 25px; }
+
+.marg-bot-30 {
+  margin-bottom: 30px; }
+
+.marg-bot-35 {
+  margin-bottom: 35px; }
+
+.marg-bot-40 {
+  margin-bottom: 40px; }
+
+.marg-bot-45 {
+  margin-bottom: 45px; }
+
+.marg-bot-50 {
+  margin-bottom: 50px; }
+
+.marg-bot-60 {
+  margin-bottom: 60px; }
+
+.marg-bot-70 {
+  margin-bottom: 70px; }
+
+.marg-bot-80 {
+  margin-bottom: 80px; }
+
+.marg-bot-90 {
+  margin-bottom: 90px; }
+
+.marg-bot-100 {
+  margin-bottom: 100px; }
+
+/*@property
+		name: marg-left-** *n
+		caption: Добавляет внешние отступы слева.
+		Парметры указываются в bd{ $horizontal_indents } *n
+*/
+.marg-left-0 {
+  margin-left: 0px; }
+
+.marg-left-2 {
+  margin-left: 2px; }
+
+.marg-left-3 {
+  margin-left: 3px; }
+
+.marg-left-4 {
+  margin-left: 4px; }
+
+.marg-left-5 {
+  margin-left: 5px; }
+
+.marg-left-6 {
+  margin-left: 6px; }
+
+.marg-left-7 {
+  margin-left: 7px; }
+
+.marg-left-8 {
+  margin-left: 8px; }
+
+.marg-left-9 {
+  margin-left: 9px; }
+
+.marg-left-10 {
+  margin-left: 10px; }
+
+.marg-left-15 {
+  margin-left: 15px; }
+
+.marg-left-20 {
+  margin-left: 20px; }
+
+.marg-left-25 {
+  margin-left: 25px; }
+
+.marg-left-30 {
+  margin-left: 30px; }
+
+.marg-left-35 {
+  margin-left: 35px; }
+
+.marg-left-40 {
+  margin-left: 40px; }
+
+.marg-left-45 {
+  margin-left: 45px; }
+
+.marg-left-50 {
+  margin-left: 50px; }
+
+.marg-left-60 {
+  margin-left: 60px; }
+
+.marg-left-70 {
+  margin-left: 70px; }
+
+.marg-left-80 {
+  margin-left: 80px; }
+
+.marg-left-90 {
+  margin-left: 90px; }
+
+.marg-left-100 {
+  margin-left: 100px; }
+
+/*@property
+		name: marg-right-** *n
+		caption: Добавляет внешние отступы справа.
+		Парметры указываются в bd{ $horizontal_indents } *n
+*/
+.marg-right-0 {
+  margin-right: 0px; }
+
+.marg-right-2 {
+  margin-right: 2px; }
+
+.marg-right-3 {
+  margin-right: 3px; }
+
+.marg-right-4 {
+  margin-right: 4px; }
+
+.marg-right-5 {
+  margin-right: 5px; }
+
+.marg-right-6 {
+  margin-right: 6px; }
+
+.marg-right-7 {
+  margin-right: 7px; }
+
+.marg-right-8 {
+  margin-right: 8px; }
+
+.marg-right-9 {
+  margin-right: 9px; }
+
+.marg-right-10 {
+  margin-right: 10px; }
+
+.marg-right-15 {
+  margin-right: 15px; }
+
+.marg-right-20 {
+  margin-right: 20px; }
+
+.marg-right-25 {
+  margin-right: 25px; }
+
+.marg-right-30 {
+  margin-right: 30px; }
+
+.marg-right-35 {
+  margin-right: 35px; }
+
+.marg-right-40 {
+  margin-right: 40px; }
+
+.marg-right-45 {
+  margin-right: 45px; }
+
+.marg-right-50 {
+  margin-right: 50px; }
+
+.marg-right-60 {
+  margin-right: 60px; }
+
+.marg-right-70 {
+  margin-right: 70px; }
+
+.marg-right-80 {
+  margin-right: 80px; }
+
+.marg-right-90 {
+  margin-right: 90px; }
+
+.marg-right-100 {
+  margin-right: 100px; }
+
+/*--------------------------------------------------------
+									MARGINS MEDIA QUERIES
+--------------------------------------------------------*/
+@media (max-width: 1200px) {
+  /*@property
+				name: marg-h**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы по горизонтали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-h0--lg {
+    margin-left: 0px;
+    margin-right: 0px; }
+  .marg-h2--lg {
+    margin-left: 2px;
+    margin-right: 2px; }
+  .marg-h3--lg {
+    margin-left: 3px;
+    margin-right: 3px; }
+  .marg-h4--lg {
+    margin-left: 4px;
+    margin-right: 4px; }
+  .marg-h5--lg {
+    margin-left: 5px;
+    margin-right: 5px; }
+  .marg-h6--lg {
+    margin-left: 6px;
+    margin-right: 6px; }
+  .marg-h7--lg {
+    margin-left: 7px;
+    margin-right: 7px; }
+  .marg-h8--lg {
+    margin-left: 8px;
+    margin-right: 8px; }
+  .marg-h9--lg {
+    margin-left: 9px;
+    margin-right: 9px; }
+  .marg-h10--lg {
+    margin-left: 10px;
+    margin-right: 10px; }
+  .marg-h15--lg {
+    margin-left: 15px;
+    margin-right: 15px; }
+  .marg-h20--lg {
+    margin-left: 20px;
+    margin-right: 20px; }
+  .marg-h25--lg {
+    margin-left: 25px;
+    margin-right: 25px; }
+  .marg-h30--lg {
+    margin-left: 30px;
+    margin-right: 30px; }
+  .marg-h35--lg {
+    margin-left: 35px;
+    margin-right: 35px; }
+  .marg-h40--lg {
+    margin-left: 40px;
+    margin-right: 40px; }
+  .marg-h45--lg {
+    margin-left: 45px;
+    margin-right: 45px; }
+  .marg-h50--lg {
+    margin-left: 50px;
+    margin-right: 50px; }
+  .marg-h60--lg {
+    margin-left: 60px;
+    margin-right: 60px; }
+  .marg-h70--lg {
+    margin-left: 70px;
+    margin-right: 70px; }
+  .marg-h80--lg {
+    margin-left: 80px;
+    margin-right: 80px; }
+  .marg-h90--lg {
+    margin-left: 90px;
+    margin-right: 90px; }
+  .marg-h100--lg {
+    margin-left: 100px;
+    margin-right: 100px; }
+  /*@property
+				name: marg-v**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы по вертикали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-v0--lg {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+  .marg-v2--lg {
+    margin-top: 2px;
+    margin-bottom: 2px; }
+  .marg-v3--lg {
+    margin-top: 3px;
+    margin-bottom: 3px; }
+  .marg-v4--lg {
+    margin-top: 4px;
+    margin-bottom: 4px; }
+  .marg-v5--lg {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+  .marg-v6--lg {
+    margin-top: 6px;
+    margin-bottom: 6px; }
+  .marg-v7--lg {
+    margin-top: 7px;
+    margin-bottom: 7px; }
+  .marg-v8--lg {
+    margin-top: 8px;
+    margin-bottom: 8px; }
+  .marg-v9--lg {
+    margin-top: 9px;
+    margin-bottom: 9px; }
+  .marg-v10--lg {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .marg-v12--lg {
+    margin-top: 12px;
+    margin-bottom: 12px; }
+  .marg-v13--lg {
+    margin-top: 13px;
+    margin-bottom: 13px; }
+  .marg-v15--lg {
+    margin-top: 15px;
+    margin-bottom: 15px; }
+  .marg-v20--lg {
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  .marg-v25--lg {
+    margin-top: 25px;
+    margin-bottom: 25px; }
+  .marg-v30--lg {
+    margin-top: 30px;
+    margin-bottom: 30px; }
+  .marg-v35--lg {
+    margin-top: 35px;
+    margin-bottom: 35px; }
+  .marg-v40--lg {
+    margin-top: 40px;
+    margin-bottom: 40px; }
+  .marg-v45--lg {
+    margin-top: 45px;
+    margin-bottom: 45px; }
+  .marg-v50--lg {
+    margin-top: 50px;
+    margin-bottom: 50px; }
+  .marg-v60--lg {
+    margin-top: 60px;
+    margin-bottom: 60px; }
+  .marg-v70--lg {
+    margin-top: 70px;
+    margin-bottom: 70px; }
+  .marg-v80--lg {
+    margin-top: 80px;
+    margin-bottom: 80px; }
+  .marg-v90--lg {
+    margin-top: 90px;
+    margin-bottom: 90px; }
+  .marg-v100--lg {
+    margin-top: 100px;
+    margin-bottom: 100px; }
+  /*@property
+				name: marg-top-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы сверху
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-top-0--lg {
+    margin-top: 0px; }
+  .marg-top-2--lg {
+    margin-top: 2px; }
+  .marg-top-3--lg {
+    margin-top: 3px; }
+  .marg-top-4--lg {
+    margin-top: 4px; }
+  .marg-top-5--lg {
+    margin-top: 5px; }
+  .marg-top-6--lg {
+    margin-top: 6px; }
+  .marg-top-7--lg {
+    margin-top: 7px; }
+  .marg-top-8--lg {
+    margin-top: 8px; }
+  .marg-top-9--lg {
+    margin-top: 9px; }
+  .marg-top-10--lg {
+    margin-top: 10px; }
+  .marg-top-12--lg {
+    margin-top: 12px; }
+  .marg-top-13--lg {
+    margin-top: 13px; }
+  .marg-top-15--lg {
+    margin-top: 15px; }
+  .marg-top-20--lg {
+    margin-top: 20px; }
+  .marg-top-25--lg {
+    margin-top: 25px; }
+  .marg-top-30--lg {
+    margin-top: 30px; }
+  .marg-top-35--lg {
+    margin-top: 35px; }
+  .marg-top-40--lg {
+    margin-top: 40px; }
+  .marg-top-45--lg {
+    margin-top: 45px; }
+  .marg-top-50--lg {
+    margin-top: 50px; }
+  .marg-top-60--lg {
+    margin-top: 60px; }
+  .marg-top-70--lg {
+    margin-top: 70px; }
+  .marg-top-80--lg {
+    margin-top: 80px; }
+  .marg-top-90--lg {
+    margin-top: 90px; }
+  .marg-top-100--lg {
+    margin-top: 100px; }
+  /*@property
+				name: marg-bot-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы снизу
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-bot-0--lg {
+    margin-bottom: 0px; }
+  .marg-bot-2--lg {
+    margin-bottom: 2px; }
+  .marg-bot-3--lg {
+    margin-bottom: 3px; }
+  .marg-bot-4--lg {
+    margin-bottom: 4px; }
+  .marg-bot-5--lg {
+    margin-bottom: 5px; }
+  .marg-bot-6--lg {
+    margin-bottom: 6px; }
+  .marg-bot-7--lg {
+    margin-bottom: 7px; }
+  .marg-bot-8--lg {
+    margin-bottom: 8px; }
+  .marg-bot-9--lg {
+    margin-bottom: 9px; }
+  .marg-bot-10--lg {
+    margin-bottom: 10px; }
+  .marg-bot-12--lg {
+    margin-bottom: 12px; }
+  .marg-bot-13--lg {
+    margin-bottom: 13px; }
+  .marg-bot-15--lg {
+    margin-bottom: 15px; }
+  .marg-bot-20--lg {
+    margin-bottom: 20px; }
+  .marg-bot-25--lg {
+    margin-bottom: 25px; }
+  .marg-bot-30--lg {
+    margin-bottom: 30px; }
+  .marg-bot-35--lg {
+    margin-bottom: 35px; }
+  .marg-bot-40--lg {
+    margin-bottom: 40px; }
+  .marg-bot-45--lg {
+    margin-bottom: 45px; }
+  .marg-bot-50--lg {
+    margin-bottom: 50px; }
+  .marg-bot-60--lg {
+    margin-bottom: 60px; }
+  .marg-bot-70--lg {
+    margin-bottom: 70px; }
+  .marg-bot-80--lg {
+    margin-bottom: 80px; }
+  .marg-bot-90--lg {
+    margin-bottom: 90px; }
+  .marg-bot-100--lg {
+    margin-bottom: 100px; }
+  /*@property
+				name: marg-left-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы слева
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-left-0--lg {
+    margin-left: 0px; }
+  .marg-left-2--lg {
+    margin-left: 2px; }
+  .marg-left-3--lg {
+    margin-left: 3px; }
+  .marg-left-4--lg {
+    margin-left: 4px; }
+  .marg-left-5--lg {
+    margin-left: 5px; }
+  .marg-left-6--lg {
+    margin-left: 6px; }
+  .marg-left-7--lg {
+    margin-left: 7px; }
+  .marg-left-8--lg {
+    margin-left: 8px; }
+  .marg-left-9--lg {
+    margin-left: 9px; }
+  .marg-left-10--lg {
+    margin-left: 10px; }
+  .marg-left-15--lg {
+    margin-left: 15px; }
+  .marg-left-20--lg {
+    margin-left: 20px; }
+  .marg-left-25--lg {
+    margin-left: 25px; }
+  .marg-left-30--lg {
+    margin-left: 30px; }
+  .marg-left-35--lg {
+    margin-left: 35px; }
+  .marg-left-40--lg {
+    margin-left: 40px; }
+  .marg-left-45--lg {
+    margin-left: 45px; }
+  .marg-left-50--lg {
+    margin-left: 50px; }
+  .marg-left-60--lg {
+    margin-left: 60px; }
+  .marg-left-70--lg {
+    margin-left: 70px; }
+  .marg-left-80--lg {
+    margin-left: 80px; }
+  .marg-left-90--lg {
+    margin-left: 90px; }
+  .marg-left-100--lg {
+    margin-left: 100px; }
+  /*@property
+				name: marg-right-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы справа
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-right-0--lg {
+    margin-right: 0px; }
+  .marg-right-2--lg {
+    margin-right: 2px; }
+  .marg-right-3--lg {
+    margin-right: 3px; }
+  .marg-right-4--lg {
+    margin-right: 4px; }
+  .marg-right-5--lg {
+    margin-right: 5px; }
+  .marg-right-6--lg {
+    margin-right: 6px; }
+  .marg-right-7--lg {
+    margin-right: 7px; }
+  .marg-right-8--lg {
+    margin-right: 8px; }
+  .marg-right-9--lg {
+    margin-right: 9px; }
+  .marg-right-10--lg {
+    margin-right: 10px; }
+  .marg-right-15--lg {
+    margin-right: 15px; }
+  .marg-right-20--lg {
+    margin-right: 20px; }
+  .marg-right-25--lg {
+    margin-right: 25px; }
+  .marg-right-30--lg {
+    margin-right: 30px; }
+  .marg-right-35--lg {
+    margin-right: 35px; }
+  .marg-right-40--lg {
+    margin-right: 40px; }
+  .marg-right-45--lg {
+    margin-right: 45px; }
+  .marg-right-50--lg {
+    margin-right: 50px; }
+  .marg-right-60--lg {
+    margin-right: 60px; }
+  .marg-right-70--lg {
+    margin-right: 70px; }
+  .marg-right-80--lg {
+    margin-right: 80px; }
+  .marg-right-90--lg {
+    margin-right: 90px; }
+  .marg-right-100--lg {
+    margin-right: 100px; } }
+
+@media (max-width: 992px) {
+  /*@property
+				name: marg-h**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы по горизонтали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-h0--md {
+    margin-left: 0px;
+    margin-right: 0px; }
+  .marg-h2--md {
+    margin-left: 2px;
+    margin-right: 2px; }
+  .marg-h3--md {
+    margin-left: 3px;
+    margin-right: 3px; }
+  .marg-h4--md {
+    margin-left: 4px;
+    margin-right: 4px; }
+  .marg-h5--md {
+    margin-left: 5px;
+    margin-right: 5px; }
+  .marg-h6--md {
+    margin-left: 6px;
+    margin-right: 6px; }
+  .marg-h7--md {
+    margin-left: 7px;
+    margin-right: 7px; }
+  .marg-h8--md {
+    margin-left: 8px;
+    margin-right: 8px; }
+  .marg-h9--md {
+    margin-left: 9px;
+    margin-right: 9px; }
+  .marg-h10--md {
+    margin-left: 10px;
+    margin-right: 10px; }
+  .marg-h15--md {
+    margin-left: 15px;
+    margin-right: 15px; }
+  .marg-h20--md {
+    margin-left: 20px;
+    margin-right: 20px; }
+  .marg-h25--md {
+    margin-left: 25px;
+    margin-right: 25px; }
+  .marg-h30--md {
+    margin-left: 30px;
+    margin-right: 30px; }
+  .marg-h35--md {
+    margin-left: 35px;
+    margin-right: 35px; }
+  .marg-h40--md {
+    margin-left: 40px;
+    margin-right: 40px; }
+  .marg-h45--md {
+    margin-left: 45px;
+    margin-right: 45px; }
+  .marg-h50--md {
+    margin-left: 50px;
+    margin-right: 50px; }
+  .marg-h60--md {
+    margin-left: 60px;
+    margin-right: 60px; }
+  .marg-h70--md {
+    margin-left: 70px;
+    margin-right: 70px; }
+  .marg-h80--md {
+    margin-left: 80px;
+    margin-right: 80px; }
+  .marg-h90--md {
+    margin-left: 90px;
+    margin-right: 90px; }
+  .marg-h100--md {
+    margin-left: 100px;
+    margin-right: 100px; }
+  /*@property
+				name: marg-v**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы по вертикали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-v0--md {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+  .marg-v2--md {
+    margin-top: 2px;
+    margin-bottom: 2px; }
+  .marg-v3--md {
+    margin-top: 3px;
+    margin-bottom: 3px; }
+  .marg-v4--md {
+    margin-top: 4px;
+    margin-bottom: 4px; }
+  .marg-v5--md {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+  .marg-v6--md {
+    margin-top: 6px;
+    margin-bottom: 6px; }
+  .marg-v7--md {
+    margin-top: 7px;
+    margin-bottom: 7px; }
+  .marg-v8--md {
+    margin-top: 8px;
+    margin-bottom: 8px; }
+  .marg-v9--md {
+    margin-top: 9px;
+    margin-bottom: 9px; }
+  .marg-v10--md {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .marg-v12--md {
+    margin-top: 12px;
+    margin-bottom: 12px; }
+  .marg-v13--md {
+    margin-top: 13px;
+    margin-bottom: 13px; }
+  .marg-v15--md {
+    margin-top: 15px;
+    margin-bottom: 15px; }
+  .marg-v20--md {
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  .marg-v25--md {
+    margin-top: 25px;
+    margin-bottom: 25px; }
+  .marg-v30--md {
+    margin-top: 30px;
+    margin-bottom: 30px; }
+  .marg-v35--md {
+    margin-top: 35px;
+    margin-bottom: 35px; }
+  .marg-v40--md {
+    margin-top: 40px;
+    margin-bottom: 40px; }
+  .marg-v45--md {
+    margin-top: 45px;
+    margin-bottom: 45px; }
+  .marg-v50--md {
+    margin-top: 50px;
+    margin-bottom: 50px; }
+  .marg-v60--md {
+    margin-top: 60px;
+    margin-bottom: 60px; }
+  .marg-v70--md {
+    margin-top: 70px;
+    margin-bottom: 70px; }
+  .marg-v80--md {
+    margin-top: 80px;
+    margin-bottom: 80px; }
+  .marg-v90--md {
+    margin-top: 90px;
+    margin-bottom: 90px; }
+  .marg-v100--md {
+    margin-top: 100px;
+    margin-bottom: 100px; }
+  /*@property
+				name: marg-top-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы сверху
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-top-0--md {
+    margin-top: 0px; }
+  .marg-top-2--md {
+    margin-top: 2px; }
+  .marg-top-3--md {
+    margin-top: 3px; }
+  .marg-top-4--md {
+    margin-top: 4px; }
+  .marg-top-5--md {
+    margin-top: 5px; }
+  .marg-top-6--md {
+    margin-top: 6px; }
+  .marg-top-7--md {
+    margin-top: 7px; }
+  .marg-top-8--md {
+    margin-top: 8px; }
+  .marg-top-9--md {
+    margin-top: 9px; }
+  .marg-top-10--md {
+    margin-top: 10px; }
+  .marg-top-12--md {
+    margin-top: 12px; }
+  .marg-top-13--md {
+    margin-top: 13px; }
+  .marg-top-15--md {
+    margin-top: 15px; }
+  .marg-top-20--md {
+    margin-top: 20px; }
+  .marg-top-25--md {
+    margin-top: 25px; }
+  .marg-top-30--md {
+    margin-top: 30px; }
+  .marg-top-35--md {
+    margin-top: 35px; }
+  .marg-top-40--md {
+    margin-top: 40px; }
+  .marg-top-45--md {
+    margin-top: 45px; }
+  .marg-top-50--md {
+    margin-top: 50px; }
+  .marg-top-60--md {
+    margin-top: 60px; }
+  .marg-top-70--md {
+    margin-top: 70px; }
+  .marg-top-80--md {
+    margin-top: 80px; }
+  .marg-top-90--md {
+    margin-top: 90px; }
+  .marg-top-100--md {
+    margin-top: 100px; }
+  /*@property
+				name: marg-bot-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы снизу
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-bot-0--md {
+    margin-bottom: 0px; }
+  .marg-bot-2--md {
+    margin-bottom: 2px; }
+  .marg-bot-3--md {
+    margin-bottom: 3px; }
+  .marg-bot-4--md {
+    margin-bottom: 4px; }
+  .marg-bot-5--md {
+    margin-bottom: 5px; }
+  .marg-bot-6--md {
+    margin-bottom: 6px; }
+  .marg-bot-7--md {
+    margin-bottom: 7px; }
+  .marg-bot-8--md {
+    margin-bottom: 8px; }
+  .marg-bot-9--md {
+    margin-bottom: 9px; }
+  .marg-bot-10--md {
+    margin-bottom: 10px; }
+  .marg-bot-12--md {
+    margin-bottom: 12px; }
+  .marg-bot-13--md {
+    margin-bottom: 13px; }
+  .marg-bot-15--md {
+    margin-bottom: 15px; }
+  .marg-bot-20--md {
+    margin-bottom: 20px; }
+  .marg-bot-25--md {
+    margin-bottom: 25px; }
+  .marg-bot-30--md {
+    margin-bottom: 30px; }
+  .marg-bot-35--md {
+    margin-bottom: 35px; }
+  .marg-bot-40--md {
+    margin-bottom: 40px; }
+  .marg-bot-45--md {
+    margin-bottom: 45px; }
+  .marg-bot-50--md {
+    margin-bottom: 50px; }
+  .marg-bot-60--md {
+    margin-bottom: 60px; }
+  .marg-bot-70--md {
+    margin-bottom: 70px; }
+  .marg-bot-80--md {
+    margin-bottom: 80px; }
+  .marg-bot-90--md {
+    margin-bottom: 90px; }
+  .marg-bot-100--md {
+    margin-bottom: 100px; }
+  /*@property
+				name: marg-left-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы слева
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-left-0--md {
+    margin-left: 0px; }
+  .marg-left-2--md {
+    margin-left: 2px; }
+  .marg-left-3--md {
+    margin-left: 3px; }
+  .marg-left-4--md {
+    margin-left: 4px; }
+  .marg-left-5--md {
+    margin-left: 5px; }
+  .marg-left-6--md {
+    margin-left: 6px; }
+  .marg-left-7--md {
+    margin-left: 7px; }
+  .marg-left-8--md {
+    margin-left: 8px; }
+  .marg-left-9--md {
+    margin-left: 9px; }
+  .marg-left-10--md {
+    margin-left: 10px; }
+  .marg-left-15--md {
+    margin-left: 15px; }
+  .marg-left-20--md {
+    margin-left: 20px; }
+  .marg-left-25--md {
+    margin-left: 25px; }
+  .marg-left-30--md {
+    margin-left: 30px; }
+  .marg-left-35--md {
+    margin-left: 35px; }
+  .marg-left-40--md {
+    margin-left: 40px; }
+  .marg-left-45--md {
+    margin-left: 45px; }
+  .marg-left-50--md {
+    margin-left: 50px; }
+  .marg-left-60--md {
+    margin-left: 60px; }
+  .marg-left-70--md {
+    margin-left: 70px; }
+  .marg-left-80--md {
+    margin-left: 80px; }
+  .marg-left-90--md {
+    margin-left: 90px; }
+  .marg-left-100--md {
+    margin-left: 100px; }
+  /*@property
+				name: marg-right-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы справа
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-right-0--md {
+    margin-right: 0px; }
+  .marg-right-2--md {
+    margin-right: 2px; }
+  .marg-right-3--md {
+    margin-right: 3px; }
+  .marg-right-4--md {
+    margin-right: 4px; }
+  .marg-right-5--md {
+    margin-right: 5px; }
+  .marg-right-6--md {
+    margin-right: 6px; }
+  .marg-right-7--md {
+    margin-right: 7px; }
+  .marg-right-8--md {
+    margin-right: 8px; }
+  .marg-right-9--md {
+    margin-right: 9px; }
+  .marg-right-10--md {
+    margin-right: 10px; }
+  .marg-right-15--md {
+    margin-right: 15px; }
+  .marg-right-20--md {
+    margin-right: 20px; }
+  .marg-right-25--md {
+    margin-right: 25px; }
+  .marg-right-30--md {
+    margin-right: 30px; }
+  .marg-right-35--md {
+    margin-right: 35px; }
+  .marg-right-40--md {
+    margin-right: 40px; }
+  .marg-right-45--md {
+    margin-right: 45px; }
+  .marg-right-50--md {
+    margin-right: 50px; }
+  .marg-right-60--md {
+    margin-right: 60px; }
+  .marg-right-70--md {
+    margin-right: 70px; }
+  .marg-right-80--md {
+    margin-right: 80px; }
+  .marg-right-90--md {
+    margin-right: 90px; }
+  .marg-right-100--md {
+    margin-right: 100px; } }
+
+@media (max-width: 768px) {
+  /*@property
+				name: marg-h**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы по горизонтали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-h0--sm {
+    margin-left: 0px;
+    margin-right: 0px; }
+  .marg-h2--sm {
+    margin-left: 2px;
+    margin-right: 2px; }
+  .marg-h3--sm {
+    margin-left: 3px;
+    margin-right: 3px; }
+  .marg-h4--sm {
+    margin-left: 4px;
+    margin-right: 4px; }
+  .marg-h5--sm {
+    margin-left: 5px;
+    margin-right: 5px; }
+  .marg-h6--sm {
+    margin-left: 6px;
+    margin-right: 6px; }
+  .marg-h7--sm {
+    margin-left: 7px;
+    margin-right: 7px; }
+  .marg-h8--sm {
+    margin-left: 8px;
+    margin-right: 8px; }
+  .marg-h9--sm {
+    margin-left: 9px;
+    margin-right: 9px; }
+  .marg-h10--sm {
+    margin-left: 10px;
+    margin-right: 10px; }
+  .marg-h15--sm {
+    margin-left: 15px;
+    margin-right: 15px; }
+  .marg-h20--sm {
+    margin-left: 20px;
+    margin-right: 20px; }
+  .marg-h25--sm {
+    margin-left: 25px;
+    margin-right: 25px; }
+  .marg-h30--sm {
+    margin-left: 30px;
+    margin-right: 30px; }
+  .marg-h35--sm {
+    margin-left: 35px;
+    margin-right: 35px; }
+  .marg-h40--sm {
+    margin-left: 40px;
+    margin-right: 40px; }
+  .marg-h45--sm {
+    margin-left: 45px;
+    margin-right: 45px; }
+  .marg-h50--sm {
+    margin-left: 50px;
+    margin-right: 50px; }
+  .marg-h60--sm {
+    margin-left: 60px;
+    margin-right: 60px; }
+  .marg-h70--sm {
+    margin-left: 70px;
+    margin-right: 70px; }
+  .marg-h80--sm {
+    margin-left: 80px;
+    margin-right: 80px; }
+  .marg-h90--sm {
+    margin-left: 90px;
+    margin-right: 90px; }
+  .marg-h100--sm {
+    margin-left: 100px;
+    margin-right: 100px; }
+  /*@property
+				name: marg-v**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы по вертикали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-v0--sm {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+  .marg-v2--sm {
+    margin-top: 2px;
+    margin-bottom: 2px; }
+  .marg-v3--sm {
+    margin-top: 3px;
+    margin-bottom: 3px; }
+  .marg-v4--sm {
+    margin-top: 4px;
+    margin-bottom: 4px; }
+  .marg-v5--sm {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+  .marg-v6--sm {
+    margin-top: 6px;
+    margin-bottom: 6px; }
+  .marg-v7--sm {
+    margin-top: 7px;
+    margin-bottom: 7px; }
+  .marg-v8--sm {
+    margin-top: 8px;
+    margin-bottom: 8px; }
+  .marg-v9--sm {
+    margin-top: 9px;
+    margin-bottom: 9px; }
+  .marg-v10--sm {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .marg-v12--sm {
+    margin-top: 12px;
+    margin-bottom: 12px; }
+  .marg-v13--sm {
+    margin-top: 13px;
+    margin-bottom: 13px; }
+  .marg-v15--sm {
+    margin-top: 15px;
+    margin-bottom: 15px; }
+  .marg-v20--sm {
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  .marg-v25--sm {
+    margin-top: 25px;
+    margin-bottom: 25px; }
+  .marg-v30--sm {
+    margin-top: 30px;
+    margin-bottom: 30px; }
+  .marg-v35--sm {
+    margin-top: 35px;
+    margin-bottom: 35px; }
+  .marg-v40--sm {
+    margin-top: 40px;
+    margin-bottom: 40px; }
+  .marg-v45--sm {
+    margin-top: 45px;
+    margin-bottom: 45px; }
+  .marg-v50--sm {
+    margin-top: 50px;
+    margin-bottom: 50px; }
+  .marg-v60--sm {
+    margin-top: 60px;
+    margin-bottom: 60px; }
+  .marg-v70--sm {
+    margin-top: 70px;
+    margin-bottom: 70px; }
+  .marg-v80--sm {
+    margin-top: 80px;
+    margin-bottom: 80px; }
+  .marg-v90--sm {
+    margin-top: 90px;
+    margin-bottom: 90px; }
+  .marg-v100--sm {
+    margin-top: 100px;
+    margin-bottom: 100px; }
+  /*@property
+				name: marg-top-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы сверху
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-top-0--sm {
+    margin-top: 0px; }
+  .marg-top-2--sm {
+    margin-top: 2px; }
+  .marg-top-3--sm {
+    margin-top: 3px; }
+  .marg-top-4--sm {
+    margin-top: 4px; }
+  .marg-top-5--sm {
+    margin-top: 5px; }
+  .marg-top-6--sm {
+    margin-top: 6px; }
+  .marg-top-7--sm {
+    margin-top: 7px; }
+  .marg-top-8--sm {
+    margin-top: 8px; }
+  .marg-top-9--sm {
+    margin-top: 9px; }
+  .marg-top-10--sm {
+    margin-top: 10px; }
+  .marg-top-12--sm {
+    margin-top: 12px; }
+  .marg-top-13--sm {
+    margin-top: 13px; }
+  .marg-top-15--sm {
+    margin-top: 15px; }
+  .marg-top-20--sm {
+    margin-top: 20px; }
+  .marg-top-25--sm {
+    margin-top: 25px; }
+  .marg-top-30--sm {
+    margin-top: 30px; }
+  .marg-top-35--sm {
+    margin-top: 35px; }
+  .marg-top-40--sm {
+    margin-top: 40px; }
+  .marg-top-45--sm {
+    margin-top: 45px; }
+  .marg-top-50--sm {
+    margin-top: 50px; }
+  .marg-top-60--sm {
+    margin-top: 60px; }
+  .marg-top-70--sm {
+    margin-top: 70px; }
+  .marg-top-80--sm {
+    margin-top: 80px; }
+  .marg-top-90--sm {
+    margin-top: 90px; }
+  .marg-top-100--sm {
+    margin-top: 100px; }
+  /*@property
+				name: marg-bot-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы снизу
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-bot-0--sm {
+    margin-bottom: 0px; }
+  .marg-bot-2--sm {
+    margin-bottom: 2px; }
+  .marg-bot-3--sm {
+    margin-bottom: 3px; }
+  .marg-bot-4--sm {
+    margin-bottom: 4px; }
+  .marg-bot-5--sm {
+    margin-bottom: 5px; }
+  .marg-bot-6--sm {
+    margin-bottom: 6px; }
+  .marg-bot-7--sm {
+    margin-bottom: 7px; }
+  .marg-bot-8--sm {
+    margin-bottom: 8px; }
+  .marg-bot-9--sm {
+    margin-bottom: 9px; }
+  .marg-bot-10--sm {
+    margin-bottom: 10px; }
+  .marg-bot-12--sm {
+    margin-bottom: 12px; }
+  .marg-bot-13--sm {
+    margin-bottom: 13px; }
+  .marg-bot-15--sm {
+    margin-bottom: 15px; }
+  .marg-bot-20--sm {
+    margin-bottom: 20px; }
+  .marg-bot-25--sm {
+    margin-bottom: 25px; }
+  .marg-bot-30--sm {
+    margin-bottom: 30px; }
+  .marg-bot-35--sm {
+    margin-bottom: 35px; }
+  .marg-bot-40--sm {
+    margin-bottom: 40px; }
+  .marg-bot-45--sm {
+    margin-bottom: 45px; }
+  .marg-bot-50--sm {
+    margin-bottom: 50px; }
+  .marg-bot-60--sm {
+    margin-bottom: 60px; }
+  .marg-bot-70--sm {
+    margin-bottom: 70px; }
+  .marg-bot-80--sm {
+    margin-bottom: 80px; }
+  .marg-bot-90--sm {
+    margin-bottom: 90px; }
+  .marg-bot-100--sm {
+    margin-bottom: 100px; }
+  /*@property
+				name: marg-left-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы слева
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-left-0--sm {
+    margin-left: 0px; }
+  .marg-left-2--sm {
+    margin-left: 2px; }
+  .marg-left-3--sm {
+    margin-left: 3px; }
+  .marg-left-4--sm {
+    margin-left: 4px; }
+  .marg-left-5--sm {
+    margin-left: 5px; }
+  .marg-left-6--sm {
+    margin-left: 6px; }
+  .marg-left-7--sm {
+    margin-left: 7px; }
+  .marg-left-8--sm {
+    margin-left: 8px; }
+  .marg-left-9--sm {
+    margin-left: 9px; }
+  .marg-left-10--sm {
+    margin-left: 10px; }
+  .marg-left-15--sm {
+    margin-left: 15px; }
+  .marg-left-20--sm {
+    margin-left: 20px; }
+  .marg-left-25--sm {
+    margin-left: 25px; }
+  .marg-left-30--sm {
+    margin-left: 30px; }
+  .marg-left-35--sm {
+    margin-left: 35px; }
+  .marg-left-40--sm {
+    margin-left: 40px; }
+  .marg-left-45--sm {
+    margin-left: 45px; }
+  .marg-left-50--sm {
+    margin-left: 50px; }
+  .marg-left-60--sm {
+    margin-left: 60px; }
+  .marg-left-70--sm {
+    margin-left: 70px; }
+  .marg-left-80--sm {
+    margin-left: 80px; }
+  .marg-left-90--sm {
+    margin-left: 90px; }
+  .marg-left-100--sm {
+    margin-left: 100px; }
+  /*@property
+				name: marg-right-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы справа
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-right-0--sm {
+    margin-right: 0px; }
+  .marg-right-2--sm {
+    margin-right: 2px; }
+  .marg-right-3--sm {
+    margin-right: 3px; }
+  .marg-right-4--sm {
+    margin-right: 4px; }
+  .marg-right-5--sm {
+    margin-right: 5px; }
+  .marg-right-6--sm {
+    margin-right: 6px; }
+  .marg-right-7--sm {
+    margin-right: 7px; }
+  .marg-right-8--sm {
+    margin-right: 8px; }
+  .marg-right-9--sm {
+    margin-right: 9px; }
+  .marg-right-10--sm {
+    margin-right: 10px; }
+  .marg-right-15--sm {
+    margin-right: 15px; }
+  .marg-right-20--sm {
+    margin-right: 20px; }
+  .marg-right-25--sm {
+    margin-right: 25px; }
+  .marg-right-30--sm {
+    margin-right: 30px; }
+  .marg-right-35--sm {
+    margin-right: 35px; }
+  .marg-right-40--sm {
+    margin-right: 40px; }
+  .marg-right-45--sm {
+    margin-right: 45px; }
+  .marg-right-50--sm {
+    margin-right: 50px; }
+  .marg-right-60--sm {
+    margin-right: 60px; }
+  .marg-right-70--sm {
+    margin-right: 70px; }
+  .marg-right-80--sm {
+    margin-right: 80px; }
+  .marg-right-90--sm {
+    margin-right: 90px; }
+  .marg-right-100--sm {
+    margin-right: 100px; } }
+
+@media (max-width: 480px) {
+  /*@property
+				name: marg-h**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы по горизонтали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-h0--xs {
+    margin-left: 0px;
+    margin-right: 0px; }
+  .marg-h2--xs {
+    margin-left: 2px;
+    margin-right: 2px; }
+  .marg-h3--xs {
+    margin-left: 3px;
+    margin-right: 3px; }
+  .marg-h4--xs {
+    margin-left: 4px;
+    margin-right: 4px; }
+  .marg-h5--xs {
+    margin-left: 5px;
+    margin-right: 5px; }
+  .marg-h6--xs {
+    margin-left: 6px;
+    margin-right: 6px; }
+  .marg-h7--xs {
+    margin-left: 7px;
+    margin-right: 7px; }
+  .marg-h8--xs {
+    margin-left: 8px;
+    margin-right: 8px; }
+  .marg-h9--xs {
+    margin-left: 9px;
+    margin-right: 9px; }
+  .marg-h10--xs {
+    margin-left: 10px;
+    margin-right: 10px; }
+  .marg-h15--xs {
+    margin-left: 15px;
+    margin-right: 15px; }
+  .marg-h20--xs {
+    margin-left: 20px;
+    margin-right: 20px; }
+  .marg-h25--xs {
+    margin-left: 25px;
+    margin-right: 25px; }
+  .marg-h30--xs {
+    margin-left: 30px;
+    margin-right: 30px; }
+  .marg-h35--xs {
+    margin-left: 35px;
+    margin-right: 35px; }
+  .marg-h40--xs {
+    margin-left: 40px;
+    margin-right: 40px; }
+  .marg-h45--xs {
+    margin-left: 45px;
+    margin-right: 45px; }
+  .marg-h50--xs {
+    margin-left: 50px;
+    margin-right: 50px; }
+  .marg-h60--xs {
+    margin-left: 60px;
+    margin-right: 60px; }
+  .marg-h70--xs {
+    margin-left: 70px;
+    margin-right: 70px; }
+  .marg-h80--xs {
+    margin-left: 80px;
+    margin-right: 80px; }
+  .marg-h90--xs {
+    margin-left: 90px;
+    margin-right: 90px; }
+  .marg-h100--xs {
+    margin-left: 100px;
+    margin-right: 100px; }
+  /*@property
+				name: marg-v**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы по вертикали
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-v0--xs {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+  .marg-v2--xs {
+    margin-top: 2px;
+    margin-bottom: 2px; }
+  .marg-v3--xs {
+    margin-top: 3px;
+    margin-bottom: 3px; }
+  .marg-v4--xs {
+    margin-top: 4px;
+    margin-bottom: 4px; }
+  .marg-v5--xs {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+  .marg-v6--xs {
+    margin-top: 6px;
+    margin-bottom: 6px; }
+  .marg-v7--xs {
+    margin-top: 7px;
+    margin-bottom: 7px; }
+  .marg-v8--xs {
+    margin-top: 8px;
+    margin-bottom: 8px; }
+  .marg-v9--xs {
+    margin-top: 9px;
+    margin-bottom: 9px; }
+  .marg-v10--xs {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .marg-v12--xs {
+    margin-top: 12px;
+    margin-bottom: 12px; }
+  .marg-v13--xs {
+    margin-top: 13px;
+    margin-bottom: 13px; }
+  .marg-v15--xs {
+    margin-top: 15px;
+    margin-bottom: 15px; }
+  .marg-v20--xs {
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  .marg-v25--xs {
+    margin-top: 25px;
+    margin-bottom: 25px; }
+  .marg-v30--xs {
+    margin-top: 30px;
+    margin-bottom: 30px; }
+  .marg-v35--xs {
+    margin-top: 35px;
+    margin-bottom: 35px; }
+  .marg-v40--xs {
+    margin-top: 40px;
+    margin-bottom: 40px; }
+  .marg-v45--xs {
+    margin-top: 45px;
+    margin-bottom: 45px; }
+  .marg-v50--xs {
+    margin-top: 50px;
+    margin-bottom: 50px; }
+  .marg-v60--xs {
+    margin-top: 60px;
+    margin-bottom: 60px; }
+  .marg-v70--xs {
+    margin-top: 70px;
+    margin-bottom: 70px; }
+  .marg-v80--xs {
+    margin-top: 80px;
+    margin-bottom: 80px; }
+  .marg-v90--xs {
+    margin-top: 90px;
+    margin-bottom: 90px; }
+  .marg-v100--xs {
+    margin-top: 100px;
+    margin-bottom: 100px; }
+  /*@property
+				name: marg-top-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы сверху
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-top-0--xs {
+    margin-top: 0px; }
+  .marg-top-2--xs {
+    margin-top: 2px; }
+  .marg-top-3--xs {
+    margin-top: 3px; }
+  .marg-top-4--xs {
+    margin-top: 4px; }
+  .marg-top-5--xs {
+    margin-top: 5px; }
+  .marg-top-6--xs {
+    margin-top: 6px; }
+  .marg-top-7--xs {
+    margin-top: 7px; }
+  .marg-top-8--xs {
+    margin-top: 8px; }
+  .marg-top-9--xs {
+    margin-top: 9px; }
+  .marg-top-10--xs {
+    margin-top: 10px; }
+  .marg-top-12--xs {
+    margin-top: 12px; }
+  .marg-top-13--xs {
+    margin-top: 13px; }
+  .marg-top-15--xs {
+    margin-top: 15px; }
+  .marg-top-20--xs {
+    margin-top: 20px; }
+  .marg-top-25--xs {
+    margin-top: 25px; }
+  .marg-top-30--xs {
+    margin-top: 30px; }
+  .marg-top-35--xs {
+    margin-top: 35px; }
+  .marg-top-40--xs {
+    margin-top: 40px; }
+  .marg-top-45--xs {
+    margin-top: 45px; }
+  .marg-top-50--xs {
+    margin-top: 50px; }
+  .marg-top-60--xs {
+    margin-top: 60px; }
+  .marg-top-70--xs {
+    margin-top: 70px; }
+  .marg-top-80--xs {
+    margin-top: 80px; }
+  .marg-top-90--xs {
+    margin-top: 90px; }
+  .marg-top-100--xs {
+    margin-top: 100px; }
+  /*@property
+				name: marg-bot-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы снизу
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $vertical_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-bot-0--xs {
+    margin-bottom: 0px; }
+  .marg-bot-2--xs {
+    margin-bottom: 2px; }
+  .marg-bot-3--xs {
+    margin-bottom: 3px; }
+  .marg-bot-4--xs {
+    margin-bottom: 4px; }
+  .marg-bot-5--xs {
+    margin-bottom: 5px; }
+  .marg-bot-6--xs {
+    margin-bottom: 6px; }
+  .marg-bot-7--xs {
+    margin-bottom: 7px; }
+  .marg-bot-8--xs {
+    margin-bottom: 8px; }
+  .marg-bot-9--xs {
+    margin-bottom: 9px; }
+  .marg-bot-10--xs {
+    margin-bottom: 10px; }
+  .marg-bot-12--xs {
+    margin-bottom: 12px; }
+  .marg-bot-13--xs {
+    margin-bottom: 13px; }
+  .marg-bot-15--xs {
+    margin-bottom: 15px; }
+  .marg-bot-20--xs {
+    margin-bottom: 20px; }
+  .marg-bot-25--xs {
+    margin-bottom: 25px; }
+  .marg-bot-30--xs {
+    margin-bottom: 30px; }
+  .marg-bot-35--xs {
+    margin-bottom: 35px; }
+  .marg-bot-40--xs {
+    margin-bottom: 40px; }
+  .marg-bot-45--xs {
+    margin-bottom: 45px; }
+  .marg-bot-50--xs {
+    margin-bottom: 50px; }
+  .marg-bot-60--xs {
+    margin-bottom: 60px; }
+  .marg-bot-70--xs {
+    margin-bottom: 70px; }
+  .marg-bot-80--xs {
+    margin-bottom: 80px; }
+  .marg-bot-90--xs {
+    margin-bottom: 90px; }
+  .marg-bot-100--xs {
+    margin-bottom: 100px; }
+  /*@property
+				name: marg-left-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы слева
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-left-0--xs {
+    margin-left: 0px; }
+  .marg-left-2--xs {
+    margin-left: 2px; }
+  .marg-left-3--xs {
+    margin-left: 3px; }
+  .marg-left-4--xs {
+    margin-left: 4px; }
+  .marg-left-5--xs {
+    margin-left: 5px; }
+  .marg-left-6--xs {
+    margin-left: 6px; }
+  .marg-left-7--xs {
+    margin-left: 7px; }
+  .marg-left-8--xs {
+    margin-left: 8px; }
+  .marg-left-9--xs {
+    margin-left: 9px; }
+  .marg-left-10--xs {
+    margin-left: 10px; }
+  .marg-left-15--xs {
+    margin-left: 15px; }
+  .marg-left-20--xs {
+    margin-left: 20px; }
+  .marg-left-25--xs {
+    margin-left: 25px; }
+  .marg-left-30--xs {
+    margin-left: 30px; }
+  .marg-left-35--xs {
+    margin-left: 35px; }
+  .marg-left-40--xs {
+    margin-left: 40px; }
+  .marg-left-45--xs {
+    margin-left: 45px; }
+  .marg-left-50--xs {
+    margin-left: 50px; }
+  .marg-left-60--xs {
+    margin-left: 60px; }
+  .marg-left-70--xs {
+    margin-left: 70px; }
+  .marg-left-80--xs {
+    margin-left: 80px; }
+  .marg-left-90--xs {
+    margin-left: 90px; }
+  .marg-left-100--xs {
+    margin-left: 100px; }
+  /*@property
+				name: marg-right-**--<BRAKEPOINT> *n
+				caption: Добавляет внешние отступы справа
+				при разрешении <BRAKEPOINT>.
+				Парметры указываются в bd{ $horizontal_indents } и 
+				bd{ $grid_prefixes } *n
+		*/
+  .marg-right-0--xs {
+    margin-right: 0px; }
+  .marg-right-2--xs {
+    margin-right: 2px; }
+  .marg-right-3--xs {
+    margin-right: 3px; }
+  .marg-right-4--xs {
+    margin-right: 4px; }
+  .marg-right-5--xs {
+    margin-right: 5px; }
+  .marg-right-6--xs {
+    margin-right: 6px; }
+  .marg-right-7--xs {
+    margin-right: 7px; }
+  .marg-right-8--xs {
+    margin-right: 8px; }
+  .marg-right-9--xs {
+    margin-right: 9px; }
+  .marg-right-10--xs {
+    margin-right: 10px; }
+  .marg-right-15--xs {
+    margin-right: 15px; }
+  .marg-right-20--xs {
+    margin-right: 20px; }
+  .marg-right-25--xs {
+    margin-right: 25px; }
+  .marg-right-30--xs {
+    margin-right: 30px; }
+  .marg-right-35--xs {
+    margin-right: 35px; }
+  .marg-right-40--xs {
+    margin-right: 40px; }
+  .marg-right-45--xs {
+    margin-right: 45px; }
+  .marg-right-50--xs {
+    margin-right: 50px; }
+  .marg-right-60--xs {
+    margin-right: 60px; }
+  .marg-right-70--xs {
+    margin-right: 70px; }
+  .marg-right-80--xs {
+    margin-right: 80px; }
+  .marg-right-90--xs {
+    margin-right: 90px; }
+  .marg-right-100--xs {
+    margin-right: 100px; } }
+
+/*--------------------------------------------------------
+												RESETS
+--------------------------------------------------------*/
+/*@property
+		name: no-marg--<BRAKEPOINT> *n
+		caption: Убирает внешние отступы блока при разрешении <BRAKEPOINT>. *n
+*/
+@media (max-width: 1200px) {
+  .no-pad--lg {
+    padding: 0; } }
+
+@media (max-width: 992px) {
+  .no-pad--md {
+    padding: 0; } }
+
+@media (max-width: 768px) {
+  .no-pad--sm {
+    padding: 0; } }
+
+@media (max-width: 480px) {
+  .no-pad--xs {
+    padding: 0; } }
+
+/*@property
+		name: no-pad--<BRAKEPOINT> *n
+		caption: Убирает внутренние отступы блока при разрешении <BRAKEPOINT>. *n
+*/
+@media (max-width: 1200px) {
+  .no-marg--lg {
+    margin: 0; } }
+
+@media (max-width: 992px) {
+  .no-marg--md {
+    margin: 0; } }
+
+@media (max-width: 768px) {
+  .no-marg--sm {
+    margin: 0; } }
+
+@media (max-width: 480px) {
+  .no-marg--xs {
+    margin: 0; } }
+
+/*@property
+		name: exact-fit--<BRAKEPOINT> *n
+		caption: Убирает внутренние и внешние отступы блока при разрешении <BRAKEPOINT>. *n
+*/
+@media (max-width: 1200px) {
+  .exact-fit--lg {
+    padding: 0;
+    margin: 0; } }
+
+@media (max-width: 992px) {
+  .exact-fit--md {
+    padding: 0;
+    margin: 0; } }
+
+@media (max-width: 768px) {
+  .exact-fit--sm {
+    padding: 0;
+    margin: 0; } }
+
+@media (max-width: 480px) {
+  .exact-fit--xs {
+    padding: 0;
+    margin: 0; } }
+
+/* -----------------------------------------------------
+	<HEADER> styles
+*/
+.navbar {
+  margin: 0;
+  background: inherit;
+  border-radius: 0;
+  border: none;
+  color: #9a9fa5;
+  font-size: 13px; }
+  .navbar a {
+    color: #fff;
+    text-decoration: none; }
+    .navbar a:focus {
+      text-decoration: none; }
+    .navbar a:hover {
+      color: #65717f; }
+  .navbar .navbar-text {
+    color: #9a9fa5;
+    margin: 20px 0; }
+  .navbar .lined-navbar > li > a {
+    position: relative;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 20px;
+    color: #9a9fa5;
+    text-transform: uppercase; }
+    .navbar .lined-navbar > li > a .fa {
+      color: #65717f;
+      font-weight: bold;
+      position: relative;
+      margin-right: 4px; }
+    .navbar .lined-navbar > li > a .fa-chevron-down {
+      color: inherit;
+      font-size: 85%;
+      font-weight: 100;
+      bottom: 2px; }
+    .navbar .lined-navbar > li > a:hover, .navbar .lined-navbar > li > a:focus {
+      color: #fff; }
+    .navbar .lined-navbar > li > a:after {
+      content: '';
+      display: block;
+      -webkit-transition: .2s;
+      transition: .2s;
+      position: absolute;
+      bottom: 0;
+      left: -1px;
+      width: 1px;
+      height: -webkit-calc(50% + 5px);
+      height: calc(50% + 5px);
+      background: rgba(255, 255, 255, 0.1); }
+  .navbar .lined-navbar .dropdown-menu {
+    border-radius: 0;
+    border: none;
+    background: #3c434a;
+    padding: 10px 0;
+    font-size: 13px; }
+    .navbar .lined-navbar .dropdown-menu li {
+      display: block;
+      padding: 0; }
+      .navbar .lined-navbar .dropdown-menu li a {
+        padding: 8px 15px;
+        color: #9a9fa5; }
+        .navbar .lined-navbar .dropdown-menu li a:hover, .navbar .lined-navbar .dropdown-menu li a:focus {
+          background: rgba(255, 255, 255, 0.1);
+          color: #fff; }
+  .navbar .lined-navbar .open > a {
+    background: #3c434a;
+    color: #fff; }
+    .navbar .lined-navbar .open > a:hover, .navbar .lined-navbar .open > a:focus {
+      background: #3c434a;
+      color: #fff; }
+    .navbar .lined-navbar .open > a:after {
+      opacity: 0; }
+
+.main-header {
+  position: relative;
+  z-index: 6; }
+  .main-header .btn.btn-default {
+    background: transparent;
+    box-shadow: none;
+    color: #9a9fa5; }
+    .main-header .btn.btn-default:hover {
+      box-shadow: none; }
+
+.logo {
+  margin-top: 20px;
+  width: 100%; }
+
+.main-nav {
+  position: static; }
+  .main-nav > li {
+    position: static;
+    padding: 0; }
+    .main-nav > li a {
+      position: static;
+      padding: 40px 20px;
+      text-align: center;
+      color: #9a9fa5;
+      text-transform: uppercase;
+      font-weight: 500; }
+      .main-nav > li a:hover, .main-nav > li a:focus {
+        color: #31363c;
+        background: transparent; }
+    .main-nav > li.active > a {
+      color: #31363c;
+      background: transparent; }
+
+.logo-header {
+  width: 20%;
+  margin-right: 10%; }
+
+.header-search {
+  width: 20%;
+  margin: 30px 0;
+  padding: 0 10px; }
+  .header-search .input-group-addon {
+    border: none;
+    width: 30px !important;
+    border-radius: 0;
+    background: transparent;
+    color: #9a9fa5;
+    position: relative; }
+    .header-search .input-group-addon:after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 20px;
+      position: absolute;
+      background: #ddd;
+      top: 50%;
+      right: 0;
+      margin-top: -10px; }
+  .header-search .cell {
+    width: auto;
+    height: 40px;
+    position: relative;
+    z-index: 4; }
+  .header-search .input-group {
+    width: 100%; }
+  .header-search .input-group-btn {
+    width: 30px !important; }
+  .header-search .btn {
+    height: 40px;
+    line-height: 20px;
+    padding: 10px; }
+  .header-search .form-control {
+    border: none;
+    box-shadow: none;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 10px;
+    width: 100% !important;
+    background: transparent;
+    top: 0;
+    right: 0;
+    border-radius: 0;
+    position: absolute;
+    z-index: 3;
+    -webkit-transition: .3s;
+    transition: .3s;
+    box-shadow: 0 0 0 30px transparent; }
+    .header-search .form-control:focus, .header-search .form-control:active {
+      background: url(../img/search.png) no-repeat 40px 50% #4d5763;
+      /*box-shadow: 0 0 0 30px $dark_blue;*/
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 100px;
+      height: 100px;
+      top: -30px;
+      width: 840px !important;
+      padding-left: 100px;
+      font-size: 20px; }
+      .header-search .form-control:focus ~ .cross, .header-search .form-control:active ~ .cross {
+        opacity: 1;
+        cursor: pointer;
+        right: -40px; }
+        .header-search .form-control:focus ~ .cross:after, .header-search .form-control:active ~ .cross:after {
+          -webkit-transform: scale(1, 1);
+          -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
+          height: 100px;
+          top: -30px;
+          background: #4d5763; }
+  .header-search .cross {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 26px;
+    top: 0;
+    right: -100px;
+    text-align: center;
+    color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+    opacity: 0;
+    z-index: 5; }
+    .header-search .cross span {
+      display: inline-block;
+      position: relative;
+      z-index: 2;
+      -webkit-transition: .2s;
+      transition: .2s; }
+    .header-search .cross:after {
+      content: '';
+      display: block;
+      width: 1000px;
+      -webkit-transform-origin: left;
+      -ms-transform-origin: left;
+      transform-origin: left;
+      -webkit-transition: .3s;
+      transition: .3s;
+      height: 40px;
+      left: 100%;
+      margin-left: -40px;
+      -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+      transform: scale(1, 1);
+      background: transparent;
+      position: absolute;
+      top: 0;
+      /*z-index: 2;*/ }
+    .header-search .cross:hover {
+      color: rgba(255, 255, 255, 0.5); }
+  .header-search .input-group-btn {
+    padding: 0; }
+    .header-search .input-group-btn .btn-group {
+      width: 100%; }
+  .header-search .dropdown-toggle {
+    border: none;
+    width: 100%;
+    border-radius: 0;
+    padding: 0 12px;
+    text-align: right;
+    font-size: 12px;
+    -webkit-transition: .2s;
+    transition: .2s; }
+    .header-search .dropdown-toggle .fa {
+      margin-right: 0; }
+    .header-search .dropdown-toggle:hover, .header-search .dropdown-toggle:focus, .header-search .dropdown-toggle:active {
+      color: #9a9fa5;
+      background: transparent;
+      box-shadow: none; }
+  .header-search .dropdown-menu {
+    border: none;
+    border-radius: 0;
+    padding: 15px 0;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); }
+    .header-search .dropdown-menu > li > a {
+      padding: 8px 20px; }
+  .header-search .open .dropdown-toggle {
+    box-shadow: none !important;
+    background: transparent !important;
+    color: #9a9fa5 !important; }
+
+.dropmenu-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); }
+  .dropmenu-content .table {
+    margin: 0;
+    padding: 2px; }
+    .dropmenu-content .table .cell {
+      vertical-align: top; }
+      .dropmenu-content .table .cell .outer {
+        margin: 2px;
+        background: #f8f9fb;
+        -webkit-transition: .3s;
+        transition: .3s;
+        padding: 0 50px; }
+        .dropmenu-content .table .cell .outer .inline {
+          width: 520px;
+          height: 200px; }
+        .dropmenu-content .table .cell .outer img {
+          -webkit-transition: .3s;
+          transition: .3s;
+          position: absolute;
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+          -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+          opacity: 0; }
+          .dropmenu-content .table .cell .outer img.active {
+            opacity: 1; }
+        .dropmenu-content .table .cell .outer:hover {
+          background: #e0e3e8;
+          box-shadow: inset 0 -5px 0 0 #65717f; }
+          .dropmenu-content .table .cell .outer:hover img {
+            -webkit-filter: grayscale(0);
+            filter: grayscale(0); }
+
+.drop-list {
+  position: absolute; }
+  .drop-list.left {
+    left: 0;
+    bottom: 0; }
+  .drop-list.right {
+    right: 25px;
+    bottom: 0; }
+    .drop-list.right ul {
+      padding-right: 25px; }
+  .drop-list .anchor {
+    display: inline-block;
+    padding: 0 0 10px;
+    font-size: 16px;
+    color: #9a9fa5; }
+    .drop-list .anchor.active {
+      color: #31363c; }
+      .drop-list .anchor.active .fa {
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg); }
+    .drop-list .anchor .fa {
+      vertical-align: middle;
+      font-size: 12px;
+      position: relative;
+      bottom: 2px;
+      margin-left: 10px;
+      -webkit-transition: .3s;
+      transition: .3s; }
+  .drop-list a {
+    text-decoration: none; }
+  .drop-list ul {
+    display: none;
+    padding: 0 0 15px 20px; }
+    .drop-list ul li {
+      padding: 0; }
+      .drop-list ul li a {
+        display: inline-block;
+        padding: 0; }
+
+/* -----------------------------------------------------
+	<MAIN> styles
+*/
+.alert {
+  border: none;
+  border-radius: 0;
+  color: #fff; }
+  .alert a {
+    text-decoration: none;
+    color: #fff; }
+    .alert a:hover {
+      color: rgba(255, 255, 255, 0.8); }
+  .alert .close {
+    font-weight: 100; }
+  .alert.absolute {
+    position: absolute;
+    z-index: 9;
+    width: 100%; }
+  .alert.alert-warning {
+    background: #fe8050; }
+
+.card {
+  background: #fff;
+  padding: 50px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); }
+  .card .title {
+    font-size: 38px; }
+  .card.head-card {
+    margin-top: 120px;
+    padding-top: 60px;
+    padding-bottom: 60px; }
+
+.catalog-list > *[class*="col-"] {
+  padding-bottom: 30px; }
+
+.padding-lg {
+  padding: 70px 0; }
+
+.btn.btn-wide {
+  padding-left: 60px;
+  padding-right: 60px; }
+
+.clear-col {
+  padding-left: 0;
+  padding-right: 0; }
+
+.clear-space-left {
+  padding-left: 0; }
+
+.clear-space-right {
+  padding-right: 0; }
+
+.filter-row {
+  background: #f8f9fb;
+  padding: 15px 0;
+  margin: 0;
+  box-shadow: 500px 0 0 0 #f8f9fb; }
+  .filter-row select {
+    background: #fff;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 15px;
+    border: 1px solid #ddd; }
+
+.container-offset {
+  margin-left: 30px;
+  margin-right: 30px;
+  overflow: hidden; }
+
+.breadcrumbs {
+  display: block;
+  cursor: default;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 30px;
+  padding: 10px 0; }
+  .breadcrumbs li {
+    display: inline-block;
+    color: #ccc; }
+    .breadcrumbs li:not(:last-child):after {
+      content: '/';
+      display: inline-block;
+      position: relative;
+      padding: 0 5px; }
+    .breadcrumbs li a {
+      color: #9a9fa5;
+      text-decoration: none; }
+      .breadcrumbs li a:hover {
+        color: #65717f; }
+
+.filter-offset-col {
+  padding-left: 50px; }
+
+.selectBox {
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  border-radius: 0;
+  height: 50px;
+  padding: 0;
+  width: 250px; }
+  .selectBox .selectBox-label {
+    line-height: 30px;
+    padding: 0 15px;
+    padding-right: 50px;
+    margin: 10px 0;
+    display: inline-block;
+    width: 100% !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'gotham', sans-serif; }
+  .selectBox .selectBox-arrow {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 50px;
+    height: 50px;
+    border: none;
+    width: 40px;
+    color: #9a9fa5;
+    font-size: 12px;
+    text-align: center; }
+    .selectBox .selectBox-arrow:before {
+      content: "\f078"; }
+
+.selectBox-dropdown-menu {
+  background: #fff;
+  padding: 15px 0;
+  border: 1px solid #65717f;
+  border-radius: 0 !important; }
+  .selectBox-dropdown-menu li a {
+    background: inherit !important;
+    padding: 10px 15px;
+    text-decoration: none; }
+  .selectBox-dropdown-menu .selectBox-selected {
+    background: #f7f7f7; }
+
+.filter-item {
+  background: #eef1f5;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px; }
+  .filter-item .anchor {
+    line-height: 30px;
+    display: block;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 30px;
+    color: #9a9fa5; }
+    .filter-item .anchor .fa {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: 10px;
+      right: 10px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 10px;
+      -webkit-transition: .3s;
+      transition: .3s; }
+    .filter-item .anchor.anchor-lg {
+      padding-top: 25px;
+      padding-bottom: 25px; }
+      .filter-item .anchor.anchor-lg .fa {
+        top: 25px; }
+    .filter-item .anchor:hover {
+      color: #65717f; }
+    .filter-item .anchor.active .fa {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+
+.slide-content {
+  background: #fff; }
+  .slide-content li {
+    border-bottom: 1px solid #ddd; }
+    .slide-content li a {
+      font-size: 11px;
+      line-height: 16px;
+      display: block;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 10px 15px;
+      text-transform: uppercase;
+      color: #9a9fa5;
+      white-space: nowrap; }
+      .slide-content li a .inline {
+        width: 70%;
+        vertical-align: middle;
+        white-space: normal; }
+      .slide-content li a:hover {
+        color: #65717f; }
+  .slide-content.range-content {
+    padding: 20px; }
+    .slide-content.range-content .grey {
+      font-size: 11px;
+      color: #bbb; }
+
+.filter-image {
+  display: inline-block;
+  vertical-align: middle;
+  width: 25%;
+  height: auto;
+  margin: 0; }
+
+.range-slider {
+  margin-top: 15px;
+  margin-bottom: 30px; }
+
+.noUi-target, .noUi-base {
+  border: none;
+  border-radius: 20px;
+  background: #ddd !important; }
+
+.noUi-base {
+  background: transparent; }
+
+.noUi-horizontal {
+  height: 10px; }
+  .noUi-horizontal .noUi-handle {
+    border: 2px solid #9a9fa5;
+    background: #9a9fa5;
+    margin-left: 5px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 13px #fff, 0 0 0 3px #fff;
+    width: 20px;
+    height: 20px;
+    cursor: pointer; }
+    .noUi-horizontal .noUi-handle:before, .noUi-horizontal .noUi-handle:after {
+      display: none; }
+    .noUi-horizontal .noUi-handle:hover, .noUi-horizontal .noUi-handle:active {
+      border: 2px solid #65717f;
+      background: #65717f;
+      box-shadow: inset 0 0 0 3px #fff, 0 0 0 3px #fff; }
+    .noUi-horizontal .noUi-handle .noUi-tooltip {
+      width: 60px;
+      left: 50%;
+      top: 100%;
+      bottom: auto;
+      margin-top: 10px;
+      margin-left: -30px;
+      font-family: 'gotham', sans-serif;
+      color: #65717f;
+      font-weight: bold;
+      padding: 0;
+      background: transparent;
+      border: none;
+      font-size: 11px;
+      letter-spacing: .05em; }
+
+.noUi-background {
+  background: transparent; }
+
+.noUi-origin {
+  background: transparent;
+  box-shadow: none; }
+
+.filter-brand {
+  display: inline-block;
+  max-width: 60px;
+  max-height: 40px;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.checkbox {
+  position: relative;
+  display: block;
+  margin: 0; }
+  .checkbox input[type="checkbox"] {
+    position: absolute;
+    margin: 0;
+    opacity: 0;
+    z-index: 1;
+    top: 12px;
+    left: 15px; }
+    .checkbox input[type="checkbox"]:checked ~ label {
+      color: #65717f; }
+      .checkbox input[type="checkbox"]:checked ~ label:after {
+        opacity: 1; }
+  .checkbox label {
+    display: block;
+    position: relative;
+    padding: 20px 0 20px 50px;
+    color: #9a9fa5;
+    font-size: 12px;
+    font-weight: 500;
+    -webkit-transition: .2s;
+    transition: .2s; }
+    .checkbox label:before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #ddd;
+      position: absolute; }
+    .checkbox label:after {
+      display: inline-block;
+      position: absolute;
+      vertical-align: middle;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      font-size: 12px;
+      text-align: center;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #9a9fa5;
+      text-align: center;
+      content: "\f00c";
+      opacity: 0; }
+    .checkbox label:before, .checkbox label:after {
+      -webkit-transition: .3s;
+      transition: .3s;
+      z-index: 2;
+      top: 20px;
+      left: 15px; }
+    .checkbox label:hover {
+      color: #65717f; }
+
+/* product */
+.tabs {
+  display: table;
+  width: 100%;
+  border-bottom: 5px solid #222;
+  font-size: 17px;
+  text-transform: uppercase;
+  margin: 20px 0;
+  font-weight: 500; }
+  .tabs li {
+    display: table-cell;
+    color: #9a9fa5;
+    vertical-align: middle;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: .2s;
+    transition: .2s; }
+    .tabs li:hover {
+      color: #31363c; }
+    .tabs li.active {
+      box-shadow: inset 0 -60px 0 0 #222;
+      color: #fff; }
+
+.light-card {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px !important;
+  padding: 20px; }
+
+.tabs-content .tab {
+  display: none; }
+  .tabs-content .tab.active {
+    display: block; }
+
+.product-primary-image {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 60%;
+  -webkit-transition: .3s;
+  transition: .3s; }
+  .product-primary-image .image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    -webkit-transform: translate(-50%, -50%) translateZ(0);
+    transform: translate(-50%, -50%) translateZ(0);
+    z-index: 1; }
+  .product-primary-image .brand {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    z-index: 2; }
+  .product-primary-image.faded {
+    opacity: 0; }
+
+.product-thumbnails {
+  padding: 20px 10%; }
+  .product-thumbnails .product-slider .owl-item {
+    padding: 10px; }
+    .product-thumbnails .product-slider .owl-item .item {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80%;
+      border: 15px solid #fff;
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+      -webkit-transition: .3s;
+      transition: .3s;
+      opacity: .7; }
+      .product-thumbnails .product-slider .owl-item .item img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        width: auto;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%); }
+      .product-thumbnails .product-slider .owl-item .item.active {
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+  .product-thumbnails .owl-prev, .product-thumbnails .owl-next {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 100;
+    top: 50%;
+    -webkit-transition: .3s;
+    transition: .3s;
+    opacity: .5;
+    margin-top: -25px;
+    color: #9a9fa5; }
+    .product-thumbnails .owl-prev:hover, .product-thumbnails .owl-next:hover {
+      opacity: 1; }
+  .product-thumbnails .owl-prev {
+    left: -50px; }
+  .product-thumbnails .owl-next {
+    right: -50px; }
+
+.product-hr {
+  margin-left: -20px;
+  margin-right: -20px; }
+
+.grey-title {
+  color: #9a9fa5;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 0; }
+
+.rating {
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px 0;
+  cursor: default; }
+  .rating input {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none; }
+    .rating input:checked + label ~ label {
+      color: #9a9fa5 !important;
+      -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+      transform: scale(0.8); }
+  .rating label {
+    color: #65717f;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-transition: .2s;
+    transition: .2s;
+    padding-right: 10px;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  .rating:hover label {
+    color: #65717f; }
+    .rating:hover label:hover ~ label {
+      color: #9a9fa5; }
+
+.selectbox.block {
+  width: 100% !important; }
+
+.colors-list {
+  display: block;
+  cursor: default; }
+  .colors-list input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none; }
+    .colors-list input:checked ~ label {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1); }
+  .colors-list li {
+    display: inline-block; }
+    .colors-list li label {
+      cursor: pointer;
+      -webkit-transition: .3s;
+      transition: .3s;
+      opacity: .6;
+      -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+      transform: scale(0.8); }
+    .colors-list li .color-block {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      width: 30px;
+      height: 30px; }
+
+.product-brand {
+  max-width: 70px; }
+
+.product-price {
+  line-height: 40px;
+  padding-bottom: 10px; }
+  .product-price .red {
+    font-size: 28px;
+    color: #ff6160; }
+
+h5 {
+  margin: 15px 0;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #65717f;
+  letter-spacing: .1em; }
+
+.product-title {
+  color: #65717f;
+  margin: 15px 0;
+  padding: 0;
+  line-height: 20px;
+  letter-spacing: .1em;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase; }
+
+.product-badge {
+  background: #222;
+  position: absolute;
+  color: #fff;
+  font-family: serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 17px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 50%; }
+  .product-badge > * {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    bottom: 4px; }
+  .product-badge.top-right {
+    top: -20px;
+    right: -40px;
+    width: 80px;
+    height: 80px; }
+    .product-badge.top-right:before {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 100%;
+      vertical-align: middle; }
+
+.form-control.product-control {
+  border-radius: 0;
+  line-height: 30px;
+  height: 30px;
+  box-shadow: none;
+  border: 1px solid #9a9fa5; }
+  .form-control.product-control.no-border-left {
+    border-left: none; }
+  .form-control.product-control.no-border {
+    border-left: none;
+    border-right: none; }
+
+.dark-blue {
+  color: #4d5763; }
+
+.modal-content {
+  border-radius: 0;
+  border: none;
+  box-shadow: none; }
+  .modal-content .modal-body {
+    padding: 0; }
+  .modal-content .table {
+    margin: 0; }
+  .modal-content .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: 100;
+    font-size: 30px;
+    -webkit-transition: .3s;
+    transition: .3s; }
+
+.btn:focus {
+  text-decoration: none !important; }
+
+.lined-top.padless {
+  padding: 10px 0;
+  margin: 10px 0; }
+
+.green {
+  color: #6bbaa5; }
+
+.form-control {
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  border-radius: 0;
+  height: 50px;
+  padding: 0 15px;
+  font-family: 'gotham', sans-serif;
+  width: 100%; }
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #65717f; }
+
+.half-2 {
+  width: 50%; }
+
+.half-3 {
+  width: 33.333333%; }
+
+.half-5 {
+  width: 20%; }
+
+/* ----------------------------------------- */
+.btn.btn-login-facebook {
+  background-color: #395592 !important; }
+  .btn.btn-login-facebook:hover {
+    box-shadow: inset 0 -60px 0 0 #2b406d !important;
+    color: white !important; }
+
+.btn.btn-login-google {
+  background-color: #D23F31 !important; }
+  .btn.btn-login-google:hover {
+    box-shadow: inset 0 -60px 0 0 #ab3125 !important;
+    color: white !important; }
+
+.btn .icon-social {
+  vertical-align: middle;
+  padding-left: 10px;
+  font-size: 18px; }
+
+.btn-fullw {
+  width: 100%; }
+
+.cstm-control {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #aaaaaa;
+  border-radius: 0;
+  letter-spacing: 2px;
+  -webkit-transition: border-color .1s linear;
+  transition: border-color .1s linear;
+  box-shadow: none; }
+  .cstm-control:focus, .cstm-control:hover {
+    border-color: #65717f;
+    box-shadow: none; }
+
+textarea.form-control {
+  padding: 10px 15px;
+  height: 190px;
+  resize: none; }
+
+.label-default {
+  background-color: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2D343E; }
+
+.checkbox-custom {
+  position: relative;
+  display: block;
+  cursor: pointer; }
+  .checkbox-custom_pseudo {
+    position: relative;
+    display: block;
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin-top: 3px;
+    border: 1px solid #31363c; }
+    .checkbox-custom_pseudo::after {
+      content: " ";
+      position: absolute;
+      top: -7px;
+      left: 3px;
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: .2s;
+      transition: .2s;
+      width: 7px;
+      height: 15px;
+      border-style: solid;
+      border-width: 0 0.2em 0.2em 0;
+      border-color: #31363c;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg); }
+  .checkbox-custom_label {
+    display: block;
+    margin-left: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #666666; }
+  .checkbox-custom.checkbox-lg .checkbox-custom_pseudo {
+    width: 15px;
+    height: 15px;
+    margin-top: 1px;
+    border-color: #dddddd; }
+    .checkbox-custom.checkbox-lg .checkbox-custom_pseudo::after {
+      top: -8px;
+      left: 7px;
+      height: 22px;
+      border-color: #ddd; }
+  .checkbox-custom.checkbox-lg .checkbox-custom_label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 25px;
+    color: #777777; }
+  .checkbox-custom input {
+    display: none; }
+    .checkbox-custom input:checked ~ .checkbox-custom_pseudo:after {
+      opacity: 1;
+      visibility: visible; }
+
+.radio {
+  position: relative;
+  display: block;
+  margin: 0 0 15px 0; }
+  .radio-pseudo {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 17px;
+    height: 17px;
+    border: 1px solid #777777;
+    border-radius: 50%; }
+    .radio-pseudo::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 7px;
+      height: 7px;
+      visibility: hidden;
+      opacity: 0;
+      background-color: #777777;
+      border-radius: 50%;
+      -webkit-transition: opacity .2s;
+      transition: opacity .2s; }
+  .radio-heading {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #777777; }
+  .radio input[type="radio"] {
+    display: none; }
+    .radio input[type="radio"]:checked ~ .radio-pseudo::after {
+      visibility: visible;
+      opacity: 1; }
+  .radio label {
+    position: relative;
+    display: block;
+    padding: 0;
+    padding-left: 30px;
+    font-size: 12px;
+    color: #B9B9B9; }
+
+.txtarea {
+  padding: 10px;
+  height: 205px;
+  resize: none; }
+
+.v-bordered {
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: #eeeeee; }
+
+.thick-hr {
+  height: 2px;
+  margin: 30px 0 25px 0;
+  background-color: #75746F; }
+
+.ls-wide {
+  letter-spacing: 4px; }
+
+.fullw-button {
+  width: 100%; }
+
+.main-title-canvas {
+  margin: 0 30px;
+  background-color: #F7F8F9; }
+
+.main-title {
+  font-size: 32px;
+  margin: 20px 0; }
+
+.crafted-title {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 60px 15px;
+  background-color: #fff;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.08); }
+
+.subtitle {
+  margin: 15px 0;
+  text-transform: uppercase;
+  color: #595146;
+  letter-spacing: 2px; }
+
+.bordered-title {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eeeeee; }
+
+.fullw-bordered-b::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -5000px;
+  width: 10000px;
+  height: 2px;
+  background-color: #595146; }
+
+.timeline {
+  position: relative;
+  margin: 40px 0; }
+  .timeline p {
+    margin: 15px 0 0 0;
+    color: #595146;
+    font-size: 14px; }
+  .timeline h3 {
+    margin: 25px 0 15px 0; }
+
+.dashed-vertical {
+  position: relative; }
+  .dashed-vertical::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    margin-left: -1px;
+    background-image: url(../img/dash-vertical.png); }
+
+.timeline-row {
+  position: relative;
+  padding-bottom: 60px;
+  margin: 0; }
+  .timeline-row_hero {
+    padding-top: 140px;
+    background-color: #ffffff;
+    text-align: center; }
+    .timeline-row_hero::before {
+      content: '';
+      position: absolute;
+      top: 43px;
+      left: -5000px;
+      width: 10000px;
+      height: 2px;
+      background-color: #595146; }
+    .timeline-row_hero .timeline-item {
+      display: block;
+      width: 100%;
+      padding-left: 0 !important;
+      padding-right: 0 !important; }
+    .timeline-row_hero h3 {
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 32px;
+      color: #000000;
+      letter-spacing: normal; }
+    .timeline-row_hero p {
+      margin: auto;
+      max-width: 630px; }
+
+.timeline-item {
+  width: 50%;
+  vertical-align: middle; }
+  .timeline-item:nth-child(even) {
+    padding-right: 90px; }
+  .timeline-item:nth-child(odd) {
+    padding-left: 90px; }
+
+.timeline-step-number {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  display: table;
+  height: 86px;
+  width: 86px;
+  margin-left: -43px;
+  border-radius: 50%;
+  background-color: #000000;
+  font-family: 'serif';
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  color: #ffffff; }
+
+.modal-window {
+  position: relative;
+  z-index: 2;
+  display: block;
+  background-color: #ffffff;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 50px 50px 80px 50px;
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.03); }
+  .modal-window-content {
+    max-width: 500px;
+    margin: 0 auto; }
+  .modal-window h3 {
+    font-size: 14px; }
+    .modal-window h3 a {
+      color: #222; }
+  .modal-window .close {
+    position: absolute;
+    top: 25px;
+    right: 25px; }
+
+.modal-aligner {
+  display: table;
+  height: 100%;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 15px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.login-canvas {
+  position: relative;
+  padding: 80px 0; }
+  .login-canvas:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -5000px;
+    width: 10000px;
+    z-index: 1;
+    height: 320px;
+    background-color: #EAECEE; }
+  .login-canvas .content-image.left-bottom {
+    left: -110px;
+    top: 0px; }
+  .login-canvas .content-image.right-center {
+    top: 180px;
+    left: 80%;
+    z-index: 3; }
+
+.login-window form {
+  padding: 10px 0; }
+  .login-window form h3 {
+    color: #2E353E; }
+
+.login-window .btn {
+  width: 100%; }
+
+.contact-form {
+  padding: 40px 0 55px 0; }
+  .contact-form .v-bordered {
+    margin: 20px 0;
+    color: #777777; }
+  .contact-form .selectBox {
+    width: 100%;
+    height: 40px;
+    letter-spacing: 2px;
+    border-color: #aaaaaa; }
+    .contact-form .selectBox:hover, .contact-form .selectBox:focus {
+      border-color: #65717f; }
+    .contact-form .selectBox-label {
+      line-height: 20px; }
+    .contact-form .selectBox-arrow {
+      height: 40px;
+      line-height: 40px; }
+    .contact-form .selectBox-dropdown-menu {
+      max-width: -webkit-calc(100% - 1px) !important;
+      max-width: calc(100% - 1px) !important; }
+
+.slogan {
+  display: block;
+  margin: 40px 0;
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 500;
+  color: #777777; }
+  .slogan-aligner {
+    margin-top: 240px; }
+  .slogan-image {
+    margin-bottom: 30px; }
+
+.social-item {
+  display: inline-block;
+  padding: 0 8px;
+  font-size: 20px; }
+
+.checkout {
+  margin: 40px 0 120px 0; }
+  .checkout-section {
+    margin-bottom: 45px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.08); }
+    .checkout-section-header {
+      margin: 0;
+      padding: 38px 40px 34px 40px;
+      border-bottom: 2px solid #DDDDDD;
+      font-size: 16px;
+      color: #777777;
+      text-transform: uppercase; }
+    .checkout-section-content {
+      padding: 30px 0; }
+    .checkout-section .cstm-control {
+      border-color: #dddddd; }
+      .checkout-section .cstm-control:focus, .checkout-section .cstm-control:hover {
+        border-color: #65717f;
+        box-shadow: none; }
+    .checkout-section .radio {
+      margin-bottom: 50px; }
+      .checkout-section .radio:last-child {
+        margin-bottom: 0; }
+      .checkout-section .radio-text {
+        max-width: 300px; }
+  .checkout-offset {
+    padding-right: 40px;
+    padding-left: 40px; }
+  .checkout .label-custom {
+    min-height: 20px;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #777777; }
+  .checkout .spacer {
+    display: inline-block;
+    min-height: 20px;
+    margin-bottom: 5px;
+    color: transparent; }
+  .checkout .footnote {
+    padding-top: 45px;
+    padding-bottom: 15px; }
+
+.summary {
+  padding-top: 10px; }
+  .summary .item {
+    overflow: hidden;
+    padding-top: 25px;
+    padding-bottom: 25px; }
+    .summary .item:not(:last-child) {
+      border-bottom: 1px solid #dddddd; }
+    .summary .item-thumb {
+      float: left;
+      width: 80px; }
+      .summary .item-thumb img {
+        max-width: 100%; }
+    .summary .item-content {
+      margin-left: 100px; }
+    .summary .item-title {
+      margin: 0 0 5px 0;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #777777; }
+    .summary .item-specs {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15px;
+      color: #B9B9B9;
+      clear: none; }
+    .summary .item .price {
+      margin-top: -2px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #777777; }
+
+.thick-hr.padless {
+  margin-top: 10px; }
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  outline: none !important; }
+
+html, body {
+  font-size: 13px;
+  font-family: 'gotham', sans-serif;
+  background: #fff; }
+  html.overlayed, body.overlayed {
+    overflow: hidden; }
+
+.page-wrapper {
+  overflow: hidden;
+  min-height: 100%; }
+
+input, textarea, select {
+  font-size: 13px;
+  font-family: 'gotham', sans-serif; }
+
+a {
+  -webkit-transition: .2s;
+  transition: .2s;
+  color: #65717f;
+  text-decoration: none; }
+  a:hover, a:focus {
+    /*text-decoration: none;*/
+    color: #31363c; }
+
+.dark-bg {
+  background: #31363c; }
+
+.white-bg {
+  background: #fff; }
+
+.bordered-bottom {
+  border-bottom: 1px solid #ddd; }
+
+.bordered-top {
+  border-top: 1px solid #ddd; }
+
+.bordered-right {
+  border-right: 1px solid #ddd; }
+
+.bordered-left {
+  border-left: 1px solid #ddd; }
+
+.content-image {
+  position: absolute; }
+  .content-image.bottom-left {
+    bottom: 0;
+    left: 0; }
+  .content-image.bottom-right {
+    bottom: 0;
+    right: 0; }
+  .content-image.top-left {
+    top: 0;
+    left: 0; }
+  .content-image.top-left {
+    top: 0;
+    left: 0; }
+  .content-image.left {
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .content-image.right {
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+
+.sponsors-list {
+  padding: 0 20px 0 0;
+  margin: 20px -10px 0; }
+  .sponsors-list li {
+    padding: 10px; }
+
+.menu-list li {
+  padding: 5px 0; }
+
+.social-list {
+  cursor: default;
+  margin: 10px 0 20px; }
+  .social-list li {
+    display: inline-block;
+    margin-right: 10px; }
+    .social-list li a {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background: #999;
+      color: #fff;
+      border-radius: 50%; }
+      .social-list li a:hover {
+        background: #31363c; }
+  .social-list.grey li a {
+    background: #9a9fa5; }
+    .social-list.grey li a:hover {
+      background: #65717f; }
+
+.lighten-bg {
+  background: rgba(255, 255, 255, 0.9); }
+
+.main-slider {
+  margin: 0 30px;
+  background: #f8f9fb;
+  position: relative; }
+  .main-slider .content {
+    max-width: 1500px;
+    margin: 50px auto 80px;
+    width: 100%;
+    height: 600px;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 30px; }
+    .main-slider .content.container-content {
+      max-width: 1140px; }
+  .main-slider .owl-item {
+    overflow: hidden; }
+  .main-slider .table {
+    height: 100%;
+    position: relative;
+    z-index: 2; }
+    .main-slider .table .cell {
+      vertical-align: middle; }
+  .main-slider .lined-title {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 15px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    font-size: 36px; }
+  .main-slider .primary-title {
+    color: #f8979e;
+    font-weight: 300;
+    font-size: 80px;
+    line-height: 80px;
+    margin: 0 0 10px; }
+  .main-slider .text {
+    font-size: 19px; }
+  .main-slider .owl-pagination {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    bottom: 30px;
+    pointer-events: none;
+    text-align: center; }
+    .main-slider .owl-pagination .owl-page {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: transparent;
+      border-radius: 50%;
+      -webkit-transition: .3s;
+      transition: .3s;
+      box-shadow: inset 0 0 0 2px #000;
+      cursor: pointer;
+      position: relative;
+      margin: 0 7px;
+      pointer-events: all; }
+      .main-slider .owl-pagination .owl-page span {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        bottom: -5px;
+        left: -5px;
+        display: block; }
+      .main-slider .owl-pagination .owl-page:hover {
+        box-shadow: inset 0 0 0 2px #65717f; }
+      .main-slider .owl-pagination .owl-page.active {
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+        box-shadow: inset 0 0 0 20px #000; }
+
+.items-list {
+  display: inline-block;
+  margin: 40px 0;
+  cursor: default; }
+  .items-list li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px; }
+  .items-list a:hover {
+    opacity: .5; }
+  .items-list .color {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%; }
+  .items-list.spaced li {
+    padding: 10px; }
+  .items-list.small-list {
+    margin: 0; }
+    .items-list.small-list li {
+      margin-right: 0; }
+
+.btn {
+  -webkit-transition: .2s;
+  transition: .2s;
+  border: none;
+  border-radius: none;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 0;
+  line-height: 20px;
+  padding: 20px 30px; }
+
+.hide-overflow {
+  overflow: hidden; }
+
+.btn small {
+  text-transform: none; }
+
+.btn.btn-primary {
+  background: #f8979e; }
+  .btn.btn-primary:hover {
+    box-shadow: inset 0 -80px 0 0 #f56771; }
+
+.btn.btn-danger {
+  background: #ff6160; }
+  .btn.btn-danger:hover {
+    box-shadow: inset 0 -80px 0 0 #ff2e2d; }
+
+.control-lg {
+  line-height: 60px;
+  padding: 0 15px;
+  background: transparent;
+  height: 60px;
+  border-radius: 0;
+  box-shadow: none;
+  border-color: #ddd;
+  font-size: 16px; }
+  .control-lg:hover {
+    border-color: #bbb; }
+  .control-lg:focus {
+    border-color: #999;
+    box-shadow: none; }
+
+h2 {
+  font-size: 40px;
+  font-weight: 400;
+  margin: 20px 0;
+  color: #31363c; }
+
+h4 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 20px 0;
+  line-height: 1.3;
+  color: #31363c; }
+
+.secondary-title {
+  margin-top: 50px;
+  margin-bottom: 30px; }
+
+.caption {
+  margin: 30px 0; }
+
+.section {
+  padding: 40px 0; }
+  .section.bordered-bottom {
+    border-bottom: 10px solid #eee; }
+
+.grey-bg-section {
+  margin: 0 30px;
+  background: #f8f9fb; }
+
+.lined-top, .lined-bottom {
+  position: relative;
+  margin-top: 30px;
+  padding: 30px 0 30px; }
+  .lined-top:before, .lined-bottom:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -120px;
+    width: 240px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1); }
+  .lined-top.lined-bottom, .lined-bottom.lined-bottom {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 20px 0 30px; }
+    .lined-top.lined-bottom:before, .lined-bottom.lined-bottom:before {
+      top: auto;
+      bottom: 0; }
+    .lined-top.lined-bottom.left:before, .lined-bottom.lined-bottom.left:before {
+      top: auto;
+      bottom: 0;
+      left: 0;
+      margin-left: 0; }
+
+.carousel .owl-item {
+  padding: 10px; }
+
+.carousel .owl-prev, .carousel .owl-next {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin-top: -20px;
+  color: #9a9fa5;
+  font-weight: 100;
+  font-size: 27px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  opacity: .5; }
+  .carousel .owl-prev:hover, .carousel .owl-next:hover {
+    opacity: 1; }
+  .carousel .owl-prev:active, .carousel .owl-next:active {
+    color: #65717f; }
+
+.carousel .owl-prev {
+  left: -80px; }
+
+.carousel .owl-next {
+  right: -80px; }
+
+.catalog-item {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  text-align: center; }
+  .catalog-item .title {
+    font-size: 24px;
+    color: #4d5763;
+    font-weight: 300;
+    height: 60px; }
+    .catalog-item .title:before {
+      content: '';
+      display: inline-block;
+      width: 0;
+      margin-left: -1em;
+      height: 100%;
+      vertical-align: middle; }
+    .catalog-item .title a {
+      display: inline-block;
+      vertical-align: middle;
+      color: inherit;
+      text-decoration: none; }
+      .catalog-item .title a:hover {
+        color: #31363c; }
+  .catalog-item .price {
+    padding: 0 0 40px;
+    font-size: 20px;
+    color: #9a9fa5;
+    font-weight: 300; }
+  .catalog-item .image {
+    position: relative;
+    /*padding-bottom: 50%;*/
+    height: 130px;
+    overflow: hidden; }
+    .catalog-item .image img {
+      position: absolute;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      top: 50%;
+      left: 50%;
+      -webkit-transition: .3s;
+      transition: .3s;
+      -webkit-transform: translate3d(-50%, -50%, 0);
+      transform: translate3d(-50%, -50%, 0); }
+      .catalog-item .image img.vertivcal {
+        max-width: initial;
+        top: 50%;
+        left: 50%;
+        max-height: 100%;
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        transform: translate3d(-50%, -50%, 0); }
+    .catalog-item .image:hover img {
+      -webkit-transform: translate3d(-50%, -50%, 0) scale(1.1);
+      transform: translate3d(-50%, -50%, 0) scale(1.1); }
+  .catalog-item .footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: left;
+    padding: 20px 15px 10px; }
+  .catalog-item .text {
+    font-size: 15px;
+    font-weight: 300; }
+  .catalog-item:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); }
+  .catalog-item.sale-item {
+    padding: 20px; }
+    .catalog-item.sale-item .title {
+      height: auto;
+      width: 100%;
+      font-size: 30px;
+      line-height: 30px;
+      overflow: initial !important;
+      padding-top: 0px;
+      padding-bottom: 0; }
+      .catalog-item.sale-item .title:before {
+        display: none; }
+      .catalog-item.sale-item .title.lined-bottom {
+        font-size: 32px;
+        font-weight: 400;
+        padding-bottom: 15px;
+        text-transform: uppercase; }
+      .catalog-item.sale-item .title.lined-bottom:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        margin-left: -100px;
+        width: 200px;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.1); }
+      .catalog-item.sale-item .title a {
+        line-height: inherit;
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+    .catalog-item.sale-item .price {
+      color: initial;
+      margin: 0;
+      padding: 5px 0; }
+    .catalog-item.sale-item .image {
+      margin-left: -20px;
+      margin-right: -20px; }
+      .catalog-item.sale-item .image img {
+        max-width: 90%; }
+    .catalog-item.sale-item .footer {
+      padding: 15px 0;
+      border: none;
+      text-align: center; }
+
+.shop-link {
+  text-transform: uppercase;
+  color: #222;
+  font-weight: 500; }
+  .shop-link .fa {
+    position: relative;
+    bottom: 1px;
+    margin-right: 10px; }
+  .shop-link:hover {
+    color: #65717f;
+    text-decoration: none; }
+
+.wish-link {
+  text-transform: uppercase;
+  color: #9a9fa5;
+  font-weight: 500; }
+  .wish-link .fa {
+    margin-right: 10px;
+    font-weight: bold; }
+  .wish-link:hover {
+    color: #65717f;
+    text-decoration: none; }
+
+.features-item {
+  text-align: center;
+  margin: 0 1.66666%; }
+  .features-item .image {
+    position: relative;
+    padding-bottom: 100%;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-transition: .3s;
+    transition: .3s;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px; }
+    .features-item .image img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      opacity: .5;
+      -webkit-transition: .3s;
+      transition: .3s;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+  .features-item .title {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 30px; }
+    .features-item .title a {
+      color: inherit; }
+      .features-item .title a:hover {
+        text-decoration: none; }
+  .features-item .text {
+    color: #9a9fa5; }
+  .features-item:hover .image {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
+    .features-item:hover .image img {
+      opacity: 1; }
+
+.table {
+  width: 100%; }
+
+.btn-link {
+  text-decoration: none;
+  color: #9a9fa5; }
+  .btn-link:hover {
+    text-decoration: none;
+    color: #222; }
+
+.grey {
+  color: #9a9fa5; }
+
+.product-outer {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 50px; }
+  .product-outer .title {
+    margin: 0;
+    font-size: 48px;
+    padding-bottom: 20px; }
+  .product-outer .counter {
+    line-height: 40px;
+    font-size: 38px;
+    font-weight: 300;
+    color: #9a9fa5; }
+  .product-outer .product-name {
+    line-height: 40px;
+    font-size: 38px;
+    font-weight: 300;
+    color: #9a9fa5;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    position: relative;
+    bottom: 4px;
+    color: #222;
+    padding-left: 10px; }
+    .product-outer .product-name a {
+      color: inherit;
+      text-decoration: none; }
+      .product-outer .product-name a:hover {
+        color: #65717f; }
+  .product-outer .table {
+    min-height: 300px; }
+    .product-outer .table .cell {
+      position: relative;
+      vertical-align: top;
+      width: 50%;
+      padding: 30px; }
+  .product-outer .content-image.bottom-right {
+    right: 15%; }
+
+.product-author-image {
+  display: inline-block;
+  margin-left: 30px;
+  max-height: 50px; }
+
+.btn.btn-padless {
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.btn.product-like-btn {
+  margin-left: -5px;
+  height: 40px;
+  padding: 10px;
+  font-size: 18px; }
+  .btn.product-like-btn:hover {
+    color: #f8979e; }
+
+.product-col {
+  margin-top: 10px;
+  padding: 10px 15px 15px; }
+
+.btn.btn-default {
+  background: #222;
+  color: #fff; }
+  .btn.btn-default:hover {
+    box-shadow: inset 0 -60px 0 0 #ddd;
+    color: #222; }
+
+.btn .fa {
+  margin-right: 15px; }
+
+.btn.btn-sm {
+  padding-top: 14px;
+  padding-bottom: 14px; }
+
+.btn.btn-xs {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.layer-up {
+  position: relative;
+  z-index: 3; }
+
+.sign-form {
+  display: block;
+  margin: 40px 0 20px; }
+
+.counter-caption {
+  position: absolute;
+  color: #9a9fa5;
+  font-weight: 500;
+  margin-top: 10px;
+  text-transform: uppercase;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0 15px; }
+  .counter-caption.left {
+    text-align: left; }
+
+.checkbox input {
+  position: absolute; }
+
+/* -----------------------------------------------------
+	<FOOTER> styles
+*/
+.main-footer {
+  background: #fff; }
+  .main-footer .logo {
+    display: block;
+    padding-right: 20px; }
+    .main-footer .logo img {
+      width: 100%;
+      height: auto; }
+  .main-footer .content {
+    padding: 50px 0; }
+  .main-footer .copyright {
+    background: #373e46;
+    color: #9a9fa5;
+    padding: 20px 0;
+    font-size: 16px; }
+  .main-footer .title {
+    color: #9a9fa5;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 20px; }
+    .main-footer .title.rev-margin {
+      margin-bottom: 0;
+      margin-top: 20px; }
+    .main-footer .title.no-margin {
+      margin: 0; }
+
+/* -----------------------------------------------------
+	animations
+*/
+/* -----------------------------------------------------
+	media queries
+	@media (max-width: 768px), (max-device-width: 768px) {
+		@import "_media/_768.scss";
+	}
+*/
+@media (max-width: 1600px) {
+  .content-image.bottom-left {
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+  .content-image.bottom-right {
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%); }
+  .content-image.left {
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .content-image.right {
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%) translateX(50%);
+    -ms-transform: translateY(-50%) translateX(50%);
+    transform: translateY(-50%) translateX(50%); }
+  .main-slider {
+    margin: 0; }
+    .main-slider .content {
+      margin: 50px 30px 80px;
+      width: -webkit-calc(100% - 60px);
+      width: calc(100% - 60px); }
+      .main-slider .content.container-content {
+        max-width: 1140px; }
+  .carousel .owl-prev {
+    left: -40px; }
+  .carousel .owl-next {
+    right: -40px; }
+  .grey-bg-section {
+    margin: 0; }
+  .product-outer .content-image.bottom-right {
+    right: 15%;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none; }
+  /* catalog */
+  .card {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+    .card .title {
+      font-size: 24px; }
+    .card.head-card {
+      padding-top: 40px;
+      padding-bottom: 40px; }
+    .card .content-image {
+      -webkit-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+      transform: scale(0.7); }
+      .card .content-image.bottom-left {
+        -webkit-transform-origin: bottom left;
+        -ms-transform-origin: bottom left;
+        transform-origin: bottom left; }
+      .card .content-image.bottom-right {
+        -webkit-transform-origin: bottom right;
+        -ms-transform-origin: bottom right;
+        transform-origin: bottom right; }
+  .container-offset {
+    margin-left: 0;
+    margin-right: 0; }
+  .selectBox {
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    border-radius: 0;
+    height: 50px;
+    padding: 0;
+    width: 200px; }
+  .filter-item .anchor {
+    line-height: 20px;
+    padding: 15px; }
+    .filter-item .anchor.anchor-lg {
+      padding-top: 30px;
+      padding-bottom: 30px; }
+  .filter-offset-col {
+    padding-left: 30px;
+    padding-right: 30px; }
+  .filter-row .right {
+    text-align: left;
+    padding-left: 30px; } }
+
+@media (max-width: 1200px) {
+  .main-header .dark-bg .container {
+    padding-right: 0; }
+  .main-header .logo-header {
+    margin-right: 20px; }
+  .main-header .logo {
+    margin-top: 25px; }
+  .main-header .header-search {
+    width: 200px;
+    margin: 30px 0;
+    padding: 0; }
+    .main-header .header-search .form-control {
+      padding-right: 0; }
+      .main-header .header-search .form-control:focus, .main-header .header-search .form-control:active {
+        width: 700px !important; }
+  .main-header .input-group-btn {
+    padding: 0; }
+    .main-header .input-group-btn .btn-group {
+      width: 100%; }
+      .main-header .input-group-btn .btn-group .btn {
+        text-align: right;
+        padding: 0 7px; }
+  .dropmenu-content .table .cell .outer {
+    padding: 0 20px; }
+    .dropmenu-content .table .cell .outer .inline {
+      width: 450px;
+      height: 200px; }
+    .dropmenu-content .table .cell .outer .content-image.bottom-right {
+      -webkit-transform: translateX(30%) translateZ(0);
+      transform: translateX(30%) translateZ(0); }
+    .dropmenu-content .table .cell .outer .content-image.bottom-left {
+      -webkit-transform: translateX(-30%) translateZ(0);
+      transform: translateX(-30%) translateZ(0); }
+  .drop-list.right {
+    right: 10px;
+    bottom: 0; }
+    .drop-list.right ul {
+      padding-right: 25px; }
+  .content-image.bottom-left {
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+  .content-image.bottom-right {
+    -webkit-transform: translateX(60%);
+    -ms-transform: translateX(60%);
+    transform: translateX(60%); }
+  .content-image.left {
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .content-image.right {
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%) translateX(70%);
+    -ms-transform: translateY(-50%) translateX(70%);
+    transform: translateY(-50%) translateX(70%); }
+  .features-item {
+    width: 20%;
+    margin: 0; }
+  .main-footer .logo {
+    margin-top: 0; }
+  /* catalog */
+  .card .content-image {
+    -webkit-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7); }
+    .card .content-image.bottom-left {
+      -webkit-transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+      transform-origin: bottom left; }
+    .card .content-image.bottom-right {
+      -webkit-transform-origin: bottom right;
+      -ms-transform-origin: bottom right;
+      transform-origin: bottom right; }
+  .checkbox label {
+    padding: 20px 0 20px 40px; }
+  .filter-brand {
+    max-width: 40px;
+    max-height: 30px; }
+  .filter-row {
+    background: transparent;
+    box-shadow: none; }
+  /* product */
+  .product-hr {
+    /*	margin-left: -10px;
+	margin-right: -10px;*/ }
+  .tabs {
+    font-size: 13px; }
+    .tabs li {
+      padding: 15px 10px; }
+  .left-lg {
+    text-align: left; } }
+
+@media (max-width: 992px) {
+  .main-header .lined-navbar > li > a {
+    padding: 20px 15px; }
+  .main-header .logo-header {
+    margin-right: 10px; }
+  .main-header .main-nav > li > a {
+    padding: 40px 10px; }
+  .main-header .input-group-addon {
+    width: 10px !important;
+    padding-left: 0;
+    padding-right: 0; }
+    .main-header .input-group-addon:after {
+      display: none; }
+  .main-header .header-search {
+    width: 140px; }
+    .main-header .header-search .form-control {
+      font-size: 12px; }
+      .main-header .header-search .form-control:focus, .main-header .header-search .form-control:active {
+        font-size: 24px;
+        width: 550px !important; }
+    .main-header .header-search .input-group-btn {
+      width: 14px !important; }
+    .main-header .header-search .btn-group .btn {
+      padding-right: 0; }
+  .main-slider .content {
+    margin-top: 30px;
+    height: 400px; }
+    .main-slider .content.container-content {
+      margin-bottom: 30px; }
+  .main-slider .lined-title {
+    font-size: 18px;
+    padding: 10px 0; }
+  .main-slider .primary-title {
+    font-size: 40px;
+    line-height: 40px; }
+  .main-slider .text {
+    font-size: 15px; }
+  .main-slider .content-image {
+    display: none; }
+  .items-list {
+    margin: 20px 0; }
+    .items-list li img {
+      max-width: 70px; }
+  .catalog-item {
+    padding: 15px; }
+    .catalog-item .title {
+      font-size: 16px;
+      height: 60px;
+      font-weight: 400;
+      margin-top: 0;
+      margin-bottom: 0; }
+    .catalog-item .price {
+      padding: 0 0 20px;
+      font-size: 18px;
+      font-weight: 400; }
+    .catalog-item .footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 15px 0 0; }
+      .catalog-item .footer .right {
+        padding-top: 10px;
+        text-align: center; }
+    .catalog-item .text {
+      font-size: 13px;
+      font-weight: 400; }
+    .catalog-item.sale-item {
+      padding: 15px; }
+      .catalog-item.sale-item .title {
+        font-size: 20px;
+        line-height: 20px;
+        padding: 15px 0; }
+        .catalog-item.sale-item .title:before {
+          display: none; }
+        .catalog-item.sale-item .title.lined-bottom {
+          font-size: 18px;
+          font-weight: 400;
+          margin-bottom: 10px; }
+        .catalog-item.sale-item .title.lined-bottom:before {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          margin-left: -50px;
+          width: 100px;
+          height: 1px; }
+      .catalog-item.sale-item .footer {
+        padding: 15px 0 0; }
+  .lined-top, .lined-bottom {
+    position: relative;
+    margin-top: 15px;
+    padding: 15px 0 15px; }
+    .lined-top:before, .lined-bottom:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      margin-left: -120px;
+      width: 240px;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.1); }
+    .lined-top.lined-bottom, .lined-bottom.lined-bottom {
+      margin-top: 0;
+      margin-bottom: 20px;
+      padding: 20px 0 30px; }
+      .lined-top.lined-bottom:before, .lined-bottom.lined-bottom:before {
+        top: auto;
+        bottom: 0; }
+      .lined-top.lined-bottom.left:before, .lined-bottom.lined-bottom.left:before {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        margin-left: 0; }
+  h2 {
+    font-size: 30px;
+    margin: 10px 0; }
+  h4 {
+    font-size: 18px;
+    margin: 10px 0; }
+  .features-item {
+    margin: 0; }
+    .features-item .image {
+      margin-bottom: 20px; }
+      .features-item .image img {
+        max-width: 50px;
+        max-height: 50px; }
+    .features-item .title {
+      font-size: 12px;
+      margin-bottom: 10px; }
+    .features-item .text {
+      color: #9a9fa5;
+      font-weight: 400;
+      font-size: 11px; }
+    .features-item .btn {
+      padding: 5px 0;
+      font-size: 12px; }
+  .product-outer {
+    padding: 30px; }
+    .product-outer .title {
+      font-size: 30px;
+      padding-bottom: 15px; }
+    .product-outer .counter {
+      line-height: 30px;
+      font-size: 24px; }
+    .product-outer .product-name {
+      line-height: 30px;
+      font-size: 28px;
+      bottom: 4px; }
+    .product-outer .table {
+      min-height: 300px; }
+      .product-outer .table .cell {
+        padding: 15px 0 15px; }
+    .product-outer .content-image.bottom-right {
+      right: 15%;
+      bottom: 30%; }
+  .product-col {
+    margin-top: 10px;
+    padding: 10px 15px 10px; }
+  .btn.product-like-btn {
+    height: 30px;
+    padding: 0 5px;
+    line-height: 20px;
+    font-size: 18px; }
+  .product-counter-captions {
+    font-size: 9px; }
+  .btn {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .main-footer {
+    font-size: 12px; }
+    .main-footer .center {
+      text-align: left; }
+  .content-image.bottom-left {
+    -webkit-transform: translateX(-40%) scale(0.8);
+    -ms-transform: translateX(-40%) scale(0.8);
+    transform: translateX(-40%) scale(0.8);
+    -webkit-transform-origin: bottom left;
+    -ms-transform-origin: bottom left;
+    transform-origin: bottom left; }
+  .content-image.bottom-right {
+    -webkit-transform: translateX(40%) scale(0.8);
+    -ms-transform: translateX(40%) scale(0.8);
+    transform: translateX(40%) scale(0.8);
+    -webkit-transform-origin: bottom right;
+    -ms-transform-origin: bottom right;
+    transform-origin: bottom right; }
+  .content-image.left {
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .content-image.right {
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%) translateX(70%);
+    -ms-transform: translateY(-50%) translateX(70%);
+    transform: translateY(-50%) translateX(70%); }
+  .dropmenu-content .table .cell .outer {
+    padding: 0 20px; }
+    .dropmenu-content .table .cell .outer .inline {
+      width: 345px;
+      height: 200px; }
+    .dropmenu-content .table .cell .outer .content-image.bottom-right {
+      -webkit-transform: translateX(30%) translateZ(0);
+      transform: translateX(30%) translateZ(0); }
+    .dropmenu-content .table .cell .outer .content-image.bottom-left {
+      -webkit-transform: translateX(-30%) translateZ(0);
+      transform: translateX(-30%) translateZ(0); }
+  .counter-caption {
+    font-size: 10px; }
+  /* catalog */
+  .card {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px; }
+    .card.head-card {
+      margin: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px; }
+    .card .content-image {
+      display: none; }
+  .alert.absolute {
+    position: static;
+    margin: 0; }
+  .selectBox {
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    width: 150px; }
+    .selectBox:not(:first-child) {
+      margin-right: 10px; }
+    .selectBox .selectBox-label {
+      font-size: 10px;
+      padding: 0 10px;
+      line-height: 20px; }
+    .selectBox .selectBox-arrow {
+      line-height: 38px;
+      height: 40px;
+      width: 30px;
+      font-size: 10px; }
+  .filter-offset-col {
+    padding-left: 15px;
+    padding-right: 15px; }
+    .filter-offset-col.pad-top-30 {
+      padding-top: 15px; }
+  .filter-row {
+    padding: 0; }
+    .filter-row .selects-col {
+      padding-left: 15px; }
+  .catalog-list {
+    padding: 0 10px; }
+    .catalog-list > *[class*="col-"] {
+      padding: 5px; }
+  .filter-item .anchor.anchor-lg {
+    padding-top: 15px;
+    padding-bottom: 15px; }
+    .filter-item .anchor.anchor-lg .fa {
+      top: 10px; }
+  /* product */
+  .tabs {
+    font-size: 9px; }
+    .tabs li {
+      padding: 15px 2px; }
+  .light-card {
+    padding: 20px; }
+  .product-thumbnails {
+    padding: 20px 40px; }
+    .product-thumbnails .product-slider .owl-item {
+      padding: 5px; }
+      .product-thumbnails .product-slider .owl-item .item {
+        border: 5px solid #fff; }
+  /* --------------------------------------- */
+  .checkout .selectBox {
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    width: 100%; }
+    .checkout .selectBox .selectBox-label {
+      font-size: 13px;
+      padding: 0 50px 0 15px;
+      line-height: 20px; }
+    .checkout .selectBox .selectBox-arrow {
+      line-height: 38px;
+      height: 40px;
+      width: 30px;
+      font-size: 10px; } }
+
+@media (max-width: 768px) {
+  .main-header .dark-bg {
+    position: relative; }
+    .main-header .dark-bg .container {
+      padding: 0; }
+    .main-header .dark-bg .navbar-text {
+      margin: 15px 0;
+      padding: 0 15px;
+      font-size: 10px;
+      line-height: 20px; }
+    .main-header .dark-bg .navbar-toggle {
+      border-radius: 0;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 50px;
+      line-height: 50px;
+      margin: 0;
+      width: 50px;
+      border: none;
+      -webkit-transition: .3s;
+      transition: .3s;
+      background: #65717f;
+      color: #fff; }
+      .main-header .dark-bg .navbar-toggle .fa {
+        display: inline-block;
+        -webkit-transition: .3s;
+        transition: .3s;
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg); }
+      .main-header .dark-bg .navbar-toggle.collapsed {
+        background: transparent;
+        color: #9a9fa5; }
+        .main-header .dark-bg .navbar-toggle.collapsed .fa {
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg); }
+      .main-header .dark-bg .navbar-toggle:hover, .main-header .dark-bg .navbar-toggle:focus {
+        background: #4d5763; }
+    .main-header .dark-bg .navbar-collapse {
+      border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  .main-header .lined-navbar > li > a {
+    padding: 15px; }
+  .main-header .lined-navbar > li .dropdown-menu > li > a {
+    color: rgba(255, 255, 255, 0.5) !important;
+    padding: 5px 15px 5px 30px; }
+    .main-header .lined-navbar > li .dropdown-menu > li > a:hover, .main-header .lined-navbar > li .dropdown-menu > li > a:focus {
+      background: #3c434a;
+      color: #fff !important; }
+    .main-header .lined-navbar > li .dropdown-menu > li > a:after {
+      opacity: 0; }
+  .main-header .logo-header {
+    width: 100%;
+    position: relative;
+    padding: 10px 0; }
+    .main-header .logo-header .navbar-toggle {
+      width: 50px;
+      padding: 0 10px;
+      height: 50px;
+      margin: 0;
+      border-radius: 0;
+      position: absolute;
+      z-index: 2;
+      top: 10px;
+      right: 0; }
+      .main-header .logo-header .navbar-toggle .icon-bar {
+        display: block;
+        width: 100%;
+        height: 2px;
+        margin: 7px 0;
+        background: #000;
+        border: none;
+        -webkit-transition: .3s;
+        transition: .3s; }
+        .main-header .logo-header .navbar-toggle .icon-bar:nth-child(1) {
+          -webkit-transform: translateY(9px) rotate(45deg);
+          -ms-transform: translateY(9px) rotate(45deg);
+          transform: translateY(9px) rotate(45deg); }
+        .main-header .logo-header .navbar-toggle .icon-bar:nth-child(2) {
+          -webkit-transform: scale(0, 1);
+          -ms-transform: scale(0, 1);
+          transform: scale(0, 1);
+          -webkit-transition-delay: .2s;
+          transition-delay: .2s; }
+        .main-header .logo-header .navbar-toggle .icon-bar:nth-child(3) {
+          -webkit-transform: translateY(-9px) rotate(-45deg);
+          -ms-transform: translateY(-9px) rotate(-45deg);
+          transform: translateY(-9px) rotate(-45deg); }
+      .main-header .logo-header .navbar-toggle.collapsed .icon-bar:nth-child(1) {
+        -webkit-transform: translateY(0) rotate(0deg);
+        -ms-transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg); }
+      .main-header .logo-header .navbar-toggle.collapsed .icon-bar:nth-child(2) {
+        -webkit-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        transform: scale(1, 1); }
+      .main-header .logo-header .navbar-toggle.collapsed .icon-bar:nth-child(3) {
+        -webkit-transform: translateY(0) rotate(0deg);
+        -ms-transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg); }
+  .main-header .logo {
+    width: 200px;
+    margin-top: 0; }
+    .main-header .logo img {
+      position: relative;
+      bottom: 2px; }
+  .main-header .main-nav {
+    margin: 0 -15px; }
+    .main-header .main-nav > li > a {
+      text-align: left;
+      padding: 10px 15px;
+      font-size: 14px; }
+  .main-header .header-search {
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid #ddd;
+    margin: 15px 0; }
+    .main-header .header-search .form-control {
+      font-size: 12px;
+      display: block;
+      position: static; }
+      .main-header .header-search .form-control:focus, .main-header .header-search .form-control:active {
+        background: transparent !important;
+        padding-left: 10px;
+        font-size: 14px;
+        height: 40px;
+        line-height: 40px !important;
+        color: #222;
+        width: 100% !important;
+        box-shadow: none !important; }
+        .main-header .header-search .form-control:focus ~ .cross, .main-header .header-search .form-control:active ~ .cross {
+          opacity: 1;
+          cursor: pointer;
+          right: 0; }
+          .main-header .header-search .form-control:focus ~ .cross:after, .main-header .header-search .form-control:active ~ .cross:after {
+            -webkit-transform: scale(1, 1);
+            -ms-transform: scale(1, 1);
+            transform: scale(1, 1);
+            height: 100px;
+            top: 0;
+            background: #4d5763; }
+    .main-header .header-search .input-group {
+      display: block; }
+    .main-header .header-search .cross {
+      background: #fff;
+      color: #31363c;
+      text-align: right;
+      right: 0;
+      left: auto;
+      margin-right: 0;
+      width: 40px; }
+      .main-header .header-search .cross:after {
+        display: none; }
+    .main-header .header-search .cell {
+      display: block;
+      float: left;
+      position: relative;
+      width: 87%; }
+    .main-header .header-search .input-group-addon {
+      display: block;
+      float: left;
+      text-align: left;
+      height: 30px;
+      line-height: 30px;
+      width: 3% !important; }
+    .main-header .header-search .dropdown-menu {
+      position: relative;
+      left: auto;
+      right: 0;
+      float: right;
+      width: 1000%;
+      padding: 0;
+      border-top: 1px solid #eee;
+      box-shadow: none; }
+      .main-header .header-search .dropdown-menu li a {
+        padding: 10px; }
+    .main-header .header-search .input-group-btn {
+      display: block;
+      float: right;
+      width: 10% !important; }
+    .main-header .header-search .btn-group .btn {
+      padding-right: 0; }
+  .dropmenu-content {
+    position: relative; }
+    .dropmenu-content .table {
+      display: block; }
+      .dropmenu-content .table .cell {
+        display: block; }
+        .dropmenu-content .table .cell .outer {
+          padding: 0 20px; }
+          .dropmenu-content .table .cell .outer .inline {
+            width: 100%;
+            height: 220px; }
+          .dropmenu-content .table .cell .outer .content-image.bottom-right {
+            display: initial;
+            -webkit-transform: translateX(10%) translateZ(0);
+            transform: translateX(10%) translateZ(0); }
+          .dropmenu-content .table .cell .outer .content-image.bottom-left {
+            display: initial;
+            -webkit-transform: translateX(-10%) translateZ(0);
+            transform: translateX(-10%) translateZ(0); }
+  .drop-list.left {
+    left: auto;
+    right: 0;
+    text-align: right; }
+    .drop-list.left ul {
+      padding-right: 25px; }
+  .drop-list.right {
+    right: auto;
+    left: 0;
+    text-align: left; }
+    .drop-list.right ul {
+      padding-right: 0; }
+  .drop-list a {
+    text-decoration: none; }
+  .drop-list ul {
+    display: none;
+    padding: 0 0 15px 20px; }
+    .drop-list ul li {
+      padding: 0; }
+      .drop-list ul li a {
+        display: inline-block;
+        padding: 0; }
+  .main-slider .content {
+    margin-top: 0px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    height: 400px;
+    padding: 15px; }
+    .main-slider .content.container-content {
+      margin-bottom: 0;
+      background: #f0f0f0; }
+  .main-slider .lined-title {
+    font-size: 14px;
+    padding: 10 0;
+    margin-top: 0;
+    margin-bottom: 10px; }
+  .main-slider .primary-title {
+    font-size: 24px;
+    line-height: 24px; }
+  .main-slider .text {
+    font-size: 12px;
+    padding: 0; }
+  .main-slider .table {
+    margin-bottom: 0; }
+  .main-slider .content-image {
+    display: none; }
+  .btn {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  .items-list {
+    margin: 15px 0; }
+    .items-list li img {
+      max-width: 50px; }
+  h2 {
+    font-size: 24px; }
+  h4 {
+    font-size: 16px; }
+  .carousel .owl-prev,
+  .carousel .owl-next {
+    font-size: 16px; }
+  .carousel .owl-prev {
+    left: -25px; }
+  .carousel .owl-next {
+    right: -25px; }
+  .features-item {
+    margin: 0;
+    width: 100%;
+    display: table; }
+    .features-item:not(:last-child) {
+      margin-bottom: 15px; }
+    .features-item .image {
+      display: table-cell;
+      vertical-align: middle;
+      width: 120px;
+      padding-bottom: 0;
+      box-shadow: none;
+      margin: 0;
+      padding: 5px;
+      border-radius: 0;
+      background: transparent; }
+      .features-item .image figure {
+        position: relative;
+        padding-bottom: 100%;
+        background: #fff;
+        border-radius: 50%;
+        -webkit-transition: .3s;
+        transition: .3s;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+      .features-item .image img {
+        max-width: 50px;
+        max-height: 50px;
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        transform: translate3d(-50%, -50%, 0); }
+    .features-item .content {
+      padding-left: 15px;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left; }
+    .features-item .title {
+      font-size: 12px;
+      margin-bottom: 10px; }
+    .features-item .text {
+      color: #9a9fa5;
+      font-weight: 400;
+      font-size: 11px; }
+    .features-item .btn {
+      padding: 5px 0;
+      font-size: 12px; }
+    .features-item:hover .image {
+      box-shadow: none; }
+  .product-outer {
+    padding: 15px;
+    margin-left: -15px;
+    margin-right: -15px; }
+    .product-outer .title {
+      font-size: 24px;
+      padding-bottom: 15px; }
+    .product-outer .counter {
+      line-height: 30px;
+      font-size: 24px; }
+    .product-outer .product-name {
+      line-height: 30px;
+      font-size: 28px;
+      padding-left: 0;
+      padding-top: 8px;
+      padding-bottom: 10px;
+      bottom: 4px; }
+    .product-outer .table {
+      display: block;
+      min-height: 1px;
+      margin: 0; }
+      .product-outer .table .cell {
+        display: block;
+        min-height: 100px;
+        width: 100%;
+        padding: 15px 0 15px; }
+    .product-outer .content-image.bottom-right {
+      right: 0;
+      bottom: 0%;
+      display: initial;
+      max-width: 100%;
+      max-height: 100%; }
+  .product-col {
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px 15px 10px; }
+  .btn.product-like-btn {
+    height: 30px;
+    padding: 5px;
+    line-height: 30px;
+    font-size: 24px;
+    text-align: right;
+    position: relative; }
+  .product-counter-captions {
+    font-size: 9px; }
+  .product-author-image {
+    margin: 5px 0 0 0;
+    max-width: 60px;
+    max-height: 40px; }
+  .powered-author {
+    text-align: left;
+    margin-bottom: 15px; }
+    .powered-author .inline {
+      text-align: left;
+      display: block; }
+  .no-border-xs {
+    border: none !important; }
+  .counter-caption, .counter-caption.left {
+    display: block;
+    position: relative;
+    text-align: center;
+    padding: 0; }
+  .btn.btn-sm {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 11px; }
+  .section {
+    padding: 15px 0; }
+  .catalog-item.sale-item {
+    margin-bottom: 15px; }
+    .catalog-item.sale-item .image {
+      height: auto;
+      padding-bottom: 50%;
+      overflow: hidden; }
+  .content-image {
+    display: none; }
+  .secondary-title {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .caption {
+    margin: 10px 0; }
+  .lined-top.lined-bottom, .lined-bottom.lined-bottom {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 10px 0 15px; }
+    .lined-top.lined-bottom:before, .lined-bottom.lined-bottom:before {
+      top: auto;
+      bottom: 0; }
+    .lined-top.lined-bottom.left:before, .lined-bottom.lined-bottom.left:before {
+      top: auto;
+      bottom: 0;
+      left: 0;
+      margin-left: 0; }
+  .control-lg {
+    line-height: 40px;
+    height: 40px;
+    margin-bottom: 15px; }
+  .sign-form {
+    display: block;
+    margin: 20px 0 10px; }
+  .main-footer .logo {
+    width: auto; }
+    .main-footer .logo img {
+      max-width: 200px; }
+  .main-footer .title, .main-footer .title.no-margin {
+    margin: 20px 0 0; }
+  .main-footer .copyright {
+    font-size: 12px;
+    text-align: left; }
+    .main-footer .copyright .right {
+      text-align: left; }
+  .sponsors-list {
+    padding: 0 20px 0 0;
+    margin: 20px -10px 0; }
+    .sponsors-list li {
+      padding: 10px;
+      width: auto; }
+      .sponsors-list li img {
+        max-width: 40px; }
+  /* catalog */
+  .selects-col {
+    padding: 0 15px; }
+  .selectBox {
+    height: 40px;
+    padding: 0;
+    margin: 15px 0 0 0;
+    width: 100%; }
+    .selectBox:not(:first-child) {
+      margin-right: 0; }
+  .filter-item {
+    background: #eef1f5;
+    border-right: none; }
+  .padding-lg {
+    padding: 30px 0; }
+  /* product */
+  .product-rating-col {
+    border: none;
+    border-top: 1px solid #ddd;
+    padding: 0;
+    padding-top: 15px;
+    margin-left: -15px;
+    margin-right: -15px; }
+  .product-badge.top-right {
+    top: -40px;
+    right: 50%;
+    margin-right: -40px; }
+  .product-aside {
+    margin-top: 30px; }
+  .left-sm {
+    text-align: left; }
+  .btn.product-btn {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 15px; }
+    .btn.product-btn .fa {
+      margin-right: 5px; }
+  .none-sm {
+    display: none; }
+  /* ---------------------------------------- */
+  .main-title-canvas {
+    margin: 0; }
+  .dashed-vertical::before {
+    display: none; }
+  .timeline-row {
+    display: block; }
+    .timeline-row:not(.timeline-row_hero) {
+      padding-top: 90px;
+      padding-bottom: 30px; }
+  .timeline-item {
+    width: 100%; }
+    .timeline-item:nth-child(even), .timeline-item:nth-child(odd) {
+      padding-left: 0;
+      padding-right: 0; }
+  .login-window {
+    padding: 25px; }
+  .slogan {
+    font-size: 14px;
+    line-height: 20px; }
+    .slogan-aligner {
+      margin-top: 60px; }
+  .checkout-offset, .checkout-section-header {
+    padding-left: 25px;
+    padding-right: 25px; }
+  .summary .item-thumb {
+    width: 40px; }
+  .summary .item-content {
+    margin-left: 60px; }
+  .main-title {
+    font-size: 26px; } }
