@@ -1,0 +1,84 @@
+﻿@model FooterModel
+@using Nop.Core
+@using Nop.Core.Domain.Tax
+@using Nop.Core.Infrastructure
+@using Nop.Web.Models.Common;
+<footer class="main-footer">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <a href="imdex.html" class="logo">
+                        <img src="~/Themes/EWG/Content/ewg/img/logo.png" alt="">
+                    </a>
+                    <ul class="clear-list center pad-top-20">
+                        <li class="pad-top-10">1 (888) 888 88 88 8</li>
+                        <li class="pad-top-10">1 (888) 888 88 88 8</li>
+                        <li class="pad-top-10">info@eyewearglasses.ca</li>
+                    </ul>
+                    <ul class="row clear-list sponsors-list">
+                        <li class="col-xs-3"><img src="~/Themes/EWG/Content/ewg/img/sponsor1.png" class="adaptive" alt=""></li>
+                        <li class="col-xs-3"><img src="~/Themes/EWG/Content/ewg/img/sponsor2.png" class="adaptive" alt=""></li>
+                        <li class="col-xs-3"><img src="~/Themes/EWG/Content/ewg/img/sponsor3.png" class="adaptive" alt=""></li>
+                        <li class="col-xs-3"><img src="~/Themes/EWG/Content/ewg/img/sponsor4.png" class="adaptive" alt=""></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3">
+                    <h3 class="title">e-services</h3>
+                    <ul class="clear-list menu-list">
+                        <li><a href="#">New products</a></li>
+                        <li><a href="#">Recently viewed products</a></li>
+                        <li><a href="#">Compare products list</a></li>
+                        <li><a href="#">Search</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3">
+                    <h3 class="title">about</h3>
+                    <ul class="clear-list menu-list">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Return policy</a></li>
+                    </ul>
+                    <h3 class="title rev-margin">connect</h3>
+                    <ul class="clear-list menu-list">
+                        <li><a href="#">Subscribe to our Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3">
+                    <h3 class="title no-margin">get social</h3>
+                    <ul class="clear-list menu-list">
+                        <li><a href="#">Follow Us At</a></li>
+                    </ul>
+                    <ul class="clear-list social-list">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                    <h3 class="title rev-margin">download</h3>
+                    <ul class="clear-list menu-list">
+                        <li><a href="#">Download our Mobile App</a></li>
+                    </ul>
+                    <a href="#" class="inline marg-top-20"><img src="~/Themes/EWG/Content/ewg/img/google-play.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            <div class="row medium">
+                <div class="col-sm-6">&copy; 2016 Eyewear Glasses</div>
+                <div class="col-sm-6 right">Powered by <a href="#">Variation Media</a></div>
+            </div>
+        </div>
+    </div>
+    @Html.Widget("footer")
+</footer>

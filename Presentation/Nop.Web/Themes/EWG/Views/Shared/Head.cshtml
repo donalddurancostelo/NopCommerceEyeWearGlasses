@@ -1,0 +1,35 @@
+﻿@using Nop.Core;
+@using Nop.Core.Infrastructure
+@using Nop.Web.Framework.Themes
+@using Nop.Web.Framework.UI
+@{
+    var supportRtl = EngineContext.Current.Resolve<IWorkContext>().WorkingLanguage.Rtl;
+    var themeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+
+    //add browser specific CSS files
+    var browser = Request.Browser;
+
+
+    Html.AppendCssFileParts("~/Themes/EWG/Content/ewg/css/skin.min.css");
+    if (ViewBag.IncludeSelectBox == true)
+    {
+        Html.AppendCssFileParts("~/Themes/EWG/Content/ewg/css/jquery.selectBox.css");
+    }
+    if (ViewBag.IncludeCarousel == true)
+    {
+        Html.AppendCssFileParts("~/Themes/EWG/Content/ewg/css/owl.carousel.css");
+    }
+
+    Html.AppendCssFileParts("~/Content/jquery-ui-themes/smoothness/jquery-ui-1.10.3.custom.min.css");
+    Html.AppendCssFileParts("~/Themes/EWG/Content/ewg/css/bootstrap.min.css");
+
+
+
+    //add jQuery UI css file
+
+    if (browser.Browser == "IE" && browser.MajorVersion == 8)
+    {
+        Html.AddScriptParts("~/Scripts/selectivizr.min.js");
+        Html.AddScriptParts("~/Scripts/respond.min.js");
+    }
+}
