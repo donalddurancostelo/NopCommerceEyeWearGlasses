@@ -1,0 +1,72 @@
+﻿@{
+    var productService = DependencyResolver.Current.GetService<Nop.Services.Catalog.IProductService>();
+    var pictureService = DependencyResolver.Current.GetService<Nop.Services.Media.IPictureService>();
+    //var products = productService.all
+}
+
+ <!-- sales -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-lg-3">
+                <div class="catalog-item sale-item">
+                    <h3 class="title lined-bottom">
+                        <a href="#">Christian Dior Mystery</a>
+                    </h3>
+                    <p class="text">
+                        Get a free trial pack <br> with all contact lens orders
+                    </p>
+                    <figure class="image">
+                        <!-- can be vertical. Horizontal by default -->
+                        <!-- <img src="path.to" class="vertical" alt=""> -->
+                        <img src="~/Themes/EWG/Content/ewg/temp/Image_70.png" alt="">
+                    </figure>
+                    <footer class="footer">
+                        <a href="#" class="btn btn-default btn-xs">explore more</a>
+                    </footer>
+                </div>
+
+            </div>
+            <div class="col-sm-4 col-lg-4">
+                <div class="catalog-item sale-item">
+                    <h3 class="title lined-bottom">
+                        <a href="#">Christian Dior Mystery</a>
+                    </h3>
+                    <p class="text">
+                        Get a free trial pack <br> with all contact lens orders
+                    </p>
+                    <figure class="image">
+                        <!-- can be vertical. Horizontal by default -->
+                        <!-- <img src="path.to" class="vertical" alt=""> -->
+                        <img src="~/Themes/EWG/Content/ewg/temp/Image_70.png" alt="">
+                    </figure>
+                    <footer class="footer">
+                        <a href="#" class="btn btn-default btn-xs">explore more</a>
+                    </footer>
+                </div>
+
+            </div>
+            <div class="col-sm-4 col-lg-5">
+                <div class="catalog-item sale-item">
+                    <div class="medium upper left">deal of the week</div>
+                    <figure class="image">
+                        <!-- can be vertical. Horizontal by default -->
+                        <!-- <img src="path.to" class="vertical" alt=""> -->
+                        <img src="~/Themes/EWG/Content/ewg/temp/Image_35.png" alt="">
+                    </figure>
+                    <h3 class="title upper">
+                        <a href="#">air optix 6pk</a>
+                    </h3>
+                    <div class="price">
+                        <span class="upper inline font-20">$99.99</span>
+                        <span class="upper inline strike grey font-16 pad-top-5 pad-left-10">$250</span>
+                    </div>
+                    <footer class="footer">
+                        <a href="#" class="btn btn-default btn-xs">explore more</a>
+                    </footer>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!-- /sales -->

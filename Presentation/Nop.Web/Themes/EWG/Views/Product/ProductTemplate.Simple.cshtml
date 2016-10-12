@@ -6,6 +6,9 @@
 @using Nop.Web.Models.Catalog;
 @{
     Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    ViewBag.IncludeCarousel = true;
+    ViewBag.IncludeSelectBox = true;
+
 
     //title, meta
     Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
@@ -48,107 +51,354 @@
 <!--product breadcrumb-->
 @section Breadcrumb
 {
-    @Html.Partial("_ProductBreadcrumb", Model.Breadcrumb)
+    <div class="bordered-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    @Html.Partial("_ProductBreadcrumb", Model.Breadcrumb)
+                </div>
+                <div class="col-sm-5 right left-sm">
+
+                    @Html.Partial("_CompareProductsButton", Model)
+
+
+                    @Html.Widget("productdetails_inside_overview_buttons_before", Model.Id)
+                    @{
+                        var dataDictAddToWishlist = new ViewDataDictionary();
+                        dataDictAddToWishlist.TemplateInfo.HtmlFieldPrefix = string.Format("addtocart_{0}", Model.Id);
+                        @Html.Partial("_AddToWishlist", Model.AddToCart, dataDictAddToWishlist)
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
 }
 @Html.Widget("productdetails_after_breadcrumb", Model.Id)
 <div class="page product-details-page">
     <div class="page-body">
-        @Html.Widget("productdetails_top", Model.Id)
-        @using (Html.BeginRouteForm("Product", new { SeName = Model.SeName }, FormMethod.Post, new { id = "product-details-form" }))
-        {
-            <div itemscope itemtype="http://schema.org/Product" data-productid="@Model.Id">
-                <div class="product-essential">
-                    @Html.Widget("productdetails_before_pictures", Model.Id)
-                    <!--product pictures-->
-                    @Html.Partial("_ProductDetailsPictures", Model)
-                    @Html.Widget("productdetails_after_pictures", Model.Id)
-                    <div class="overview">
-                        @Html.Partial("_Discontinued", Model)
-                        <div class="product-name">
-                            <h1 itemprop="name">
-                                @Model.Name
-                            </h1>
-                        </div>
-                        @if (!String.IsNullOrEmpty(Model.ShortDescription))
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 col-md-8">
+                        @Html.Widget("productdetails_top", Model.Id)
+                        @using (Html.BeginRouteForm("Product", new { SeName = Model.SeName }, FormMethod.Post, new { id = "product-details-form" }))
                         {
-                            <div class="short-description">
-                                @Html.Raw(Model.ShortDescription)
+                            <div itemscope itemtype="http://schema.org/Product" data-productid="@Model.Id">
+                                <div class="product-essential">
+                                    @Html.Widget("productdetails_before_pictures", Model.Id)
+
+                                    <div class="overview">
+                                        <ul class="clear-list tabs" data-toggle-tabs="#tabs1">
+                                            <li class="active">view</li>
+                                            <li>specifications</li>
+                                            <li>description</li>
+                                            <li>reviews</li>
+                                            <li>shipping</li>
+                                            <li>returns</li>
+                                        </ul>
+
+                                        <div id="tabs1" class="tabs-content card light-card">
+                                            <div class="tab active">
+                                                <!--product pictures-->
+                                                @Html.Partial("_ProductDetailsPictures", Model)
+                                                @Html.Widget("productdetails_after_pictures", Model.Id)
+                                            </div>
+                                            <div class="tab">
+                                                <div class="product-collateral">
+                                                    @Html.Partial("_ProductSpecifications", Model.ProductSpecifications)
+                                                    @Html.Partial("_ProductTags", Model.ProductTags)
+                                                </div>
+
+                                            </div>
+                                            <div class="tab">
+                                                @if (!String.IsNullOrEmpty(Model.FullDescription))
+                                                {
+                                                    <div class="full-description" itemprop="description">
+                                                        @Html.Raw(Model.FullDescription)
+                                                    </div>
+                                                }
+                                            </div>
+
+                                            @Html.Widget("productdetails_overview_top", Model.Id)
+                                            <div class="tab">
+                                                <!--product reviews-->
+                                                @Html.Partial("_ProductReviewOverview", Model.ProductReviewOverview)
+                                            </div>
+                                            <div class="tab">
+                                                <!--delivery-->
+                                                @Html.Partial("_DeliveryInfo", Model)
+                                            </div>
+                                            <div class="tab">
+                                                tab6
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix bordered-bottom marg-v30">
+                                            <div class="col-sm-4 clear-col">
+                                                <h3 class="grey-title upper">share</h3>
+                                                <div>Tell your friends this glass rocks!</div>
+                                                <ul class="clear-list social-list grey">
+                                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-8 clear-col bordered-left product-rating-col">
+                                                <div class="col-lg-5">
+                                                    <h3 class="grey-title upper">rating</h3>
+                                                    <div><span class="upper">1 review</span> / <span class="bold">Review</span></div>
+                                                    @*change the div below to form type*@
+                                                    <div action="#" class="rating clearfix">
+                                                        <input type="radio" id="star1" name="rating">
+                                                        <label for="star1"><i class="fa fa-star"></i></label>
+                                                        <input type="radio" id="star2" name="rating">
+                                                        <label for="star2"><i class="fa fa-star"></i></label>
+                                                        <input type="radio" id="star3" name="rating">
+                                                        <label for="star3"><i class="fa fa-star"></i></label>
+                                                        <input type="radio" id="star4" name="rating">
+                                                        <label for="star4"><i class="fa fa-star"></i></label>
+                                                        <input type="radio" id="star5" name="rating">
+                                                        <label for="star5"><i class="fa fa-star"></i></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-7 right grey pad-v15 left-lg">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptate animi, numquam optio, dolorem voluptates, fuga saepe est.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <p>
+                                            @Html.Raw(Model.FullDescription)
+                                        </p>
+
+
+                                        @Html.Partial("_Discontinued", Model)
+                                        @*<div class="product-name">
+                                                <h1 itemprop="name">
+
+                                                    @Model.Name
+                                                </h1>
+                                            </div>*@
+
+
+
+
+
+                                        <!--manufacturers-->
+                                        @*@Html.Partial("_ProductManufacturers", Model.ProductManufacturers)*@
+                                        <!--availability-->
+                                        @*@Html.Partial("_Availability", Model)*@
+                                        <!--SKU, MAN, GTIN, vendor-->
+                                        @*@Html.Partial("_SKU_Man_GTIN_Ven", Model)*@
+
+                                        <!--sample download-->
+                                        @*@Html.Partial("_DownloadSample", Model)*@
+
+                                        <!--gift card-->
+                                        @*@{
+                                            var dataDictGiftCard = new ViewDataDictionary();
+                                            dataDictGiftCard.TemplateInfo.HtmlFieldPrefix = string.Format("giftcard_{0}", Model.Id);
+                                            @Html.Partial("_GiftCardInfo", Model.GiftCard, dataDictGiftCard)
+                                        }*@
+                                        <!--rental info-->
+                                        @*@{
+                                            var dataDictRental = new ViewDataDictionary();
+                                            dataDictRental.TemplateInfo.HtmlFieldPrefix = string.Format("rental_{0}", Model.Id);
+                                            @Html.Partial("_RentalInfo", Model, dataDictRental)
+                                        }*@
+
+                                        <!--wishlist, compare, email a friend-->
+                                        @*<div class="overview-buttons">
+
+                                            @Html.Partial("_CompareProductsButton", Model)
+                                            @Html.Partial("_ProductEmailAFriendButton", Model)
+                                                @Html.Widget("productdetails_inside_overview_buttons_after", Model.Id)
+                                        </div>
+                                        @Html.Partial("_ShareButton", Model)*@
+
+
+                                        @Html.Widget("productdetails_overview_bottom", Model.Id)
+                                    </div>
+                                </div>
+
+
+                                @*@Html.Widget("productdetails_before_collateral", Model.Id)
+                                @Html.Action("ProductsAlsoPurchased", "Product", new { productId = Model.Id })
+                                @Html.Action("RelatedProducts", "Product", new { productId = Model.Id })*@
                             </div>
-                        }
-                        @Html.Widget("productdetails_overview_top", Model.Id)
-                        <!--product reviews-->
-                        @Html.Partial("_ProductReviewOverview", Model.ProductReviewOverview)
-                        <!--manufacturers-->
-                        @Html.Partial("_ProductManufacturers", Model.ProductManufacturers)
-                        <!--availability-->
-                        @Html.Partial("_Availability", Model)
-                        <!--SKU, MAN, GTIN, vendor-->
-                        @Html.Partial("_SKU_Man_GTIN_Ven", Model)
-                        <!--delivery-->
-                        @Html.Partial("_DeliveryInfo", Model)
-                        <!--sample download-->
-                        @Html.Partial("_DownloadSample", Model)
-                        <!--attributes-->
-                        @{
-                            var dataDictAttributes = new ViewDataDictionary();
-                            dataDictAttributes.TemplateInfo.HtmlFieldPrefix = string.Format("attributes_{0}", Model.Id);
-                            @Html.Partial("_ProductAttributes", Model.ProductAttributes, dataDictAttributes)
-                        }
-                        <!--gift card-->
-                        @{
-                            var dataDictGiftCard = new ViewDataDictionary();
-                            dataDictGiftCard.TemplateInfo.HtmlFieldPrefix = string.Format("giftcard_{0}", Model.Id);
-                            @Html.Partial("_GiftCardInfo", Model.GiftCard, dataDictGiftCard)
-                        }
-                        <!--rental info-->
-                        @{
-                            var dataDictRental = new ViewDataDictionary();
-                            dataDictRental.TemplateInfo.HtmlFieldPrefix = string.Format("rental_{0}", Model.Id);
-                            @Html.Partial("_RentalInfo", Model, dataDictRental)
-                        }
-                        <!--price & add to cart-->
-                        @{
-                            var dataDictPrice = new ViewDataDictionary();
-                            dataDictPrice.TemplateInfo.HtmlFieldPrefix = string.Format("price_{0}", Model.Id);
-                            @Html.Partial("_ProductPrice", Model.ProductPrice, dataDictPrice)
-
-                            @Html.Partial("_ProductTierPrices", Model.TierPrices)
-
-                            var dataDictAddToCart = new ViewDataDictionary();
-                            dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = string.Format("addtocart_{0}", Model.Id);
-                            @Html.Partial("_AddToCart", Model.AddToCart, dataDictAddToCart)
-                        }
-                        <!--wishlist, compare, email a friend-->
-                        <div class="overview-buttons">
-                            @Html.Widget("productdetails_inside_overview_buttons_before", Model.Id)
-                            @{
-                                var dataDictAddToWishlist = new ViewDataDictionary();
-                                dataDictAddToWishlist.TemplateInfo.HtmlFieldPrefix = string.Format("addtocart_{0}", Model.Id);
-                                @Html.Partial("_AddToWishlist", Model.AddToCart, dataDictAddToWishlist)
-                            }
-                            @Html.Partial("_CompareProductsButton", Model)
-                            @Html.Partial("_ProductEmailAFriendButton", Model)
-                            @Html.Widget("productdetails_inside_overview_buttons_after", Model.Id)
-                        </div>
-                        @Html.Partial("_ShareButton", Model)
-                        @Html.Widget("productdetails_overview_bottom", Model.Id)
+                                            }
+                        @Html.Widget("productdetails_bottom", Model.Id)
                     </div>
-                    @if (!String.IsNullOrEmpty(Model.FullDescription))
-                    {
-                        <div class="full-description" itemprop="description">
-                            @Html.Raw(Model.FullDescription)
+                    <div class="col-sm-5 col-md-4 product-aside">
+                        <div class="card light-card">
+                            <div class="product-badge top-right">
+                                <span>free shipping</span>
+                            </div>
+                            <h4 class="dark-blue">
+                                @Model.Name
+                            </h4>
+
+
+                            <!--price & add to cart-->
+                            @{
+                                var dataDictPrice = new ViewDataDictionary();
+                                dataDictPrice.TemplateInfo.HtmlFieldPrefix = string.Format("price_{0}", Model.Id);
+                                @Html.Partial("_ProductPrice", Model.ProductPrice, dataDictPrice)
+
+                                @Html.Partial("_ProductTierPrices", Model.TierPrices)
+
+                                var dataDictAddToCart = new ViewDataDictionary();
+                                dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = string.Format("addtocart_{0}", Model.Id);
+                                @Html.Partial("_AddToCart", Model.AddToCart, dataDictAddToCart)
+                            }
+
+
+
+                            <div>
+                                <h5 class="no-marg">authorized retailer</h5>
+                                <div class="grey">Boss Orange BOO0170</div>
+                            </div>
+
+                            <hr class="product-hr">
+                            <button class="btn btn-danger btn-sm btn-block">add ot cart <br> <small>without prescription</small></button>
+
+                            <div class="pad-top-15">
+                                <button class="btn btn-danger btn-sm btn-block">customize glasses</button>
+                            </div>
+
+
+
+                            <!--attributes--> @*color*@
+                            @{
+                                var dataDictAttributes = new ViewDataDictionary();
+                                dataDictAttributes.TemplateInfo.HtmlFieldPrefix = string.Format("attributes_{0}", Model.Id);
+                                @Html.Partial("_ProductAttributes", Model.ProductAttributes, dataDictAttributes)
+                            }
+
+
+                            @if (!String.IsNullOrEmpty(Model.ShortDescription))
+                            {
+                                <div class="short-description">
+                                    @Html.Raw(Model.ShortDescription)
+                                </div>
+                            }
+
+
+                            <h5>fame size</h5>
+                            <select name="" class="selectbox block">
+                                <option value="option1">option1</option>
+                                <option value="option2">option2</option>
+                                <option value="option3">option3</option>
+                            </select>
+
+                            <div class="clearfix pad-top-15">
+                                <div class="pull-left">
+                                    <h5 class="no-marg">authorized retailer</h5>
+                                    <div class="grey">@Model.Name</div>
+                                </div>
+                                <div class="pull-right">
+                                    @*insert company logo here*@
+                                </div>
+                            </div>
+
+
+                            <hr class="product-hr">
+                            <h4 class="product-title center">input prescription</h4>
+                            <hr class="product-hr">
+
+                            <ul class="clear-list">
+                                <li class="clearfix">
+                                    <div class="col-xs-6 clear-col medium center upper">os<br>left eye</div>
+                                    <div class="col-xs-6 clear-col medium center upper">od<br>right style</div>
+                                </li>
+                                <li>
+                                    <hr class="product-hr">
+                                </li>
+                                <li class="clearfix center">
+                                    <div class="col-xs-6 clear-col">
+                                        <label for="inp1" class="regular upper grey">cyl</label>
+                                        <input type="text" id="inp1" class="form-control product-control">
+                                    </div>
+                                    <div class="col-xs-6 clear-col">
+                                        <label for="inp2" class="regular upper grey">cyl</label>
+                                        <!-- .no-border, .no-border-left-->
+                                        <input type="text" id="inp2" class="form-control product-control no-border-left">
+                                    </div>
+                                </li>
+                                <li class="clearfix center pad-top-10">
+                                    <div class="col-xs-6 clear-col">
+                                        <label for="inp3" class="regular upper grey">axis</label>
+                                        <input type="text" id="inp3" class="form-control product-control">
+                                    </div>
+                                    <div class="col-xs-6 clear-col">
+                                        <label for="inp4" class="regular upper grey">axis</label>
+                                        <input type="text" id="inp4" class="form-control product-control no-border-left">
+                                    </div>
+                                </li>
+                                <li class="clearfix center pad-top-10">
+                                    <div class="col-xs-6 clear-col">
+                                        <label for="inp5" class="regular upper grey">bc</label>
+                                        <input type="text" id="inp5" class="form-control product-control">
+                                    </div>
+                                    <div class="col-xs-6 clear-col">
+                                        <label for="inp6" class="regular upper grey">bc</label>
+                                        <input type="text" id="inp6" class="form-control product-control no-border-left">
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="pad-top-15">
+                                <button class="btn btn-danger btn-sm btn-block">add ot cart</button>
+                            </div>
+
                         </div>
-                    }
+
+                        <div class="card light-card">
+                            <h4 class="product-title center">measurment guide</h4>
+                            <hr class="product-hr">
+                            <div class="island-15 grey">
+                                <div><span class="medium">Lens Width:</span> 155mm</div>
+                                <img src="~/Themes/EWG/Content/ewg/img/measure1.png" alt="" class="adaptive">
+                                <div class="center"><span class="medium">Bridge (noise) Width:</span> 55mm</div>
+                            </div>
+                            <hr class="product-hr">
+                            <div class="island-15 grey">
+                                <img src="~/Themes/EWG/Content/ewg/img/measure2.png" alt="" class="adaptive">
+                                <div class="center"><span class="medium">Temple (Arm) Length:</span> 255mm</div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                @Html.Widget("productdetails_before_collateral", Model.Id)
-                <div class="product-collateral">
-                    @Html.Partial("_ProductSpecifications", Model.ProductSpecifications)
-                    @Html.Partial("_ProductTags", Model.ProductTags)
-                </div>
-                @Html.Action("ProductsAlsoPurchased", "Product", new { productId = Model.Id })
-                @Html.Action("RelatedProducts", "Product", new { productId = Model.Id })
             </div>
-        }
-        @Html.Widget("productdetails_bottom", Model.Id)
+
+        </section>
+        <section class="section grey-bg-section bordered-bottom relative">
+            <div class="container">
+                <div class="row layer-up center">
+                    <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+                        <h3 class="upper regular">sign up for a special discount*</h3>
+                        <div class="grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                        <form action="#" class="sign-form">
+                            <div class="row">
+                                <div class="col-sm-7 col-lg-8">
+                                    <input type="text" class="form-control control-lg" placeholder="Email adress">
+                                </div>
+                                <div class="col-sm-5 col-lg-4">
+                                    <button type="submit" class="btn btn-block btn-default">subscribe</button>
+                                </div>
+                            </div>
+                        </form>
+                        <small class="grey">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus ut, sequi eos!
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <figure>
+                <img src="~/Themes/EWG/Content/ewg/temp/Image_84.png" alt="" class="content-image bottom-right">
+            </figure>
+        </section>
     </div>
 </div>

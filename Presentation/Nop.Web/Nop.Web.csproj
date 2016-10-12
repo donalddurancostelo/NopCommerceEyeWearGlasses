@@ -2585,6 +2585,13 @@
     <Content Include="Themes\EWG\Views\Shared\LanguageAttributes.cshtml" />
     <Content Include="Themes\EWG\Views\Shared\OldInternetExplorerWarning.cshtml" />
     <Content Include="Themes\EWG\Views\Web.config" />
+    <Content Include="Themes\EWG\Views\Home\_Features.cshtml" />
+    <Content Include="Themes\EWG\Views\Home\_ProductSlider.cshtml" />
+    <Content Include="Themes\EWG\Views\Home\_NewLook.cshtml" />
+    <Content Include="Themes\EWG\Views\Home\_MainSlider.cshtml" />
+    <Content Include="Themes\EWG\Views\Home\_Sales.cshtml" />
+    <Content Include="Themes\EWG\Views\Home\_MadeWith.cshtml" />
+    <Content Include="Themes\EWG\Views\Home\_SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Roxy_Fileman\tmp\" />
